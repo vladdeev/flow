@@ -4,11 +4,12 @@
 
 [Heroku](http://herokuapp.com/)
 
-[Trello](trello)
+[Trello](https://trello.com/b/P8Ea4Lql/flow)
 
 ## Minimum Viable Product
 
 Flow is a project management web application inspired by Asana built using Ruby on Rails and React/Redux.
+
 By April 28, 2017, this app will, at a minimum, satisfy the following criteria:
 
 

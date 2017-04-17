@@ -29,7 +29,7 @@
 - `DELETE /api/workspaces/:id`
 - `GET /api/workspaces/:id/projects/` - index of all projects for a workspace
 
-## Projects
+### Projects
 
 - `GET /api/projects`
 - `POST /api/projects`
