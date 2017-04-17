@@ -9,7 +9,7 @@
 ## Minimum Viable Product
 
 Flow is a project management web application inspired by Asana built using Ruby on Rails and React/Redux.
-By April 28, 2007, this app will, at a minimum, satisfy the following criteria:
+By April 28, 2017, this app will, at a minimum, satisfy the following criteria:
 
 
 - [ ] New account creation & login, including a demo login.

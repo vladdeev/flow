@@ -14,7 +14,7 @@ session_token   | string    | not null, indexed, unique
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-nam             | string    | not null, indexed, unique
+title             | string    | not null, indexed, unique
 
 ## workspacings
 column name     | data type | details
@@ -40,8 +40,8 @@ description | string    |
 due_date    | date      |
 author_id   | integer   | not null, indexed
 assignee_id | integer   | indexed
-workspace_id| integer   | not null, indexed
 project_id  | integer   | not null, indexed
+workspace_id| integer   | not null, indexed
 completed   | boolean   |
 completed_at| datetime  |
 
