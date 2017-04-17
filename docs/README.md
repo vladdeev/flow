@@ -18,10 +18,10 @@ Flow is a project management web application inspired by Asana built using Ruby 
 - [ ] Comments on tasks
 - [ ] User Profiles
 - [ ] Hosting on Heroku
-- [ ] A production README
-- [ ] smooth, bug-free navigation
-- [ ] adequate seed data
-- [ ] sufficient CSS styling
+- [ ] Production README
+- [ ] Smooth, bug-free navigation
+- [ ] Adequate seed data
+- [ ] Sufficient CSS styling
 
 
 ## Design Docs
@@ -31,11 +31,11 @@ Flow is a project management web application inspired by Asana built using Ruby 
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes](docs/wireframes)
+[components](docs/component-hierarchy.md)
+[sample-state](docs/sample-state.md)
+[api-endpoints](docs/api-endpoints.md)
+[schema](docs/schema.md)
 
 ## Implementation Timeline
 
@@ -64,7 +64,7 @@ the API. Tasks are displayed in lists.
 
 ### Phase 6: User Profiles (1 days, W2 F 6pm)
 
-**objective:** Users are displayed by their workspace.
+**Objective:** Users are displayed by their workspace.
 
 ### Bonus Features (TBD)
 - [ ] Search tasks by title and description
