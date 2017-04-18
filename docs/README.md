@@ -2,7 +2,7 @@
 
 ## Links
 
-[Heroku](http://herokuapp.com/)
+[Heroku](https://flow-project.herokuapp.com/)
 
 [Trello](https://trello.com/b/P8Ea4Lql/flow)
 
