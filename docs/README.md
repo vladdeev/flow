@@ -18,7 +18,6 @@ By April 28, 2017, this app will, at a minimum, satisfy the following criteria:
 - [ ] Projects
 - [ ] Tasks
 - [ ] Comments on tasks
-- [ ] User Profiles
 - [ ] Hosting on Heroku
 - [ ] Production README
 - [ ] Smooth, bug-free navigation
@@ -60,14 +59,11 @@ edited and destroyed through the API.
 **Objective:** Tasks belong to Projects. Tasks can be created, read, edited and destroyed through
 the API. Tasks are displayed in lists.
 
-### Phase 5: Comments on tasks (1 days)
+### Phase 5: Comments on tasks (2 days, W2 F 6pm)
 
 **Objective:** Comments belong to Tasks. Comments can be created and read.
 
-### Phase 6: User Profiles (1 days, W2 F 6pm)
-
-**Objective:** Users are displayed by their workspace.
-
 ### Bonus Features (TBD)
-- [ ] Search tasks by title and description
+- [ ] User Profiles
 - [ ] Calendar
+- [ ] Search tasks by title and description

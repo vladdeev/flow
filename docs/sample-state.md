@@ -2,7 +2,9 @@
 {
   currentUser: {
     id: 1,
-    username: "app-academy"
+    email: "robert@westworldd.com"
+    first_name: "Robert"
+    last_name: "Ford"
   },
   forms: {
     signUp: {errors: []},
@@ -13,14 +15,16 @@
   workspaces: {
     1: {
       id: 1,
-      title: 'initial workspace'
+      title: 'Westworld'
+    }
   },
   projects: {
     1: {
       id: 1,
-      title: 'First Project',
+      title: 'Construct new narrative',
       description: "",
       workspace_id: 1
+    }
   },
   tasks: {
     1: {
@@ -37,6 +41,8 @@
           body: "Comment"
           task_id: 1,
           author_id: 1,
+        }
+      }
     }
   }
 }
