@@ -18,6 +18,10 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	componentWillUnmount() {
+		this.props.receiveErrors([]);
+	}
+
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
@@ -28,13 +32,14 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		const user = this.state;
 		this.props.processForm(this.state);
+		this.setState({ password: "" })
 	}
 
 	renderErrors() {
 		return(
 			<ul>
-				{this.props.errors.map((error, idx) => (
-					<li key={`error-${idx}`}>
+				{this.props.errors.map((error) => (
+					<li key={error}>
 						{error}
 					</li>
 				))}
@@ -97,7 +102,7 @@ class SessionForm extends React.Component {
 					<div className="session-form">
 						<label> email:
 							<input type="text"
-								value={this.state.username}
+								value={this.state.email}
 								onChange={this.update("email")}
 								className="session-input" />
 						</label>
