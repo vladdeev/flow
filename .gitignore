@@ -6,6 +6,7 @@
 ### Custom ###
 *.db
 *.sqlite
+.jshintrc
 
 
 ### OSX ###
