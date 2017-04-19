@@ -1,14 +1,15 @@
 ```js
 {
-  currentUser: {
-    id: 1,
-    email: "robert@westworldd.com"
-    first_name: "Robert"
-    last_name: "Ford"
+  session: {
+    currentUser: {
+      id: 1,
+      email: "robert@westworld.com",
+      first_name: "Robert",
+      last_name: "Ford"
+    }
+    errors: []
   },
   forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
     createTask: {errors: []},
     addComment: {errors: []}
   },
