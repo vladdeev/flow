@@ -22,6 +22,7 @@
   background-color: white;
   border-radius: 3px;
   border-color: white;
+  padding-bottom: 30px;
 }
 
 .session-form-header {
@@ -31,7 +32,7 @@
   font-size: 2.25em;
   font-weight: 400;
   margin: 0px;
-  padding: 50px 40px 0px 40px;
+  padding: 40px 40px 0px 40px;
   text-align: center;
 }
 
@@ -42,7 +43,30 @@
   font-size: 1em;
   font-weight: 400;
   margin: 0px;
-  padding: 0px 40px 30px 40px;
+  padding: 0px 40px 0px 40px;
+}
+
+.session-form-box-demo {
+  display: block;
+  box-sizing: border-box;
+  color: rgb(95, 95, 95);
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px 40px 0px 40px;
+}
+
+.session-form-box-demo input {
+  box-sizing: border-box;
+  border: 1px solid #cdcfd2;
+  border-radius: 3px;
+  color: black;
+  font-size: 1.25em;
+  height: 40px;
+  margin: 0 0 20px 0;
+  padding: 0;
+  padding-left: 10px;
+  width: 100%;
 }
 
 .session-form-box ul {
@@ -87,16 +111,16 @@
   width: 100%;
 }
 
-.session-form-box input[type="submit"] {
+input[type="submit"] {
   outline: none;
   display: block;
   box-sizing: border-box;
   color: white;
   background-color: rgb(40, 120, 185);
-  margin-bottom: 12px
+  margin-bottom: 12px;
 }
 
-.session-form-box input[type="submit"]:hover {
+input[type="submit"]:hover {
   outline: none;
   display: block;
   box-sizing: border-box;
@@ -109,9 +133,14 @@
   cursor: pointer;
 }
 
-.session-form-box:last-child {
+.session-form-container:last-child {
   text-align: right;
   font-size: 0.75em;
   color: rgb(95, 95, 95);
   font-size: 1em;
+}
+
+.session-form-links {
+  display: inline-block;
+  padding-right: 40px;
 }

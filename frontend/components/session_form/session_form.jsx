@@ -4,8 +4,13 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { email: "", password: "", first_name: "", last_name: "" };
+		this.state = { email: "",
+			password: "",
+			first_name: "",
+			last_name: ""
+		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleDemoLogin = this.handleDemoLogin.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -32,8 +37,28 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		const user = this.state;
 		this.props.processForm(this.state);
-		this.setState({ password: "" })
+		this.setState({ password: "" });
 	}
+
+	handleDemoLogin(e) {
+		e.preventDefault();
+		this.setState({email: "guest@welcome.io",
+			password: "q1w2e3",
+			first_name: "Robert",
+			last_name: "Smith"
+		}).then(() => (this.props.processForm(this.state)))
+	}
+
+	handleDemoLogin(e) {
+    e.preventDefault();
+    this.setState({email: "guest@welcome.io",
+			password: "q1w2e3",
+			first_name: "Robert",
+			last_name: "Smith"
+		}, function () {
+    return this.props.processForm(this.state);
+    });
+  }
 
 	renderErrors() {
 		return(
@@ -50,20 +75,32 @@ class SessionForm extends React.Component {
   _formLink() {
     if (this.props.formType === "login") {
       return(
-        <div>
+        <div className="session-form-links">
           Don't have an account? &nbsp;
           <Link to="/signup">Sign up!</Link>;
         </div>
       )
     } else {
       return(
-        <div>
+        <div className="session-form-links">
           Already have an account? &nbsp;
           <Link to="/login">Login</Link>;
         </div>
       )
     }
   }
+
+	_renderDemoLoginButton() {
+		if (this.props.formType === "login") {
+			return(
+				<div>
+					<form onSubmit={this.handleDemoLogin} className="session-form-box-demo">
+						<input type="submit" value="Demo Login"/>
+					</form>
+				</div>
+			)
+		}
+	}
 
   _renderNameInput() {
     if (this.props.formType === "signup") {
@@ -74,13 +111,11 @@ class SessionForm extends React.Component {
               value={this.state.first_name}
               onChange={this.update("first_name")}
               className="session-input" />
-          <br/>
           <label className="session-form-label">last name:</label>
             <input type="text"
               value={this.state.last_name}
               onChange={this.update("last_name")}
               className="session-input" />
-          <br/>
         </div>
       )
     }
@@ -89,18 +124,13 @@ class SessionForm extends React.Component {
 	render() {
     const formType = this.props.formType
     const text = (formType === 'login') ? "Log In" : "Sign Up";
-
 		return (
 			<div className="session-form">
 				<div className="session-form-container">
 					<div className="session-form-header">
 						<h1>{text}</h1>
 					</div>
-					<div>
-					<h3>sos</h3>
-					</div>
 					<form onSubmit={this.handleSubmit} className="session-form-box">
-						<br/>
 						{this.renderErrors()}
 	          {this._renderNameInput()}
 							<label className="session-form-label">email:</label>
@@ -108,21 +138,19 @@ class SessionForm extends React.Component {
 									value={this.state.email}
 									onChange={this.update("email")}
 									className="session-input" />
-							<br/>
 							<label className="session-form-label">password:</label>
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}
 									className="session-input" />
-							<br/>
 							<input type="submit" value={text} />
-							<span>{this._formLink()}</span>
 					</form>
+					{this._renderDemoLoginButton()}
+					<span>{this._formLink()}</span>
 				</div>
 			</div>
 		);
 	}
-
 }
 
 export default withRouter(SessionForm);
