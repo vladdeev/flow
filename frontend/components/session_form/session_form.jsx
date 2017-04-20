@@ -41,15 +41,6 @@ class SessionForm extends React.Component {
 	}
 
 	handleDemoLogin(e) {
-		e.preventDefault();
-		this.setState({email: "guest@welcome.io",
-			password: "q1w2e3",
-			first_name: "Robert",
-			last_name: "Smith"
-		}).then(() => (this.props.processForm(this.state)))
-	}
-
-	handleDemoLogin(e) {
     e.preventDefault();
     this.setState({email: "guest@welcome.io",
 			password: "q1w2e3",
@@ -127,6 +118,9 @@ class SessionForm extends React.Component {
 		return (
 			<div className="session-form">
 				<div className="session-form-container">
+					<div id="form-close">
+						<Link to="/">&#10006;</Link>
+					</div>
 					<div className="session-form-header">
 						<h1>{text}</h1>
 					</div>

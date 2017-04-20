@@ -25,6 +25,18 @@
   padding-bottom: 30px;
 }
 
+#form-close {
+  display: block;
+  box-sizing: border-box;
+  color: rgba(45, 45, 45, 1);
+  padding: 30px 40px 0px 40px;
+}
+
+#form-close a {
+  text-decoration: none;
+  color: rgba(45, 45, 45, 1);
+}
+
 .session-form-header {
   display: block;
   box-sizing: border-box;
@@ -32,7 +44,7 @@
   font-size: 2.25em;
   font-weight: 400;
   margin: 0px;
-  padding: 40px 40px 0px 40px;
+  padding: 0px 40px 0px 40px;
   text-align: center;
 }
 
