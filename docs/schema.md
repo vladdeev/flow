@@ -34,6 +34,7 @@ column name   | data type | details
 id            | integer   | not null, primary key
 title         | string    | not null
 description   | string    | not null
+creator_id    | integer   | not null, indexed
 workspace_id  | integer   | not null, indexed
 created_at    | datetime  | not null
 updated_at    | datetime  | not null

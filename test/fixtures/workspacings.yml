@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: workspaces
+# Table name: workspacings
 #
-#  id         :integer          not null, primary key
-#  title      :string           not null
-#  creator_id :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  user_id      :integer          not null
+#  workspace_id :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

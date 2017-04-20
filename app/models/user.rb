@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   before_save { email.downcase! }
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
@@ -10,6 +24,10 @@ class User < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
 
   after_initialize :ensure_session_token
+
+  has_many :workspaces, class_name: :Workspace, foreign_key: :creator_id
+  has_many :workspacings, class_name: :Workspacing, foreign_key: :user_id, primary_key: :id
+  has_many :workspace_memberships, through: :workspacings, source: :workspace
 
   attr_reader :password
 
