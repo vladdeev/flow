@@ -124,7 +124,7 @@ input[type="submit"]:hover {
   outline: none;
   display: block;
   box-sizing: border-box;
-  margin-bottom: 12px
+  margin-bottom: 12px;
   color: white;
   background-color: rgb(64, 170, 255);
   -webkit-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
