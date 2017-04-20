@@ -69,19 +69,17 @@ class SessionForm extends React.Component {
     if (this.props.formType === "signup") {
       return(
         <div>
-          <label> first name:
+          <label className="session-form-label">first name:</label>
             <input type="text"
               value={this.state.first_name}
               onChange={this.update("first_name")}
               className="session-input" />
-          </label>
           <br/>
-          <label> last name:
+          <label className="session-form-label">last name:</label>
             <input type="text"
               value={this.state.last_name}
               onChange={this.update("last_name")}
               className="session-input" />
-          </label>
           <br/>
         </div>
       )
@@ -93,31 +91,34 @@ class SessionForm extends React.Component {
     const text = (formType === 'login') ? "Log In" : "Sign Up";
 
 		return (
-			<div className="sessiom-form-container">
-				<form onSubmit={this.handleSubmit} className="session-form-box">
-					<h1>{text}</h1>
-					<br/>
-					{this.renderErrors()}
-          {this._renderNameInput()}
-					<div className="session-form">
-						<label> email:
-							<input type="text"
-								value={this.state.email}
-								onChange={this.update("email")}
-								className="session-input" />
-						</label>
-						<br/>
-						<label> password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="session-input" />
-						</label>
-						<br/>
-						<input type="submit" value={text} />
+			<div className="session-form">
+				<div className="session-form-container">
+					<div className="session-form-header">
+						<h1>{text}</h1>
 					</div>
-				</form>
-        <h3>{this._formLink()}</h3>
+					<div>
+					<h3>sos</h3>
+					</div>
+					<form onSubmit={this.handleSubmit} className="session-form-box">
+						<br/>
+						{this.renderErrors()}
+	          {this._renderNameInput()}
+							<label className="session-form-label">email:</label>
+								<input type="text"
+									value={this.state.email}
+									onChange={this.update("email")}
+									className="session-input" />
+							<br/>
+							<label className="session-form-label">password:</label>
+								<input type="password"
+									value={this.state.password}
+									onChange={this.update("password")}
+									className="session-input" />
+							<br/>
+							<input type="submit" value={text} />
+							<span>{this._formLink()}</span>
+					</form>
+				</div>
 			</div>
 		);
 	}
