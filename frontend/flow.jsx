@@ -3,14 +3,22 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { logout } from './actions/session_actions';
-// import * as workspaceAPIUtil from './util/workspace_api_util'
-//
-// window.logout = logout;
-// window.fetchAllWorkspaces = workspaceAPIUtil.fetchAllWorkspaces;
-// window.fetchWorkspace = workspaceAPIUtil.fetchWorkspace;
-// window.createWorkspace = workspaceAPIUtil.createWorkspace;
-// window.updateWorkspace = workspaceAPIUtil.updateWorkspace;
-// window.deleteWorkspace = workspaceAPIUtil.deleteWorkspace;
+import {
+  fetchAllWorkspaces,
+  fetchWorkspace,
+  fetchInitialWorkspace,
+  createWorkspace,
+  updateWorkspace,
+  deleteWorkspace
+} from './actions/workspace_actions'
+
+window.logout = logout;
+window.fetchAllWorkspaces = fetchAllWorkspaces;
+window.fetchWorkspace = fetchWorkspace;
+window.fetchInitialWorkspace = fetchInitialWorkspace;
+window.createWorkspace = createWorkspace;
+window.updateWorkspace = updateWorkspace;
+window.deleteWorkspace = deleteWorkspace;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -25,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  // window.store = store;
+  window.store = store;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });

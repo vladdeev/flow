@@ -13,7 +13,11 @@ class Api::WorkspacesController < ApplicationController
   end
 
   def show
-    @workspace = current_user.workspaces.find(params[:id])
+    if params[:id] == "0"
+      @workspace = current_user.workspaces.first
+    else
+      @workspace = current_user.workspaces.find(params[:id])
+    end
   end
 
   def update

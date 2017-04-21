@@ -9,15 +9,18 @@
     }
     errors: []
   },
-  forms: {
-    createTask: {errors: []},
-    addComment: {errors: []}
-  },
   workspaces: {
-    1: {
+    workspacesList: {
+      1: {
+        id: 1,
+        title: 'Westworld'
+      }
+    }
+    currentWorkspace: {
       id: 1,
       title: 'Westworld'
     }
+    errors: []
   },
   projects: {
     1: {

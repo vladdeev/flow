@@ -12,7 +12,6 @@ const _renderStartingPage = (loggedIn) => {
       </div>
     )
   }
-  debugger
   return <HeaderContainer />
 }
 const App = (props) => (
