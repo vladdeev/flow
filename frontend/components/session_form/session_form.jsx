@@ -68,14 +68,14 @@ class SessionForm extends React.Component {
       return(
         <div className="session-form-links">
           Don't have an account? &nbsp;
-          <Link to="/signup">Sign up!</Link>;
+          <Link to="/signup">Sign up!</Link>
         </div>
       )
     } else {
       return(
         <div className="session-form-links">
           Already have an account? &nbsp;
-          <Link to="/login">Login</Link>;
+          <Link to="/login">Login</Link>
         </div>
       )
     }

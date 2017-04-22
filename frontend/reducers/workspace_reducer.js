@@ -9,8 +9,8 @@ import {
 } from '../actions/workspace_actions';
 
 const _defaultState = {
-  currentWorkspace: {},
-  workspacesList: [],
+  currentWorkspace: "",
+  workspacesList: {},
   errors: []
 };
 
@@ -21,21 +21,18 @@ const workspaceReducer = (oldState = _defaultState, action) => {
       const workspacesList = action.workspaces;
       return Object.assign({}, oldState, { workspacesList });
     case RECEIVE_NEW_WORKSPACE:
-      let updatedState = merge({}, oldState);
-      updatedState["workspacesList"].push(action.workspace);
-      return updatedState;
+      return merge({}, oldState, { workspacesList: { [action.workspace.id]: action.workspace }});
+    case RECEIVE_WORKSPACE:
+      Object.freeze(oldState);
+      return Object.assign({}, oldState, { currentWorkspace: action.workspace.id });
     case RECEIVE_INITIAL_WORKSPACE:
       Object.freeze(oldState);
-      const currentWorkspace = action.workspace;
-      return merge({}, oldState, { currentWorkspace });
+      return Object.assign({}, oldState, { currentWorkspace: action.workspace.id });
     case REMOVE_WORKSPACE:
       Object.freeze(oldState);
       let newState = merge({}, oldState);
-      return newState["workspacesList"].map(workspace => {
-          if (workspace["id"] !== action.workspaceId) {
-            return workspace;
-          }
-        });
+      delete newState["workspacesList"][action.workspaceId];
+      return newState;
     case RECEIVE_ERRORS:
       Object.freeze(oldState);
       return Object.assign({}, oldState, { errors: action.errors });
