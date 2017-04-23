@@ -9,15 +9,18 @@ class App extends React.Component {
     super(props);
   }
 
+  _renderHeader() {
+    if (this.props.loggedIn) {
+      return null;
+    } else {
+      return (<HeaderContainer />);
+    }
+  }
+
   render() {
     return(
       <div>
-      <header>
-        <Link to="/" className="header-link">
-          <h1>Flow</h1>
-        </Link>
-        <HeaderContainer />
-      </header>
+        {this._renderHeader()}
         {this.props.children}
       </div>
     )
