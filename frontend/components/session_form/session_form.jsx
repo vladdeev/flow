@@ -24,10 +24,12 @@ class SessionForm extends React.Component {
 	}
 
 	componentWillUnmount() {
+		const pro = this.props;
+		const currentWorkspace = this.props.currentWorkspace;
 		this.props.receiveErrors([]);
 		this.props.fetchAllWorkspaces();
 		this.props.fetchInitialWorkspace()
-			.then(() => (hashHistory.push(`/${this.props.currentWorkspace}`)))
+			.then((action) => (hashHistory.push(`/${action.workspace.id}`)));
 	}
 
 	update(field) {
