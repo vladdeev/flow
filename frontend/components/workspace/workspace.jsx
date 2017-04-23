@@ -1,13 +1,9 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
 
 class Workspace extends React.Component {
 	constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    this.props.fetchAllWorkspaces();
   }
 
   _userhasWorkspace(id) {
@@ -25,17 +21,18 @@ class Workspace extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this._setCurrentWorkspace(this.props.params.workspaceId);
+			if (nextProps.loggedIn) {
+				this._setCurrentWorkspace(this.props.params.workspaceId);
+			}
   }
 
   render() {
     return(
       <div>
         <h1>{this.props.workspacesList[this.props.currentWorkspace].title}</h1>
-        <Link to="/10">To 10</Link>
       </div>
     );
   }
-
 }
+
 export default withRouter(Workspace);

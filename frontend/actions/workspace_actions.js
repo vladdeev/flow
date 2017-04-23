@@ -7,32 +7,32 @@ export const RECEIVE_INITIAL_WORKSPACE = "RECEIVE_INITIAL_WORKSPACE";
 export const REMOVE_WORKSPACE = "REMOVE_WORKSPACE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-const receiveAllWorkspaces = (workspaces) => ({
+export const receiveAllWorkspaces = (workspaces) => ({
   type: RECEIVE_ALL_WORKSPACES,
   workspaces
 });
 
-const receiveWorkspace = (workspace) => ({
+export const receiveWorkspace = (workspace) => ({
   type: RECEIVE_WORKSPACE,
   workspace
 });
 
-const receiveNewWorkspace = (workspace) => ({
+export const receiveNewWorkspace = (workspace) => ({
   type: RECEIVE_NEW_WORKSPACE,
   workspace
 });
 
-const receiveInitialWorkspace = (workspace) => ({
+export const receiveInitialWorkspace = (workspace) => ({
   type: RECEIVE_INITIAL_WORKSPACE,
   workspace
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
 
-const removeWorkspace = (workspace) => ({
+export const removeWorkspace = (workspace) => ({
   type: REMOVE_WORKSPACE,
   workspaceId: workspace.id
 });

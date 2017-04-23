@@ -18,7 +18,23 @@ class App extends React.Component {
     }
   }
 
-
+  _renderChildren() {
+    if (this.props.loggedIn) {
+      return (
+        <div>
+          {this.props.children}
+        </div>
+      );
+    } else if (this.props.location.pathname === "/login") {
+      return (
+        <div>
+          {this.props.children}
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
 
   render() {
     return(
