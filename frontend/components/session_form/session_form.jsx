@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, hashHistory, withRouter } from 'react-router';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -25,6 +25,9 @@ class SessionForm extends React.Component {
 
 	componentWillUnmount() {
 		this.props.receiveErrors([]);
+		this.props.fetchAllWorkspaces();
+		this.props.fetchInitialWorkspace()
+			.then(() => (hashHistory.push(`/${this.props.currentWorkspace}`)))
 	}
 
 	update(field) {

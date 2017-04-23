@@ -11,7 +11,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentWorkspace: state.wcurrentWorkspace,
+    currentWorkspace: state.workspace.currentWorkspace,
     workspacesList: state.workspace.workspacesList,
     errors: state.workspace.errors
   };

@@ -25,20 +25,14 @@ class Workspace extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.params) {
-      this._setCurrentWorkspace(this.props.params.workspaceId);
-    } else {
-      this.props.fetchInitialWorkspace();
-    }
+    this._setCurrentWorkspace(this.props.params.workspaceId);
   }
 
-
-
   render() {
-
     return(
       <div>
-        <h1>YAY!</h1>
+        <h1>{this.props.workspacesList[this.props.currentWorkspace].title}</h1>
+        <Link to="/10">To 10</Link>
       </div>
     );
   }

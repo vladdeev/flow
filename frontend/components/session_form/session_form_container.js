@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { login, logout, signup, receiveErrors } from '../../actions/session_actions';
+import { fetchAllWorkspaces, fetchInitialWorkspace } from '../../actions/workspace_actions'
 import SessionForm from './session_form';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,6 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     processForm: user => dispatch(processForm(user)),
     receiveErrors: errors => dispatch(receiveErrors(errors)),
+    fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
+    fetchInitialWorkspace: () => dispatch(fetchInitialWorkspace()),
     formType
   };
 };
