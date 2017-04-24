@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.create({
+  email: "guest@welcome.io",
+  password: "q1w2e3",
+  first_name: "Robert",
+  last_name: "Smith"
+})
+
+User.first.workspaces.create(title: "Personal Workspace")
+User.first.workspaces.create(title: "Westworld Park")
+User.first.workspaces.create(title: "Samurai Park ")

@@ -52,6 +52,7 @@
   background-color: rgb(40, 120, 185);
   width: auto;
   padding: 10px 30px;
+  text-transform: capitalize;
 }
 
 .front-header-right > li:nth-child(2):hover {
