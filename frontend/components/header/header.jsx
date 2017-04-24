@@ -7,42 +7,40 @@ class Header extends React.Component {
     super(props);
   }
 
-  sessionLinks() {
-
-  }
-
-  personalGreeting(currentUser, logout) {
-    return(
-      <hgroup className="header-group">
-      <h2 className="header-name">Hi, {this.props.currentUser.first_name}!</h2>
-      <button className="header-button" onClick={this._logOutAndClearState}>Log Out</button>
-      <br />
-      <Link to="/10">10</Link>&nbsp;or&nbsp;
-      <Link to="/11">11</Link>
-      </hgroup>
-    );
+  handleClick (path) {
+    return e => {
+      e.preventDefault();
+      const url = `/${path}`;
+      hashHistory.push(url);
+    }
   }
 
   render() {
     return (
-      <nav className="front-header">
-        <ul className="front-header-right">
-          <li>
-            <Link to="/login" activeClassName="current">Login</Link>
-          </li>
-          <li>
-            <DemoLoginContainer />
-          </li>
-          <li>
-            <Link to="/signup" activeClassName="current">Sign up!</Link>
-          </li>
-        </ul>
-        <ul>
-          <p>flow</p>
-        </ul>
-      </nav>
+      <header className="front-header">
+        <nav className="front-header-nav group">
+
+          <div className="front-header-left">
+            <Link to="/">flow</Link>
+          </div>
+
+          <ul className="front-header-right group">
+            <li onClick={this.handleClick("login")} >
+              <Link to="/login" activeClassName="current">Login</Link>
+            </li>
+            <li onClick={this.handleClick("login")}>
+              <DemoLoginContainer />
+            </li>
+            <li onClick={this.handleClick("signup")}>
+              <Link to="/signup" activeClassName="current">Sign up!</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
     );
   }
 }
 
 export default Header;
+
+// <button onClick={this.handleClick("login")}>Login</button>

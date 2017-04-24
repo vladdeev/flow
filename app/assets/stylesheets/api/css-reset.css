@@ -19,11 +19,13 @@ time, mark, audio, video {
   font-family: "Helvetica Neue";
   color: inherit;
   text-align: inherit;
-  /*text-decoration: inherit;*/
+  text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+
 }
+
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -32,7 +34,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 #root {
-  display: flex;
+
   font-size: 16px;
   width: 100%;
   height: auto;
