@@ -1,6 +1,41 @@
 .front-container {
   display: block;
 }
+
+.front-container h1 {
+  padding-top: 150px;
+  font-weight: 200;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+}
+
+.front-container h2 {
+  margin-top: 50px;
+  font-weight: 200;
+  font-size: 2.5em;
+  color: white;
+  text-align: center;
+}
+
+.front-container h3 {
+  margin: 60px auto;
+  border: 2px solid white;
+  border-radius: 3px;
+  font-size: 1.5em;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 300;
+  color: white;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+}
+
+.front-container h3:hover {
+  border: 3px solid white;
+}
 .first-screen {
   width: auto;
   height: 600px;
