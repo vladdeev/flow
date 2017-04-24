@@ -17,9 +17,6 @@ class Workspace extends React.Component {
   }
 //temp logout
 
-
-
-
   componentWillReceiveProps(nextProps) {
 			if (!nextProps.loggedIn) {
 				this.props.router.push('/');

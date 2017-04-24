@@ -14,14 +14,14 @@ class App extends React.Component {
     if (this.props.loggedIn) {
       return null;
     } else {
-      return (<HeaderContainer />);
+      return (<FrontPage />);
     }
   }
 
   render() {
     return(
       <div>
-        <FrontPage />
+        {this._renderHeader()}
         {this.props.children}
       </div>
     )
@@ -29,4 +29,4 @@ class App extends React.Component {
 }
 export default App;
 
-// {this._renderHeader()}
+// {this._renderHeader()}.
