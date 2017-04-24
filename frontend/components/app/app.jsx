@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory, Link } from 'react-router';
 
 import HeaderContainer from '../header/header_container';
+import FrontPage from './front_page';
 import WorkspaceContainer from '../workspace/workspace_container';
 
 class App extends React.Component {
@@ -20,10 +21,12 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        {this._renderHeader()}
+        <FrontPage />
         {this.props.children}
       </div>
     )
   }
 }
 export default App;
+
+// {this._renderHeader()}

@@ -1,20 +1,14 @@
 import React from 'react';
+import DemoLoginContainer from '../demo_login/demo_login_container';
 import { Link, hashHistory } from 'react-router';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this._logOutAndClearState = this._logOutAndClearState.bind(this);
   }
 
   sessionLinks() {
-    return (
-      <nav className="header-login-signup">
-      <Link to="/login" activeClassName="current">Login</Link>
-      &nbsp;or&nbsp;
-      <Link to="/signup" activeClassName="current">Sign up!</Link>
-      </nav>
-    );
+
   }
 
   personalGreeting(currentUser, logout) {
@@ -29,20 +23,26 @@ class Header extends React.Component {
     );
   }
 
-  _logOutAndClearState() {
-    this.props.receiveAllWorkspaces({});
-    this.props.receiveWorkspace("");
-    this.props.receiveErrors([]);
-    this.props.logout()
-  }
-
-  _redirectToWorkspace() {
-    hashHistory.push(`/${this.props.currentWorkspace}`)
-  }
-
   render() {
-    return this.props.currentUser ? this.personalGreeting(this.props.currentUser, this.props.logout) : this.sessionLinks()
-  };
+    return (
+      <nav className="front-header">
+        <ul className="front-header-right">
+          <li>
+            <Link to="/login" activeClassName="current">Login</Link>
+          </li>
+          <li>
+            <DemoLoginContainer />
+          </li>
+          <li>
+            <Link to="/signup" activeClassName="current">Sign up!</Link>
+          </li>
+        </ul>
+        <ul>
+          <p>flow</p>
+        </ul>
+      </nav>
+    );
+  }
 }
 
 export default Header;

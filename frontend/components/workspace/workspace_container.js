@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import Workspace from './workspace';
+import { logout } from '../../actions/session_actions';//logout
 import {
+  receiveAllWorkspaces, //logout
+  receiveWorkspace,//logout
+  receiveErrors,//logout
   fetchAllWorkspaces,
   fetchWorkspace,
   fetchInitialWorkspace,
@@ -20,6 +24,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  logout: () => dispatch(logout()),//logout
+  receiveAllWorkspaces: (workspaces) => dispatch(receiveAllWorkspaces(workspaces)),//logout
+  receiveWorkspace: (workspace) => dispatch(receiveWorkspace(workspace)),//logout
+  receiveErrors: (errors) => dispatch(receiveErrors(errors)),//logout
   fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
   fetchInitialWorkspace: () => dispatch(fetchInitialWorkspace()),
   fetchWorkspace: (id) => dispatch(fetchWorkspace(id))

@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleDemoLogin = this.handleDemoLogin.bind(this);
+		this._resetSetAndErrors = this._resetSetAndErrors.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -24,12 +25,14 @@ class SessionForm extends React.Component {
 	}
 
 	componentWillUnmount() {
-		const pro = this.props;
-		const currentWorkspace = this.props.currentWorkspace;
 		this.props.receiveErrors([]);
-		this.props.fetchAllWorkspaces();
-		this.props.fetchInitialWorkspace()
+		if (this.props.loggedIn) {
+			const pro = this.props;
+			const currentWorkspace = this.props.currentWorkspace;
+			this.props.fetchAllWorkspaces();
+			this.props.fetchInitialWorkspace()
 			.then((action) => (hashHistory.push(`/${action.workspace.id}`)));
+		}
 	}
 
 	update(field) {
@@ -57,15 +60,17 @@ class SessionForm extends React.Component {
   }
 
 	renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error) => (
-					<li key={error}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+		if (this.props.errors) {
+			return(
+				<ul>
+					{this.props.errors.map((error) => (
+						<li key={error}>
+							{error}
+						</li>
+					))}
+				</ul>
+			);
+		}
 	}
 
   _formLink() {
@@ -116,6 +121,16 @@ class SessionForm extends React.Component {
       )
     }
   }
+	
+	_resetSetAndErrors() {
+		this.props.receiveErrors([]);
+		this.setState({
+			email: "",
+			password: "",
+			first_name: "",
+			last_name: ""
+		});
+	}
 
 	render() {
     const formType = this.props.formType
@@ -145,7 +160,7 @@ class SessionForm extends React.Component {
 							<input type="submit" value={text} />
 					</form>
 					{this._renderDemoLoginButton()}
-					<span>{this._formLink()}</span>
+					<span onClick={this._resetSetAndErrors}>{this._formLink()}</span>
 				</div>
 			</div>
 		);
