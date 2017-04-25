@@ -4,21 +4,21 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { logout } from './actions/session_actions';
 import {
-  fetchAllWorkspaces,
-  fetchWorkspace,
-  fetchInitialWorkspace,
-  createWorkspace,
-  updateWorkspace,
-  deleteWorkspace
-} from './actions/workspace_actions'
+  fetchAllProjects,
+  fetchProject,
+  fetchInitialProject,
+  createProject,
+  updateProject,
+  deleteProject
+} from './actions/project_actions'
 
 window.logout = logout;
-window.fetchAllWorkspaces = fetchAllWorkspaces;
-window.fetchWorkspace = fetchWorkspace;
-window.fetchInitialWorkspace = fetchInitialWorkspace;
-window.createWorkspace = createWorkspace;
-window.updateWorkspace = updateWorkspace;
-window.deleteWorkspace = deleteWorkspace;
+window.fetchAllProjects = fetchAllProjects;
+window.fetchProject = fetchProject;
+window.fetchInitialProject = fetchInitialProject;
+window.createProject = createProject;
+window.updateProject = updateProject;
+window.deleteProject = deleteProject;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

@@ -2,7 +2,6 @@ class Api::ProjectsController < ApplicationController
   def index
     workspace_id = params[:workspace_id]
     @projects = current_user.projects.where(workspace_id: workspace_id)
-    debugger
   end
 
   def create
