@@ -26,8 +26,12 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :workspaces, class_name: :Workspace, foreign_key: :creator_id
+  has_many :projects, class_name: :Project, foreign_key: :creator_id
+
   has_many :workspacings, class_name: :Workspacing, foreign_key: :user_id, primary_key: :id
   has_many :workspace_memberships, through: :workspacings, source: :workspace
+
+  has_many :projects_memberships, through: :workspaces, source: :projects
 
   attr_reader :password
 

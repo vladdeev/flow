@@ -16,3 +16,42 @@ User.create({
 User.first.workspaces.create(title: "Personal Workspace")
 User.first.workspaces.create(title: "Westworld Park")
 User.first.workspaces.create(title: "Samurai Park ")
+
+first_workspace_id = User.first.workspaces.find_by(title: "Personal Workspace").id
+second_workspace_id = User.first.workspaces.find_by(title: "Westworld Park").id
+
+User.first.projects.create(
+  title: "Enjoy",
+  description: "Enjoy your life",
+  workspace_id: first_workspace_id
+)
+
+User.first.projects.create(
+  title: "Love",
+  description: "Love saves the world",
+  workspace_id: first_workspace_id
+)
+
+User.first.projects.create(
+  title: "Study",
+  description: "Study hard",
+  workspace_id: first_workspace_id
+)
+
+User.first.projects.create(
+  title: "Build the narrative",
+  description: "ASAP!",
+  workspace_id: second_workspace_id
+)
+
+User.first.projects.create(
+  title: "Fix the robot",
+  description: "Dolores is clearly malfunctioning",
+  workspace_id: second_workspace_id
+)
+
+User.first.projects.create(
+  title: "Kill Bernard",
+  description: "He knows too much",
+  workspace_id: second_workspace_id
+)
