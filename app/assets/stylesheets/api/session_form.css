@@ -11,6 +11,11 @@
   z-index: 10;
 }
 
+.session-form h1 {
+    font-size: 1em;
+    font-weight: 400;
+}
+
 .session-form-container {
   display: block;
   position: relative;

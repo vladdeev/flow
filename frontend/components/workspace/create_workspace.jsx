@@ -32,7 +32,11 @@ class CreateWorkspaceForm extends React.Component {
       title: this.state.title
     };
 
-    this.props.createWorkspace(workspace);
+    this.props.createWorkspace(workspace)
+      .then((action) => {
+        this.props.toggleCreateWorkspace()
+        hashHistory.push(`/${action.workspace.id}`)
+      });
   }
 
   renderErrors() {
