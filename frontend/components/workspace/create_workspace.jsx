@@ -31,10 +31,12 @@ class CreateWorkspaceForm extends React.Component {
     const workspace = {
       title: this.state.title
     };
+    this.props.receiveErrors([]);
+    this.setState({ title: "", formOpen: this.props.formOpen });
 
     this.props.createWorkspace(workspace)
       .then((action) => {
-        this.props.toggleCreateWorkspace()
+        this.props.toggleCreateWorkspace();
         hashHistory.push(`/${action.workspace.id}`)
       });
   }
@@ -51,6 +53,10 @@ class CreateWorkspaceForm extends React.Component {
         </ul>
       );
     }
+  }
+
+  componentWillUnmount() {
+    this.props.receiveErrors([]);
   }
 
   render() {

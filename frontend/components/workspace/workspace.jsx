@@ -71,6 +71,7 @@ class Workspace extends React.Component {
 		}
 	}
 
+
   render() {
 		if (this.props.currentWorkspace) {
 			const currentWorkspace = this.props.currentWorkspace
@@ -94,10 +95,11 @@ class Workspace extends React.Component {
 					</content>
 
 					<CreateWorkspaceForm
-					toggleCreateWorkspace={this.toggleCreateWorkspace}
-					formOpen={this.state.createWorkspaceOn}
-					createWorkspace={this.props.createWorkspace}
-					errors={this.props.errors} />
+						toggleCreateWorkspace={this.toggleCreateWorkspace}
+						formOpen={this.state.createWorkspaceOn}
+						createWorkspace={this.props.createWorkspace}
+						receiveErrors={this.props.receiveErrors}
+						errors={this.props.errors} />
 				</div>
 			);
 		} else {
