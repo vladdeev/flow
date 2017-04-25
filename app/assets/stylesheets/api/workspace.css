@@ -94,6 +94,13 @@
   border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
 }
 
+.dropdown-workspaces > h3 {
+  display: block;
+  padding: 10px 20px;
+  border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
+  font-weight: 200;
+}
+
 .dropdown > h2 {
   display: block;
   padding: 10px 20px;
@@ -102,6 +109,7 @@
 
 .wslist ul li:hover,
 .dropdown-workspaces > a:hover,
+.dropdown-workspaces > h3:hover,
 .dropdown > h2:hover {
   color: white;
   background-color: rgb(40, 120, 185);

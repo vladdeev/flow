@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
 import WorkspacesIndex from './workspaces_index';
+import CreateWorkspaceForm from './create_workspace'
 
 class Workspace extends React.Component {
 	constructor(props) {
     super(props);
-		this.state = { dropdownOn: false };
+		this.state = { dropdownOn: false, createWorkspaceOn: false };
+
 		this._logOutAndClearState = this._logOutAndClearState.bind(this);
 		this._renderDropdown = this._renderDropdown.bind(this);
+		this.toggleCreateWorkspace = this.toggleCreateWorkspace.bind(this);
 		this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
@@ -41,8 +44,9 @@ class Workspace extends React.Component {
 					<section className="dropdown-workspaces">
 						<h2>workspaces</h2>
 						<WorkspacesIndex workspacesList={this.props.workspacesList} />
-						<Link to={'/'}>+ Create new Workspace</Link>
+						<h3 onClick={this.toggleCreateWorkspace} to={'/'}>+ Create new Workspace</h3>
 					</section>
+
 					<h2 onClick={this._logOutAndClearState}>Sign Out</h2>
 				</div>
 			)
@@ -59,12 +63,19 @@ class Workspace extends React.Component {
 		}
 	}
 
+	toggleCreateWorkspace() {
+		if (this.state.createWorkspaceOn) {
+			this.setState({ createWorkspaceOn: false })
+		} else {
+			this.setState({ createWorkspaceOn: true })
+		}
+	}
+
   render() {
 		if (this.props.currentWorkspace) {
 			const currentWorkspace = this.props.currentWorkspace
 			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
 			return(
-
 				<div onClick={this.resetDropdown} className="app-workspaces">
 					<nav className="side-bar">
 					</nav>
@@ -79,9 +90,14 @@ class Workspace extends React.Component {
 								<li>{`${workspaceTitle}`}</li>
 							</ul>
 						</nav>
-					{this._renderDropdown()}
-
+						{this._renderDropdown()}
 					</content>
+
+					<CreateWorkspaceForm
+					toggleCreateWorkspace={this.toggleCreateWorkspace}
+					formOpen={this.state.createWorkspaceOn}
+					createWorkspace={this.props.createWorkspace}
+					errors={this.props.errors} />
 				</div>
 			);
 		} else {

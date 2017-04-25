@@ -30,7 +30,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   receiveErrors: (errors) => dispatch(receiveErrors(errors)),//logout
   fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
   fetchInitialWorkspace: () => dispatch(fetchInitialWorkspace()),
-  fetchWorkspace: (id) => dispatch(fetchWorkspace(id))
+  fetchWorkspace: (id) => dispatch(fetchWorkspace(id)),
+  createWorkspace: (workspace) => dispatch(createWorkspace(workspace))
 });
 
 export default connect(
