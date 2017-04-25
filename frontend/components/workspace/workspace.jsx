@@ -11,6 +11,15 @@ class Workspace extends React.Component {
 		this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
+	componentDidMount(){
+		if (this.props.loggedIn) {
+			debugger
+			this.props.fetchAllWorkspaces();
+			this.props.fetchInitialWorkspace()
+			.then((action) => (hashHistory.push(`/${action.workspace.id}`)));
+		}
+	}
+
 //temp logout
 	_logOutAndClearState() {
     if (this.props.loggedIn) {
@@ -23,9 +32,9 @@ class Workspace extends React.Component {
 //temp logout
 
   componentWillReceiveProps(nextProps) {
-			if (!nextProps.loggedIn) {
-				this.props.router.push('/');
-			}
+			// if (!nextProps.loggedIn) {
+			// 	this.props.router.push('/');
+			// }
   }
 
 	_getInitials() {

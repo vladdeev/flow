@@ -26,13 +26,6 @@ class SessionForm extends React.Component {
 
 	componentWillUnmount() {
 		this.props.receiveErrors([]);
-		if (this.props.loggedIn) {
-			const pro = this.props;
-			const currentWorkspace = this.props.currentWorkspace;
-			this.props.fetchAllWorkspaces();
-			this.props.fetchInitialWorkspace()
-			.then((action) => (hashHistory.push(`/${action.workspace.id}`)));
-		}
 	}
 
 	update(field) {
@@ -121,7 +114,7 @@ class SessionForm extends React.Component {
       )
     }
   }
-	
+
 	_resetSetAndErrors() {
 		this.props.receiveErrors([]);
 		this.setState({

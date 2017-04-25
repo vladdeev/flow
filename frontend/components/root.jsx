@@ -51,6 +51,7 @@ const Root = ({ store }) => {
    <Provider store={ store }>
      <Router history={ hashHistory }>
        <Route path="/" component={ AppContainer }>
+         <IndexRoute component={WorkspaceContainer}/>
          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndFetchWorkSpaces} />
