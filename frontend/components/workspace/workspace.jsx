@@ -19,7 +19,6 @@ class Workspace extends React.Component {
 		}
 	}
 
-//temp logout
 	_logOutAndClearState() {
     if (this.props.loggedIn) {
       this.props.receiveAllWorkspaces({});
@@ -28,8 +27,6 @@ class Workspace extends React.Component {
       this.props.logout()
     }
   }
-//temp logout
-
 
 	_getInitials() {
 		const first_initial = this.props.currentUser.first_name.slice(0,1);

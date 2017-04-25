@@ -37,7 +37,8 @@
 }
 
 .front-container h3:hover {
-  border: 3px solid white;
+  font-weight: 400;
+  border: 2px solid white;
 }
 .first-screen {
   width: auto;

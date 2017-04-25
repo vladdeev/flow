@@ -156,3 +156,8 @@ input[type="submit"]:hover {
   display: inline-block;
   padding-right: 40px;
 }
+
+.session-form-links a {
+  color: rgb(40, 120, 185);
+  text-decoration: underline;
+}

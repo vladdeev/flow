@@ -1,23 +1,22 @@
 .app-workspaces {
   width: 100%;
   height: 100%;
-  /*background-color: grey;*/
   display: flex;
   justify-content: flex-start;
 }
 .workspaces {
   width: 100%;
-  /*background: yellow;*/
 }
 
+
 .side-bar {
-  width: 300px;
+  width: 0px;
   height: 100%;
-  background-color: orange;
 }
 .workspaces-header {
   width: 100%;
   background: white;
+  border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
 }
 .workspaces-header-left {
   float:left;
@@ -57,19 +56,54 @@
   text-transform: uppercase;
   font-weight: 400;
   color: grey;
+  cursor: pointer;
 }
 
 .dropdown {
   position: absolute;
 	top: 39px;
 	right: 20px;
-	background-color: #fff;
-	border: 1px solid rgba(220, 225, 235, 0.6);
+	border: 0.5px solid rgba(156, 156, 156, 1);
 	border-radius: 3px;
-	padding: 10px;
-	width: 225px;
+	padding: 0px;
+	width: 250px;
 	z-index: 1;
 	text-align: left;
 	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
-	font-weight: initial;
+	font-weight: 300;
+}
+
+.dropdown-workspaces h2 {
+  display: block;
+  padding: 10px 20px;
+  color: grey;
+  font-weight: 200;
+}
+
+.wslist {
+  border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
+}
+.wslist ul li {
+  display: block;
+  padding: 10px 20px;
+}
+
+.dropdown-workspaces > a {
+  display: block;
+  padding: 10px 20px;
+  border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
+}
+
+.dropdown > h2 {
+  display: block;
+  padding: 10px 20px;
+  font-weight: 300;
+}
+
+.wslist ul li:hover,
+.dropdown-workspaces > a:hover,
+.dropdown > h2:hover {
+  color: white;
+  background-color: rgb(40, 120, 185);
+  cursor: pointer;
 }

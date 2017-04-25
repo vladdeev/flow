@@ -36,7 +36,7 @@
 .front-header-right > li {
   float: left;
   display: block;
-  border: 2px solid rgba(220, 225, 235, 0.6);
+  border: 1px solid rgb(40, 120, 185);
   border-radius: 3px;
   font-size: 1em;
   margin: 10px 10px 10px 10px;
@@ -67,7 +67,7 @@
 
 .front-header-right > li:hover {
   background-color: white;
-  border: 2px solid rgba(15, 145, 250, 1);
+  border: 1px solid rgba(15, 145, 250, 1);
 
   -webkit-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   -moz-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
