@@ -69,7 +69,6 @@
 	padding: 10px;
 	width: 225px;
 	z-index: 1;
-	font-family: $sans-serif;
 	text-align: left;
 	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
 	font-weight: initial;
