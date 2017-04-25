@@ -14,13 +14,6 @@ import {
 } from '../actions/workspace_actions';
 
 const Root = ({ store }) => {
-  const _ensureLoggedIn = (nextState, replace) => {
-    const currentUser = store.getState().session.currentUser;
-    if (!currentUser) {
-      replace('/login');
-    }
-  };
-
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
@@ -28,7 +21,7 @@ const Root = ({ store }) => {
     }
   };
 
-  const _ensureLoggedInAndFetchWorkSpaces = (ownProps) => {
+  const _ensureLoggedInAndWorkspace = (ownProps) => {
     const curretState = store.getState();
     const currentUser = curretState.session.currentUser;
     const currentWorkspace = curretState.workspace.currentWorkspace;
@@ -37,11 +30,8 @@ const Root = ({ store }) => {
 
     if(!currentUser) {
       hashHistory.replace('/');
-    } else if (!currentWorkspace) {
-      store.dispatch(fetchAllWorkspaces());
-      store.dispatch(fetchInitialWorkspace());
     } else if (!workspacesListIds.includes(workspaceId)) {
-      hashHistory.push('/');
+      hashHistory.push(`/${currentWorkspace}`);
     } else {
       store.dispatch(fetchWorkspace(workspaceId));
     }
@@ -54,7 +44,7 @@ const Root = ({ store }) => {
          <IndexRoute component={WorkspaceContainer}/>
          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-         <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndFetchWorkSpaces} />
+         <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace} />
        </Route>
      </Router>
    </Provider>

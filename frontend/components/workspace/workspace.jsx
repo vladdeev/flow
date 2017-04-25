@@ -13,7 +13,6 @@ class Workspace extends React.Component {
 
 	componentDidMount(){
 		if (this.props.loggedIn) {
-			debugger
 			this.props.fetchAllWorkspaces();
 			this.props.fetchInitialWorkspace()
 			.then((action) => (hashHistory.push(`/${action.workspace.id}`)));
@@ -31,11 +30,6 @@ class Workspace extends React.Component {
   }
 //temp logout
 
-  componentWillReceiveProps(nextProps) {
-			// if (!nextProps.loggedIn) {
-			// 	this.props.router.push('/');
-			// }
-  }
 
 	_getInitials() {
 		const first_initial = this.props.currentUser.first_name.slice(0,1);

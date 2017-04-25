@@ -15,12 +15,15 @@ class DemoLogin extends React.Component {
 			first_name: "Robert",
 			last_name: "Smith"
 		}
-    this.props.login(demoUser)
+
+    this.props.login(demoUser, function () {
+		return hashHistory.push('/');
+		});
   }
 
 	render() {
 		return(
-			<Link to="/login">demo login</Link>
+			<div onClick={this.handleDemoLogin}>demo login</div>
 		)
 	}
 }
