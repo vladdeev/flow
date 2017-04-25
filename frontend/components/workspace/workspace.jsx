@@ -12,6 +12,7 @@ class Workspace extends React.Component {
 		this._renderDropdown = this._renderDropdown.bind(this);
 		this.toggleCreateWorkspace = this.toggleCreateWorkspace.bind(this);
 		this.toggleDropdown = this.toggleDropdown.bind(this);
+		this.redirectToWorkspace = this.redirectToWorkspace.bind(this);
   }
 
 	componentDidMount(){
@@ -43,8 +44,8 @@ class Workspace extends React.Component {
 				<div onClick={this.toggleDropdown} className="dropdown">
 					<section className="dropdown-workspaces">
 						<h2>workspaces</h2>
-						<WorkspacesIndex workspacesList={this.props.workspacesList} />
-						<h3 onClick={this.toggleCreateWorkspace} to={'/'}>+ Create new Workspace</h3>
+						<WorkspacesIndex workspacesList={this.props.workspacesList} redirectToWorkspace={this.redirectToWorkspace}/>
+						<h3 onClick={this.toggleCreateWorkspace}>+ Create new Workspace</h3>
 					</section>
 
 					<h2 onClick={this._logOutAndClearState}>Sign Out</h2>
@@ -53,6 +54,10 @@ class Workspace extends React.Component {
 		} else {
 			return null;
 		}
+	}
+
+	redirectToWorkspace (id) {
+		hashHistory.push(`/${id}`);
 	}
 
 	toggleDropdown() {

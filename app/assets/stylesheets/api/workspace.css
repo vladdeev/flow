@@ -85,7 +85,12 @@
 }
 .wslist ul li {
   display: block;
+  font-weight: 200;
+}
+
+.wslist ul li h3 {
   padding: 10px 20px;
+  font-weight: 200;
 }
 
 .dropdown-workspaces > a {

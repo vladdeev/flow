@@ -12,6 +12,7 @@ class CreateWorkspaceForm extends React.Component {
     this.closeForm = this.closeForm.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.resetSetAndErrors = this.resetSetAndErrors.bind(this);
   }
 
   openForm() {
@@ -55,8 +56,10 @@ class CreateWorkspaceForm extends React.Component {
     }
   }
 
-  componentWillUnmount() {
+  resetSetAndErrors() {
     this.props.receiveErrors([]);
+    this.setState({ title: "", formOpen: this.props.formOpen });
+    this.props.toggleCreateWorkspace();
   }
 
   render() {
@@ -65,7 +68,7 @@ class CreateWorkspaceForm extends React.Component {
         <div className="workspace-form">
   				<div className="workspace-form-container">
   					<div id="form-close">
-  						<h3 onClick={this.props.toggleCreateWorkspace}>&#10006;</h3>
+  						<h3 onClick={this.resetSetAndErrors}>&#10006;</h3>
   					</div>
   					<div className="workspace-form-header">
   						<h1>Create New Workspace</h1>
