@@ -23,7 +23,11 @@ time, mark, audio, video {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+  height: inherit;
+}
 
+html {
+  height: 100%
 }
 
 
@@ -34,10 +38,9 @@ footer, header, hgroup, menu, nav, section {
 }
 
 #root {
-
   font-size: 16px;
   width: 100%;
-  height: auto;
+  height: 100%
 }
 
 ul {

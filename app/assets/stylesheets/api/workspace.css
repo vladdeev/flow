@@ -1,0 +1,77 @@
+.app-workspaces {
+  width: 100%;
+  height: 100%;
+  /*background-color: grey;*/
+  display: flex;
+  justify-content: flex-start;
+}
+.workspaces {
+  width: 100%;
+  /*background: yellow;*/
+}
+
+.side-bar {
+  width: 300px;
+  height: 100%;
+  background-color: orange;
+}
+.workspaces-header {
+  width: 100%;
+  background: white;
+}
+.workspaces-header-left {
+  float:left;
+  padding-left: 20px;
+}
+
+.workspaces-header-right {
+  float: right;
+}
+
+.badge {
+  float: right;
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin: 5px 20px 5px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color:white;
+  padding: 7px;
+  background: yellow;
+  border-radius: 50%;
+  background: rgba(227,187,252,1);
+  background: -moz-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(227,187,252,1)), color-stop(50%, rgba(154,31,255,1)), color-stop(100%, rgba(230,197,251,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
+  background: linear-gradient(135deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3bbfc', endColorstr='#e6c5fb', GradientType=1 );
+}
+
+.workspaces-header li {
+  float: right;
+  margin: 13px 3px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: grey;
+}
+
+.dropdown {
+  position: absolute;
+	top: 39px;
+	right: 20px;
+	background-color: #fff;
+	border: 1px solid rgba(220, 225, 235, 0.6);
+	border-radius: 3px;
+	padding: 10px;
+	width: 225px;
+	z-index: 1;
+	color: $dark-gray;
+	font-family: $sans-serif;
+	text-align: left;
+	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+	font-weight: initial;
+}
