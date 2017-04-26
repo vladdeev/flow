@@ -78,7 +78,9 @@ class Workspace extends React.Component {
 
 
   render() {
+
 		if (this.props.currentWorkspace) {
+			debugger
 			const currentWorkspace = this.props.currentWorkspace
 			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
 			return(
@@ -105,6 +107,8 @@ class Workspace extends React.Component {
 						createWorkspace={this.props.createWorkspace}
 						receiveErrors={this.props.receiveErrors}
 						errors={this.props.errors} />
+
+						{this.props.children}
 				</div>
 			);
 		} else {
