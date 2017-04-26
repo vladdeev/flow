@@ -52,15 +52,14 @@
   padding-top: 30px;
 }
 
-.project-index h3 {
-  display: block;
-  box-sizing: border-box;
-  height: auto;
+.project-index li:first-child {
+
   padding: 7px 15px;
   color: rgb(175, 190, 202);
   font-weight: 200;
   text-transform: uppercase;
   font-size: 0.8em;
+
 }
 .project-index li a {
   display: block;

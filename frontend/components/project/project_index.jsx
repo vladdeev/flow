@@ -20,7 +20,7 @@ class ProjectIndex extends React.Component {
     return(
       <section className="project-index">
         <ul>
-          <h3>projects</h3>
+          <li>projects</li>
           {Object.values(this.props.projectsList).map(project => (
             <ProjectIndexItem
               key={project.id}

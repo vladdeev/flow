@@ -25,13 +25,13 @@ class Header extends React.Component {
           </div>
 
           <ul className="front-header-right group">
-            <li onClick={this.handleClick("login")} >
+            <li>
               <Link to="/login" activeClassName="current">Login</Link>
             </li>
-            <li onClick={this.handleClick("login")}>
-              <DemoLoginContainer />
+            <li>
+              <Link to="/demologin" activeClassName="current">demo login</Link>
             </li>
-            <li onClick={this.handleClick("signup")}>
+            <li>
               <Link to="/signup" activeClassName="current">Sign up!</Link>
             </li>
           </ul>

@@ -4,7 +4,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import AppContainer from './app/app_container';
 import SessionFormContainer from './session_form/session_form_container';
 import WorkspaceContainer from './workspace/workspace_container';
-// import ProjectContainer from './project/project_container';
+import ProjectShowContainer from './project/project_show_container';
+import DemoLoginContainer from './demo_login/demo_login_container'
 import {
   fetchAllWorkspaces,
   fetchWorkspace,
@@ -28,6 +29,9 @@ const Root = ({ store }) => {
     const currentWorkspace = curretState.workspace.currentWorkspace;
     const workspacesListIds = Object.keys(curretState.workspace.workspacesList);
     const workspaceId = ownProps.params.workspaceId;
+    const projectId = ownProps.params.projectId;
+    const currentProject = curretState.project.currentProject;
+    const projectsListIds = Object.keys(curretState.project.projectsList);
 
     if(!currentUser) {
       hashHistory.replace('/');
@@ -36,6 +40,14 @@ const Root = ({ store }) => {
     } else {
       store.dispatch(fetchWorkspace(workspaceId));
     }
+
+    // if (projectId) {
+    //   if(!projectsListIds.includes(projectId)) {
+    //     hashHistory.push(`/`);
+    //   } else {
+    //     store.dispatch(fetchProject(workspaceId, projectId));
+    //   }
+    // }
   }
 
  return (
@@ -45,7 +57,9 @@ const Root = ({ store }) => {
          <IndexRoute component={WorkspaceContainer}/>
          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+         <Route path="/demologin" component={DemoLoginContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace}>
+          <Route path=':projectId' component={ProjectShowContainer} onEnter={_ensureLoggedInAndWorkspace}/>
          </Route>
        </Route>
      </Router>
@@ -54,4 +68,3 @@ const Root = ({ store }) => {
 };
 
 export default  Root;
-// <Route path=':projectId' component={ProjectContainer} />

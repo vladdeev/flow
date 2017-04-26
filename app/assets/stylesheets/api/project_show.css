@@ -1,0 +1,12 @@
+.project-container {
+  width: 100%;
+  padding: 10px 20px 20px 20px;
+  background: white;
+  border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
+  text-align: center;
+}
+
+.project-container h1 {
+ font-size: 1.25em;
+ font-weight: 400;
+}

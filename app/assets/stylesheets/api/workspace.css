@@ -7,6 +7,7 @@
 .workspaces {
   width: 100%;
   z-index: 10;
+  background-color: white;
 }
 
 .workspaces-header {
@@ -57,13 +58,14 @@
 
 .dropdown {
   position: absolute;
+  background-color: white;
 	top: 39px;
 	right: 20px;
 	border: 0.5px solid rgba(156, 156, 156, 1);
 	border-radius: 3px;
 	padding: 0px;
 	width: 250px;
-	z-index: 1;
+	z-index: 200;
 	text-align: left;
 	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
 	font-weight: 300;

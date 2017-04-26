@@ -4,7 +4,6 @@ import WorkspacesIndex from './workspaces_index';
 import CreateWorkspaceForm from './create_workspace';
 import WorkspaceSideBar from './workspace_side_bar';
 
-
 class Workspace extends React.Component {
 	constructor(props) {
     super(props);
@@ -31,7 +30,7 @@ class Workspace extends React.Component {
       this.props.receiveAllWorkspaces({});
       this.props.receiveWorkspace("");
       this.props.receiveErrors([]);
-      this.props.logout()
+      this.props.logout().then(() => this.props.router.push('/'));
     }
   }
 
@@ -83,9 +82,7 @@ class Workspace extends React.Component {
 		}
 	}
 
-
   render() {
-
 		if (this.props.currentWorkspace) {
 			const currentWorkspace = this.props.currentWorkspace
 			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
@@ -105,6 +102,7 @@ class Workspace extends React.Component {
 							</ul>
 						</nav>
 						{this._renderDropdown()}
+						{this.props.children}
 					</content>
 
 					<CreateWorkspaceForm
