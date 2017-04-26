@@ -42,5 +42,3 @@ class Header extends React.Component {
 }
 
 export default Header;
-
-// <button onClick={this.handleClick("login")}>Login</button>

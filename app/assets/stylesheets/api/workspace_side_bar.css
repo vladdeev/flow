@@ -1,0 +1,77 @@
+.side-bar {
+  width: 240px;
+  height: 100%;
+  color: white;
+  font-weight: 200;
+  transition: 0.4s;
+  CSS - rgba CSS - hex Android Canvas SVG PHP
+  background: -moz-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(43,78,120,1)), color-stop(100%, rgba(48,106,133,1))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%); /* ie10+ */
+  background: linear-gradient(274deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2B4E78', endColorstr='#306A85',GradientType=1 ); /* ie6-9 */
+
+}
+
+.side-bar-logo {
+  display: block;
+  box-sizing: border-box;
+  width: 240px;
+  height: auto;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.side-bar-logo a:first-child {
+  float:left;
+  font-family: 'Tillana', cursive;
+  font-size: 36px;
+  cursor: pointer;
+  font-weight: 200;
+}
+
+.side-bar-logo a:last-child {
+  float: right;
+  font-size: 26px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: 200;
+  margin: auto;
+  padding-top: 0px;
+  padding-right: 15px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.project-index {
+  display: block;
+  box-sizing: border-box;
+  width: 240px;
+  height: auto;
+  padding-top: 30px;
+}
+
+.project-index h3 {
+  display: block;
+  box-sizing: border-box;
+  height: auto;
+  padding: 7px 15px;
+  color: rgb(175, 190, 202);
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.project-index li a {
+  display: block;
+  box-sizing: border-box;
+  width: 240px;
+  height: auto;
+  padding: 7px 15px;
+
+}
+
+.project-index li a:hover {
+  background-color: rgba(41, 184, 229, 0.81);
+
+}

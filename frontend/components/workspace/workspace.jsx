@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
 import WorkspacesIndex from './workspaces_index';
-import CreateWorkspaceForm from './create_workspace'
+import CreateWorkspaceForm from './create_workspace';
+import WorkspaceSideBar from './workspace_side_bar';
+
 
 class Workspace extends React.Component {
 	constructor(props) {
@@ -13,6 +15,7 @@ class Workspace extends React.Component {
 		this.toggleCreateWorkspace = this.toggleCreateWorkspace.bind(this);
 		this.toggleDropdown = this.toggleDropdown.bind(this);
 		this.redirectToWorkspace = this.redirectToWorkspace.bind(this);
+		this.openSideBar = this.openSideBar.bind(this);
   }
 
 	componentDidMount(){
@@ -56,6 +59,10 @@ class Workspace extends React.Component {
 		}
 	}
 
+	openSideBar () {
+	   document.getElementById("side-bar").style.width = "240px";
+	};
+
 	redirectToWorkspace (id) {
 		hashHistory.push(`/${id}`);
 	}
@@ -80,18 +87,17 @@ class Workspace extends React.Component {
   render() {
 
 		if (this.props.currentWorkspace) {
-			debugger
 			const currentWorkspace = this.props.currentWorkspace
 			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
 			return(
-				<div onClick={this.resetDropdown} className="app-workspaces">
-					<nav className="side-bar">
-					</nav>
+				<div onClick={this.resetDropdown} className="app-workspaces group">
+					<WorkspaceSideBar />
 
 					<content className='workspaces'>
 						<nav className="workspaces-header group">
 							<ul className="workspaces-header-left group">
 								<li>my tasks</li>
+								<li onClick={this.openSideBar} id="close-sidebar">&#9776;</li>
 							</ul>
 							<ul onClick={this.toggleDropdown} className="workspaces-header-right group">
 								<div className="badge">{this._getInitials()}</div>
@@ -108,7 +114,6 @@ class Workspace extends React.Component {
 						receiveErrors={this.props.receiveErrors}
 						errors={this.props.errors} />
 
-						{this.props.children}
 				</div>
 			);
 		} else {

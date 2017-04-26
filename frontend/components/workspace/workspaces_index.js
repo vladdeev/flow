@@ -8,7 +8,6 @@ const WorkspacesIndex = ({ workspacesList, redirectToWorkspace }) => (
       {Object.values(workspacesList).map(workspace => (
         <li key={workspace.id}>
           <h3 onClick={() => redirectToWorkspace(workspace.id)} >{workspace.title}</h3>
-
         </li>
       ))}
     </ul>

@@ -6,13 +6,9 @@
 }
 .workspaces {
   width: 100%;
+  z-index: 10;
 }
 
-
-.side-bar {
-  width: 0px;
-  height: 100%;
-}
 .workspaces-header {
   width: 100%;
   background: white;
@@ -83,6 +79,7 @@
 .wslist {
   border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
 }
+
 .wslist ul li {
   display: block;
   font-weight: 200;

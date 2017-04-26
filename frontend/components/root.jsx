@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import AppContainer from './app/app_container';
 import SessionFormContainer from './session_form/session_form_container';
 import WorkspaceContainer from './workspace/workspace_container';
-import ProjectContainer from './project/project_container';
+// import ProjectContainer from './project/project_container';
 import {
   fetchAllWorkspaces,
   fetchWorkspace,
@@ -46,7 +46,6 @@ const Root = ({ store }) => {
          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
          <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace}>
-          <Route path=':projectId' component={ProjectContainer} />
          </Route>
        </Route>
      </Router>
@@ -55,3 +54,4 @@ const Root = ({ store }) => {
 };
 
 export default  Root;
+// <Route path=':projectId' component={ProjectContainer} />
