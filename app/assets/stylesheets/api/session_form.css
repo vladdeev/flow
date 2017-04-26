@@ -28,16 +28,17 @@
   border-radius: 3px;
   border-color: white;
   padding-bottom: 30px;
+  padding: 0 40px 30px 40px;
 }
 
-#form-close {
+#session-form-close {
   display: block;
   box-sizing: border-box;
   color: rgba(45, 45, 45, 1);
-  padding: 30px 40px 0px 40px;
+  padding-top: 30px;
 }
 
-#form-close a {
+#session-form-close a {
   text-decoration: none;
   color: rgba(45, 45, 45, 1);
 }
@@ -60,31 +61,22 @@
   font-size: 1em;
   font-weight: 400;
   margin: 0px;
-  padding: 0px 40px 0px 40px;
 }
 
-.session-form-box-demo {
+.session-form-container > a {
   display: block;
-  box-sizing: border-box;
-  color: rgb(95, 95, 95);
-  font-size: 1em;
-  font-weight: 400;
-  margin: 0px;
-  padding: 0px 40px 0px 40px;
-}
-
-.session-form-box-demo input {
-  box-sizing: border-box;
   border: 1px solid #cdcfd2;
   border-radius: 3px;
-  color: black;
   font-size: 1.25em;
-  height: 40px;
-  margin: 0 0 20px 0;
-  padding: 0;
-  padding-left: 10px;
-  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  color: white;
+  background-color: rgb(40, 120, 185);
+  margin-bottom: 12px;
+  text-align: center;
+  text-transform: capitalize;
 }
+
 
 .session-form-box ul {
   display: block;
@@ -121,9 +113,9 @@
   border-radius: 3px;
   color: black;
   font-size: 1.25em;
-  height: 40px;
+  height: auto;
+  padding: 10px 0;
   margin: 0 0 20px 0;
-  padding: 0;
   padding-left: 10px;
   width: 100%;
 }
@@ -159,7 +151,6 @@ input[type="submit"]:hover {
 
 .session-form-links {
   display: inline-block;
-  padding-right: 40px;
 }
 
 .session-form-links a {

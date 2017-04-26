@@ -10,7 +10,6 @@ class SessionForm extends React.Component {
 			last_name: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleDemoLogin = this.handleDemoLogin.bind(this);
 		this._resetSetAndErrors = this._resetSetAndErrors.bind(this);
 	}
 
@@ -40,17 +39,6 @@ class SessionForm extends React.Component {
 		this.props.processForm(this.state);
 		this.setState({ password: "" });
 	}
-
-	handleDemoLogin(e) {
-    e.preventDefault();
-    this.setState({email: "guest@welcome.io",
-			password: "q1w2e3",
-			first_name: "Robert",
-			last_name: "Smith"
-		}, function () {
-    return this.props.processForm(this.state);
-    });
-  }
 
 	renderErrors() {
 		if (this.props.errors) {
@@ -86,13 +74,7 @@ class SessionForm extends React.Component {
 
 	_renderDemoLoginButton() {
 		if (this.props.formType === "login") {
-			return(
-				<div>
-					<form onSubmit={this.handleDemoLogin} className="session-form-box-demo">
-						<input type="submit" value="Demo Login"/>
-					</form>
-				</div>
-			)
+			return(<Link to={'/demologin'} >demo login</Link>)
 		}
 	}
 
@@ -131,7 +113,7 @@ class SessionForm extends React.Component {
 		return (
 			<div className="session-form">
 				<div className="session-form-container">
-					<div id="form-close">
+					<div id="session-form-close">
 						<Link to="/">&#10006;</Link>
 					</div>
 					<div className="session-form-header">
