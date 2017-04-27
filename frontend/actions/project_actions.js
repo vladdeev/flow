@@ -5,7 +5,9 @@ export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 export const RECEIVE_NEW_PROJECT = "RECEIVE_NEW_PROJECT";
 export const RECEIVE_INITIAL_PROJECT = "RECEIVE_INITIAL_PROJECT";
 export const REMOVE_PROJECT = "REMOVE_PROJECT";
+export const UPDATE_PROJECT = "UPDATE_PROJECT";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+
 
 export const receiveAllProjects = (projects) => ({
   type: RECEIVE_ALL_PROJECTS,
@@ -37,6 +39,11 @@ export const removeProject = (project) => ({
   projectId: project.id
 });
 
+export const updateProjectInReducer = (project) => ({
+  type: UPDATE_PROJECT,
+  project
+});
+
 export const fetchAllProjects = (workspace_id) => dispatch => (
   projectAPIUtil.fetchAllProjects(workspace_id)
     .then(projects => dispatch(receiveAllProjects(projects)),
@@ -63,7 +70,7 @@ export const createProject = (workspace_id, project) => dispatch => (
 
 export const updateProject = (workspace_id, project)  => dispatch => (
   projectAPIUtil.updateProject(workspace_id, project)
-    .then(project => dispatch(receiveProject(project)),
+    .then(project => dispatch(updateProjectInReducer(project)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 

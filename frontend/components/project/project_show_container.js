@@ -27,9 +27,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   // receiveAllProjects: (projects) => dispatch(receiveAllProjects(projects)),
   // receiveProject: (project) => dispatch(receiveProject(project)),
-  // receiveErrors: (errors) => dispatch(receiveErrors(errors)),
+  receiveErrors: (errors) => dispatch(receiveErrors(errors)),
   // fetchAllProjects: (workspace_id) => dispatch(fetchAllProjects(workspace_id)),
-  // fetchInitialProject: (workspace_id) => dispatch(fetchInitialProject(workspace_id)),
+  updateProject: (workspace_id, project) => dispatch(updateProject(workspace_id, project)),
   fetchProject: (workspace_id, project_id) => dispatch(fetchProject(workspace_id, project_id)),
   deleteProject: (workspace_id, project) => dispatch(deleteProject(workspace_id, project))
 });

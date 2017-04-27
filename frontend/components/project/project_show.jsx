@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
+import UpdateProjectForm from '../project/update_project_form';
 
 class ProjectShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dropdownOn: false };
+    this.state = { dropdownOn: false, updateProjectOn: false };
 
     this._renderDropdown = this._renderDropdown.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.toggleUpdateProject = this.toggleUpdateProject.bind(this);
   }
 
   componentDidMount () {
@@ -31,7 +33,7 @@ class ProjectShow extends React.Component {
                 <h7 onClick={this.handleDelete}>Delete Project</h7>
               </li>
               <li>
-                <h7>Rename Project</h7>
+                <h7 onClick={this.toggleUpdateProject}>Rename Project</h7>
               </li>
             </ul>
           </section>
@@ -47,6 +49,14 @@ class ProjectShow extends React.Component {
       this.setState({ dropdownOn: false })
     } else {
       this.setState({ dropdownOn: true })
+    }
+  }
+
+  toggleUpdateProject() {
+    if (this.state.updateProjectOn) {
+      this.setState({ updateProjectOn: false })
+    } else {
+      this.setState({ updateProjectOn: true })
     }
   }
 
@@ -66,6 +76,16 @@ class ProjectShow extends React.Component {
             <h7 onClick={this.toggleDropdown}>&#x25BC;</h7>
             {this._renderDropdown()}
           </div>
+
+          <UpdateProjectForm
+            currentProject={this.props.currentProject}
+            currentProjectName={this.props.currentProjectName}
+            toggleUpdateProject={this.toggleUpdateProject}
+            currentWorkspace={this.props.currentWorkspace}
+            formOpen={this.state.updateProjectOn}
+            updateProject={this.props.updateProject}
+            receiveErrors={this.props.receiveErrors}
+            errors={this.props.errors} />
         </section>
       )
     } else {

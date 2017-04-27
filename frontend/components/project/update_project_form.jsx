@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
 
-class CreateProjectForm extends React.Component {
+class UpdateProjectForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: "", formOpen: this.props.formOpen };
+    this.state = { title: this.props.currentProjectName, formOpen: this.props.formOpen };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -19,14 +20,15 @@ class CreateProjectForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const project = {
+      id: this.props.currentProject,
       title: this.state.title
     };
     this.props.receiveErrors([]);
     this.setState({ title: "", formOpen: this.props.formOpen });
-    this.props.createProject(this.props.currentWorkspace, project)
-      .then((action) => {
-        this.props.toggleCreateProject();
-        hashHistory.push(`/${this.props.currentWorkspace}/${action.project.id}`)
+    this.props.updateProject(this.props.currentWorkspace, project)
+      .then(() => {
+        this.props.toggleUpdateProject();
+        hashHistory.push(`/${this.props.currentWorkspace}/${this.props.currentProject}`)
       });
   }
 
@@ -47,19 +49,19 @@ class CreateProjectForm extends React.Component {
   resetSetAndErrors() {
     this.props.receiveErrors([]);
     this.setState({ title: "", formOpen: this.props.formOpen });
-    this.props.toggleCreateProject();
+    this.props.toggleUpdateProject();
   }
 
   render() {
     if (this.props.formOpen) {
       return(
-        <div className="project-form">
+        <span className="project-form">
   				<div className="project-form-container">
   					<div id="form-close">
   						<h3 onClick={this.resetSetAndErrors}>&#10006;</h3>
   					</div>
   					<div className="project-form-header">
-  						<h1>Create New Project</h1>
+  						<h1>Rename Project</h1>
   					</div>
   					<form onSubmit={this.handleSubmit} className="project-form-box">
   						{this.renderErrors()}
@@ -68,10 +70,10 @@ class CreateProjectForm extends React.Component {
   									value={this.state.title}
   									onChange={this.updateForm("title")}
   									className="title-input" />
-  							<input type="submit" value="Create" />
+  							<input type="submit" value="Update" />
   					</form>
   				</div>
-  			</div>
+  			</span>
       )
     } else {
       return null
@@ -79,4 +81,4 @@ class CreateProjectForm extends React.Component {
   }
 }
 
-export default CreateProjectForm;
+export default withRouter(UpdateProjectForm);

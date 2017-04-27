@@ -5,6 +5,7 @@ import {
   RECEIVE_PROJECT,
   RECEIVE_NEW_PROJECT,
   REMOVE_PROJECT,
+  UPDATE_PROJECT,
   RECEIVE_ERRORS
 } from '../actions/project_actions';
 
@@ -30,6 +31,8 @@ const projectReducer = (oldState = _defaultState, action) => {
       let newState = merge({}, oldState);
       delete newState["projectsList"][action.projectId];
       return newState;
+    case UPDATE_PROJECT:
+      return merge({}, oldState, { projectsList: {[action.project.id]: action.project}});
     case RECEIVE_ERRORS:
       return Object.assign({}, oldState, { errors: action.errors });
     default:
