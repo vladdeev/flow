@@ -8,6 +8,7 @@ class WorkspaceSideBar extends React.Component {
     super(props);
     this.state = { createProjectOn: false };
     this.toggleCreateProject = this.toggleCreateProject.bind(this);
+    this.closeNav = this.closeNav.bind(this);
   }
 
   closeNav() {
@@ -27,13 +28,14 @@ class WorkspaceSideBar extends React.Component {
       <nav className="side-bar" id="side-bar">
         <div className="side-bar-logo group">
           <Link to="/">flow</Link>
-          <Link onClick={() => (closeNav())} to="/">&#215;</Link>
+          <Link onClick={this.closeNav} to="/">&#215;</Link>
         </div>
         <ProjectIndexContainer />
         <h7 onClick={this.toggleCreateProject}>+ New Project</h7>
 
         <CreateProjectForm
           toggleCreateProject={this.toggleCreateProject}
+          currentWorkspace={this.props.currentWorkspace}
           formOpen={this.state.createProjectOn}
           createProject={this.props.createProject}
           receiveErrors={this.props.receiveErrors}

@@ -70,6 +70,14 @@
 
 }
 
+.side-bar h7 {
+  display: block;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-left: 15px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .project-index li a:hover {
   background-color: rgba(41, 184, 229, 0.81);
 

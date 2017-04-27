@@ -7,7 +7,6 @@ import {
   fetchAllProjects,
   fetchProject,
   fetchInitialProject,
-  createProject,
   updateProject,
   deleteProject
 } from '../../actions/project_actions';
@@ -32,7 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   // fetchAllProjects: (workspace_id) => dispatch(fetchAllProjects(workspace_id)),
   // fetchInitialProject: (workspace_id) => dispatch(fetchInitialProject(workspace_id)),
   fetchProject: (workspace_id, project_id) => dispatch(fetchProject(workspace_id, project_id)),
-  // createProject: (workspace_id, project) => dispatch(createProject(workspace_id, project))
+  deleteProject: (workspace_id, project) => dispatch(deleteProject(workspace_id, project))
 });
 
 export default connect(

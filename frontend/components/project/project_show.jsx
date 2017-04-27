@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link, hashHistory, withRouter } from 'react-router';
 
 class ProjectShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { dropdownOn: false };
+
+    this._renderDropdown = this._renderDropdown.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount () {
@@ -15,11 +21,51 @@ class ProjectShow extends React.Component {
     }
   }
 
+  _renderDropdown() {
+    if (this.state.dropdownOn){
+      return(
+        <div onClick={this.toggleDropdown} className="dropdown-container">
+          <section className="dropdown-projects">
+            <ul>
+              <li>
+                <h7 onClick={this.handleDelete}>Delete Project</h7>
+              </li>
+              <li>
+                <h7>Rename Project</h7>
+              </li>
+            </ul>
+          </section>
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
+  toggleDropdown() {
+    if (this.state.dropdownOn) {
+      this.setState({ dropdownOn: false })
+    } else {
+      this.setState({ dropdownOn: true })
+    }
+  }
+
+  handleDelete() {
+    this.props.deleteProject(this.props.currentWorkspace, this.props.currentProject)
+      .then(() => {
+        hashHistory.push(`/${this.props.currentWorkspace}`)
+      });
+  }
+
   render() {
     if(this.props.currentProject) {
       return(
         <section className="project-container">
           <h1>{this.props.currentProjectName}</h1>
+          <div>
+            <h7 onClick={this.toggleDropdown}>&#x25BC;</h7>
+            {this._renderDropdown()}
+          </div>
         </section>
       )
     } else {
@@ -28,4 +74,4 @@ class ProjectShow extends React.Component {
   }
 }
 
-export default ProjectShow;
+export default withRouter(ProjectShow);

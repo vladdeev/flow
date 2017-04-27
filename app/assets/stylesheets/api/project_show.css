@@ -1,13 +1,27 @@
 .project-container {
   width: 100%;
-  padding: 10px 20px 20px 20px;
+  padding: 10px;
   background: white;
   border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
   text-align: center;
   box-sizing: border-box;
+
 }
 
 .project-container h1 {
- font-size: 1.25em;
- font-weight: 400;
+  display: inline-block;
+  font-size: 1.25em;
+  font-weight: 400;
+}
+
+.project-container > div {
+  display: inline-block;
+  position: relative;
+}
+
+.project-container > div > h7 {
+  padding-left: 10px;
+  font-weight: 200;
+  color: rgba(196, 196, 196, 0.77);
+  cursor: pointer;
 }

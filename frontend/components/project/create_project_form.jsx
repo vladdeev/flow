@@ -34,11 +34,10 @@ class CreateProjectForm extends React.Component {
     };
     this.props.receiveErrors([]);
     this.setState({ title: "", formOpen: this.props.formOpen });
-
     this.props.createProject(this.props.currentWorkspace, project)
       .then((action) => {
         this.props.toggleCreateProject();
-        hashHistory.push(`/${action.project.id}`)
+        hashHistory.push(`/${this.props.currentWorkspace}/${action.project.id}`)
       });
   }
 
