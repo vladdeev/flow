@@ -48,8 +48,8 @@ description   | string    |
 due_date      | date      |
 author_id     | integer   | not null, indexed
 assignee_id   | integer   | indexed
-project_id    | integer   | not null, indexed
-workspace_id  | integer   | not null, indexed
+project_id    | integer   |
+workspace_id  | integer   | not null
 completed     | boolean   |
 completed_at  | datetime  |
 created_at    | datetime  | not null

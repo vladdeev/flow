@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id           :integer          not null, primary key
+#  title        :string
+#  description  :string
+#  due_date     :datetime
+#  author_id    :integer          not null
+#  assignee_id  :integer
+#  project_id   :integer
+#  workspace_id :integer          not null
+#  completed    :boolean          default("false")
+#  completed_at :datetime
+#  updated_at   :datetime         not null
+#  created_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

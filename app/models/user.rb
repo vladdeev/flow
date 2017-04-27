@@ -33,6 +33,9 @@ class User < ActiveRecord::Base
 
   has_many :projects_memberships, through: :workspaces, source: :projects
 
+  has_many :assigned_tasks, class_name: :Task, foreign_key: :assignee_id
+  has_many :created_tasks, class_name: :Task, foreign_key: :author_id
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

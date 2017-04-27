@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :workspaces do
       resources :projects
     end
+    resources :tasks
   end
 end

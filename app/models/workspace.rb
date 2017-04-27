@@ -18,4 +18,5 @@ class Workspace < ActiveRecord::Base
   has_many :workspacings, class_name: :Workspacing, foreign_key: :workspace_id, primary_key: :id
   has_many :members, through: :workspacings, source: :user
   has_many :projects
+  has_many :tasks
 end

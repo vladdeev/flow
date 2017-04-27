@@ -11,14 +11,11 @@ import {
   updateProject,
   deleteProject
 } from './actions/project_actions'
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
-window.logout = logout;
-window.fetchAllProjects = fetchAllProjects;
-window.fetchProject = fetchProject;
-window.fetchInitialProject = fetchInitialProject;
-window.createProject = createProject;
-window.updateProject = updateProject;
-window.deleteProject = deleteProject;
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
