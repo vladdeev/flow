@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
 import WorkspacesIndex from './workspaces_index';
 import CreateWorkspaceForm from './create_workspace';
-import WorkspaceSideBar from './workspace_side_bar';
+import WorkspaceSideBarContainer from './workspace_sidebar_container';
 
 class Workspace extends React.Component {
 	constructor(props) {
@@ -88,7 +88,7 @@ class Workspace extends React.Component {
 			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
 			return(
 				<div onClick={this.resetDropdown} className="app-workspaces group">
-					<WorkspaceSideBar />
+					<WorkspaceSideBarContainer />
 
 					<content className='workspaces'>
 						<nav className="workspaces-header group">

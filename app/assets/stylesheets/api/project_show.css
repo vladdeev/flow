@@ -4,6 +4,7 @@
   background: white;
   border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .project-container h1 {

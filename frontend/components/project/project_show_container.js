@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
   const currentProject = state.project.currentProject;
   const errors = state.project.errors;
   let currentProjectName = ""
-  if (currentProject) {
+  if (projectsList[currentProject]) {
     currentProjectName = projectsList[currentProject].title;
   }
   const currentWorkspace = state.workspace.currentWorkspace;
