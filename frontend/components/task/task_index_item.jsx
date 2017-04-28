@@ -67,7 +67,7 @@ const textFieldStyle = {
   // boxSizing: 'border-box',
   paddingLeft: '10px',
   fontSize: '1em',
-  height: 'auto',
+  height: '40px',
   paddingBottom: '3px',
   width: '90%'
 };

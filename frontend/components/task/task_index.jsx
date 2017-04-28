@@ -56,8 +56,7 @@ class TaskIndex extends React.Component {
         <div className='task-index'>
           <div className='task-index-top'>
             <button className='task-index-top-left'
-                    onTouchTap={this.handleCreate}
-                    value="Add Task" />
+                    onTouchTap={this.handleCreate}>Add Task</button>
           </div>
         </div>
       );
@@ -66,8 +65,7 @@ class TaskIndex extends React.Component {
       <div className='task-index'>
         <div className='task-index-top'>
         <button className='task-index-top-left'
-                onTouchTap={this.handleCreate}
-                value="Add Task" />
+                onTouchTap={this.handleCreate}>Add Task</button>
         </div>
         <ul className='task-index-list'>
           {this.renderTasks()}

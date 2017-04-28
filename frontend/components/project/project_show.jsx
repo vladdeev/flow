@@ -92,7 +92,11 @@ class ProjectShow extends React.Component {
 
           <section className="task-container">
 					  <TaskIndexContainer currentProjectId={this.props.currentProject}/>
+            <div className="task-detail">
+              <h1>YAY</h1>
+            </div>
           </section>
+
         </div>
       );
     } else {

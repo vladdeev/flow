@@ -1,9 +1,16 @@
 button:focus {outline:0;}
+
 .task-container {
   display: flex;
-  flex-direction: 'column';
-  height: 100%
+  height: 100%;
+  position: fixed;
+  width: 100%
 }
+
+.task-detail {
+  width: 40%;
+}
+
 
 .task-input {
   width: 100%;
@@ -16,7 +23,7 @@ button:focus {outline:0;}
 }
 
 .task-index {
-  width: 100%;
+  width: 55%;
   height: 96%;
   /*min-width: 500px;*/
   overflow-y:scroll;
@@ -25,7 +32,6 @@ button:focus {outline:0;}
   margin: 20px;
   flex-direction: column;
   overflow: auto;
-  position: fixed;
   background: white;
 }
 
@@ -92,17 +98,17 @@ button:focus {outline:0;}
 
 .completed-task-check {
   display:inline-block;
-  background-color: #b3fcd1;
+  background-color: #96e8b8;
   min-width: 22px;
   min-height:22px;
   max-height: 22px;
-  background: #b3fcd1;
+  background: #96e8b8;
   border-radius:50%;
   -ms-transform: rotate(45deg); /* IE 9 */
   -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
   transform: rotate(45deg);
   border: 1px solid;
-  border-color: #b3fcd1;
+  border-color: #96e8b8;
 }
 
 .completed-task-check:before{
@@ -123,4 +129,44 @@ button:focus {outline:0;}
   background-color: white;
   left:8px;
   top:12px;
+}
+
+.task-index-top-left {
+  color: white;
+  background-color: rgb(40, 120, 185);
+  width: auto;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+
+.task-index-top-left:hover {
+  background-color: rgb(64, 170, 255);
+  -webkit-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
+  -moz-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
+  box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
+  cursor: pointer;
+}
+
+button {
+	margin:0;
+	border:0;
+	padding:0;
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal;
+	background:none;
+	line-height:1;
+	font-size:13px;
+	font-family:Arial;
+}
+
+button {
+	overflow:visible;
+	width:auto;
+}
+
+::-webkit-file-upload-button {
+	padding:0;
+	border:0;
+	background:none;
 }
