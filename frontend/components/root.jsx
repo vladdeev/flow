@@ -1,11 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { lightBlue300, lightBlue400, lightBlueA400, lightRed200 } from 'material-ui/styles/colors';
+
 import AppContainer from './app/app_container';
 import SessionFormContainer from './session_form/session_form_container';
+import DemoLoginContainer from './demo_login/demo_login_container';
 import WorkspaceContainer from './workspace/workspace_container';
 import ProjectShowContainer from './project/project_show_container';
-import DemoLoginContainer from './demo_login/demo_login_container'
+import TaskIndexContainer from './task/task_index_container';
 import {
   fetchAllWorkspaces,
   fetchWorkspace,
@@ -40,31 +46,35 @@ const Root = ({ store }) => {
     } else {
       store.dispatch(fetchWorkspace(workspaceId));
     }
-
-    // if (projectId) {
-    //   if(!projectsListIds.includes(projectId)) {
-    //     hashHistory.push(`/`);
-    //   } else {
-    //     store.dispatch(fetchProject(workspaceId, projectId));
-    //   }
-    // }
-  }
+  };
 
  return (
-   <Provider store={ store }>
-     <Router history={ hashHistory }>
-       <Route path="/" component={ AppContainer }>
-         <IndexRoute component={WorkspaceContainer}/>
-         <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-         <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-         <Route path="/demologin" component={DemoLoginContainer} onEnter={_redirectIfLoggedIn} />
-         <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace}>
-          <Route path=':projectId' component={ProjectShowContainer} onEnter={_ensureLoggedInAndWorkspace}/>
+    <MuiThemeProvider muiTheme={muiTheme}>
+     <Provider store={ store }>
+       <Router history={ hashHistory }>
+         <Route path="/" component={ AppContainer }>
+           <IndexRoute component={WorkspaceContainer}/>
+           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+           <Route path="/demologin" component={DemoLoginContainer} onEnter={_redirectIfLoggedIn} />
+           <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace}>
+            <Route path=':projectId' component={ProjectShowContainer} onEnter={_ensureLoggedInAndWorkspace}/>
+           </Route>
          </Route>
-       </Route>
-     </Router>
-   </Provider>
+       </Router>
+     </Provider>
+    </MuiThemeProvider>
  );
 };
 
-export default  Root;
+const muiTheme = getMuiTheme({
+  palette: {
+  primary1Color: lightBlue300,
+  primary2Color: lightBlue400,
+},
+  appBar: {
+    height: 50,
+  },
+});
+
+export default Root;

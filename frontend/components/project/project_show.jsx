@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
 import UpdateProjectForm from '../project/update_project_form';
+import TaskIndexContainer from '../task/task_index_container';
 
 class ProjectShow extends React.Component {
   constructor(props) {
@@ -14,12 +15,12 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchProject(this.props.params.workspaceId, this.props.params.projectId)
+    this.props.fetchProject(this.props.params.workspaceId, this.props.params.projectId);
   }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.params.projectId !== this.props.params.projectId) {
-      this.props.fetchProject(nextProps.params.workspaceId, nextProps.params.projectId)
+      this.props.fetchProject(nextProps.params.workspaceId, nextProps.params.projectId);
     }
   }
 
@@ -38,7 +39,7 @@ class ProjectShow extends React.Component {
             </ul>
           </section>
         </div>
-      )
+      );
     } else {
       return null;
     }
@@ -46,48 +47,54 @@ class ProjectShow extends React.Component {
 
   toggleDropdown() {
     if (this.state.dropdownOn) {
-      this.setState({ dropdownOn: false })
+      this.setState({ dropdownOn: false });
     } else {
-      this.setState({ dropdownOn: true })
+      this.setState({ dropdownOn: true });
     }
   }
 
   toggleUpdateProject() {
     if (this.state.updateProjectOn) {
-      this.setState({ updateProjectOn: false })
+      this.setState({ updateProjectOn: false });
     } else {
-      this.setState({ updateProjectOn: true })
+      this.setState({ updateProjectOn: true });
     }
   }
 
   handleDelete() {
     this.props.deleteProject(this.props.currentWorkspace, this.props.currentProject)
       .then(() => {
-        hashHistory.push(`/${this.props.currentWorkspace}`)
+        hashHistory.push(`/${this.props.currentWorkspace}`);
       });
   }
 
   render() {
     if(this.props.currentProject) {
       return(
-        <section className="project-container">
-          <h1>{this.props.currentProjectName}</h1>
-          <div>
-            <h7 onClick={this.toggleDropdown}>&#x25BC;</h7>
-            {this._renderDropdown()}
-          </div>
+        <div>
+          <section className="project-container">
+            <h1>{this.props.currentProjectName}</h1>
+            <div>
+              <h7 onClick={this.toggleDropdown}>&#x25BC;</h7>
+              {this._renderDropdown()}
+            </div>
 
-          <UpdateProjectForm
-            currentProject={this.props.currentProject}
-            currentProjectName={this.props.currentProjectName}
-            toggleUpdateProject={this.toggleUpdateProject}
-            currentWorkspace={this.props.currentWorkspace}
-            formOpen={this.state.updateProjectOn}
-            updateProject={this.props.updateProject}
-            receiveErrors={this.props.receiveErrors}
-            errors={this.props.errors} />
-        </section>
-      )
+            <UpdateProjectForm
+              currentProject={this.props.currentProject}
+              currentProjectName={this.props.currentProjectName}
+              toggleUpdateProject={this.toggleUpdateProject}
+              currentWorkspace={this.props.currentWorkspace}
+              formOpen={this.state.updateProjectOn}
+              updateProject={this.props.updateProject}
+              receiveErrors={this.props.receiveErrors}
+              errors={this.props.errors} />
+          </section>
+
+          <section className="task-container">
+					  <TaskIndexContainer currentProjectId={this.props.currentProject}/>
+          </section>
+        </div>
+      );
     } else {
       return null;
     }

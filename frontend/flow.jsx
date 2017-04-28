@@ -4,14 +4,20 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { logout } from './actions/session_actions';
 import {
-  fetchAllProjects,
-  fetchProject,
-  fetchInitialProject,
-  createProject,
-  updateProject,
-  deleteProject
-} from './actions/project_actions'
+  fetchAllTasks,
+  fetchTask,
+  createTask,
+  updateTask,
+  deleteTask
+} from './actions/task_actions';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+
+window.fetchAllTasks = fetchAllTasks;
+window.fetchTask = fetchTask;
+window.createTask = createTask;
+window.updateTask = updateTask;
+window.deleteTask = deleteTask;
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941

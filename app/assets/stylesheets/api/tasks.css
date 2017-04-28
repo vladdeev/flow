@@ -1,0 +1,126 @@
+button:focus {outline:0;}
+.task-container {
+  display: flex;
+  flex-direction: 'column';
+  height: 100%
+}
+
+.task-input {
+  width: 100%;
+  height: 40px;
+}
+
+.completed-task-input {
+  width: 100%;
+  height: 40px;
+}
+
+.task-index {
+  width: 100%;
+  height: 96%;
+  /*min-width: 500px;*/
+  overflow-y:scroll;
+  border: 1px solid #cdcfd2;
+  padding: 20px;
+  margin: 20px;
+  flex-direction: column;
+  overflow: auto;
+  position: fixed;
+  background: white;
+}
+
+.workspaces:nth-child(2) {
+  background: #f6f6f6;
+}
+.task-index-top{
+  height: 40px;
+}
+
+.task-input {
+  height: 40px;
+}
+.task-check {
+  display:inline-block;
+  background-color: #898E95;
+  min-width: 22px;
+  min-height: 22px;
+  max-height: 22px;
+  background: white;
+  border-radius:50%;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  border: 1px solid;
+  border-color: #898E95;
+  color: #898E95;
+}
+
+.task-check:before{
+  content:"";
+  position: absolute;
+  min-width:3px;
+  min-height:9px;
+  background-color: #898E95;
+  left:11px;
+  top:6px;
+}
+
+.task-check:after {
+  content:"";
+  color: inherit;
+  position: absolute;
+  min-width:3px;
+  min-height:3px;
+  background-color: #898E95;
+  left:8px;
+  top:12px;
+}
+
+.task-check:hover:after {
+  background-color: #3BF7D1;
+}
+
+.task-check:hover:before{
+  background-color: #3BF7D1;
+}
+
+.task-check:hover {
+  border-color: #3BF7D1;
+  color: #9DFBE8;
+  box-shadow: 0px 0px 0px 2px #3BF7D1;
+}
+
+.completed-task-check {
+  display:inline-block;
+  background-color: #b3fcd1;
+  min-width: 22px;
+  min-height:22px;
+  max-height: 22px;
+  background: #b3fcd1;
+  border-radius:50%;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  border: 1px solid;
+  border-color: #b3fcd1;
+}
+
+.completed-task-check:before{
+  content:"";
+  position: absolute;
+  min-width:3px;
+  min-height:9px;
+  background-color: white;
+  left:11px;
+  top:6px;
+}
+
+.completed-task-check:after {
+  content:"";
+  position: absolute;
+  min-width:3px;
+  min-height:3px;
+  background-color: white;
+  left:8px;
+  top:12px;
+}

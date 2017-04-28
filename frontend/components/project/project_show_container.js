@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
   const projectsList = state.project.projectsList;
   const currentProject = state.project.currentProject;
   const errors = state.project.errors;
-  let currentProjectName = ""
+  let currentProjectName = "";
   if (projectsList[currentProject]) {
     currentProjectName = projectsList[currentProject].title;
   }

@@ -4,6 +4,7 @@ import WorkspacesIndex from './workspaces_index';
 import CreateWorkspaceForm from './create_workspace';
 import WorkspaceSideBarContainer from './workspace_sidebar_container';
 
+
 class Workspace extends React.Component {
 	constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class Workspace extends React.Component {
 
 					<h2 onClick={this._logOutAndClearState}>Sign Out</h2>
 				</div>
-			)
+			);
 		} else {
 			return null;
 		}
@@ -60,7 +61,7 @@ class Workspace extends React.Component {
 
 	openSideBar () {
 	   document.getElementById("side-bar").style.width = "240px";
-	};
+	}
 
 	redirectToWorkspace (id) {
 		hashHistory.push(`/${id}`);
@@ -68,23 +69,23 @@ class Workspace extends React.Component {
 
 	toggleDropdown() {
 		if (this.state.dropdownOn) {
-			this.setState({ dropdownOn: false })
+			this.setState({ dropdownOn: false });
 		} else {
-			this.setState({ dropdownOn: true })
+			this.setState({ dropdownOn: true });
 		}
 	}
 
 	toggleCreateWorkspace() {
 		if (this.state.createWorkspaceOn) {
-			this.setState({ createWorkspaceOn: false })
+			this.setState({ createWorkspaceOn: false });
 		} else {
-			this.setState({ createWorkspaceOn: true })
+			this.setState({ createWorkspaceOn: true });
 		}
 	}
 
   render() {
 		if (this.props.currentWorkspace) {
-			const currentWorkspace = this.props.currentWorkspace
+			const currentWorkspace = this.props.currentWorkspace;
 			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
 			return(
 				<div onClick={this.resetDropdown} className="app-workspaces group">
@@ -115,7 +116,7 @@ class Workspace extends React.Component {
 				</div>
 			);
 		} else {
-			return null
+			return null;
 		}
   }
 }
