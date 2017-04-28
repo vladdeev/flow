@@ -28,7 +28,7 @@ class WorkspaceSideBar extends React.Component {
       <nav className="side-bar" id="side-bar">
         <div className="side-bar-logo group">
           <Link to="/">flow</Link>
-          <Link onClick={this.closeNav} to="/">&#215;</Link>
+          <Link onClick={this.closeNav} to="">&#215;</Link>
         </div>
         <ProjectIndexContainer />
         <h7 onClick={this.toggleCreateProject}>+ New Project</h7>

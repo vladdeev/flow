@@ -12,7 +12,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentProjectId: ownProps.currentProjectId,
+    currentProjectId: ownProps.params.projectId,
     currentUser: state.session.currentUser,
     currentTask: state.task.currentTask,
     currentWorkspace: state.workspace.currentWorkspace,

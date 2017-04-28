@@ -22,7 +22,7 @@ class Workspace extends React.Component {
 		if (this.props.loggedIn) {
 			this.props.fetchAllWorkspaces();
 			this.props.fetchInitialWorkspace()
-			.then((action) => (hashHistory.push(`/${action.workspace.id}`)));
+			// .then((action) => (hashHistory.push(`/${action.workspace.id}`)));
 		}
 	}
 

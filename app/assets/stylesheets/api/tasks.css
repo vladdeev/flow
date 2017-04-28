@@ -28,8 +28,8 @@ button:focus {outline:0;}
   /*min-width: 500px;*/
   overflow-y:scroll;
   border: 1px solid #cdcfd2;
-  padding: 20px;
-  margin: 20px;
+  padding: 30px;
+  margin: 20px auto;
   flex-direction: column;
   overflow: auto;
   background: white;
@@ -37,10 +37,13 @@ button:focus {outline:0;}
 
 .workspaces:nth-child(2) {
   background: #f6f6f6;
+  width: 100%
 }
 .task-index-top{
   height: 40px;
+  margin-bottom: 20px;
 }
+
 
 .task-input {
   height: 40px;
@@ -132,15 +135,21 @@ button:focus {outline:0;}
 }
 
 .task-index-top-left {
-  color: white;
-  background-color: rgb(40, 120, 185);
+  color: rgb(40, 120, 185);
+  border: 1.5px solid rgb(40, 120, 185);
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: 100;
+  /*background-color: rgb(40, 120, 185);*/
   width: auto;
-  padding: 10px 30px;
+  padding: 15px 40px;
   text-transform: capitalize;
 }
 
 .task-index-top-left:hover {
-  background-color: rgb(64, 170, 255);
+  background-color: white;
+  color: rgb(64, 170, 255);
+  border: 1.5px solid rgb(64, 170, 255);
   -webkit-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   -moz-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);

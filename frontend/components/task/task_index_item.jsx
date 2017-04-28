@@ -3,6 +3,7 @@ import { withRouter, hashHistory } from 'react-router';
 import { merge } from 'lodash';
 import TextField from 'material-ui/TextField';
 import { lightBlue200 } from 'material-ui/styles/colors';
+import TaskDetail from './task_detail';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -26,11 +27,15 @@ class TaskIndexItem extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ title: e.target.value });
+    this.setState({ title: e.target.value } );
   }
 
   handleComplete() {
     this.setState({ completed: !this.state.completed });
+  }
+
+  renderDetailHeader() {
+
   }
 
   render() {
@@ -56,7 +61,8 @@ class TaskIndexItem extends React.Component {
           multiLine={false}
           underlineShow={true}
           style={textFieldStyle}
-          inputStyle ={{width: '100%'}} />
+          inputStyle ={{width: '100%'}}
+          onBlur={() => { this.props.updateTask(this.state) }} />
       </li>
     );
   }
@@ -64,7 +70,6 @@ class TaskIndexItem extends React.Component {
 
 const textFieldStyle = {
   display: 'inline-block',
-  // boxSizing: 'border-box',
   paddingLeft: '10px',
   fontSize: '1em',
   height: '40px',

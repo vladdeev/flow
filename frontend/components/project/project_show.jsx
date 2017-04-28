@@ -91,10 +91,8 @@ class ProjectShow extends React.Component {
           </section>
 
           <section className="task-container">
-					  <TaskIndexContainer currentProjectId={this.props.currentProject}/>
-            <div className="task-detail">
-              <h1>YAY</h1>
-            </div>
+
+					  {this.props.children}
           </section>
 
         </div>
@@ -106,3 +104,7 @@ class ProjectShow extends React.Component {
 }
 
 export default withRouter(ProjectShow);
+
+// <div className="task-detail">
+// <h1>YAY</h1>
+// </div>
