@@ -12,6 +12,7 @@ import DemoLoginContainer from './demo_login/demo_login_container';
 import WorkspaceContainer from './workspace/workspace_container';
 import ProjectShowContainer from './project/project_show_container';
 import TaskIndexContainer from './task/task_index_container';
+import TaskDetailContainer from './task/task-detail/task_detail_container';
 import {
   fetchAllWorkspaces,
   fetchWorkspace,
@@ -41,6 +42,10 @@ const Root = ({ store }) => {
 
     if(!currentUser) {
       hashHistory.replace('/');
+    } else if (!workspacesListIds.includes(workspaceId)) {
+      hashHistory.push(`/${currentWorkspace}`);
+    } else {
+      store.dispatch(fetchWorkspace(workspaceId));
     }
   };
 
@@ -53,9 +58,11 @@ const Root = ({ store }) => {
            <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
            <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
            <Route path="/demologin" component={DemoLoginContainer} onEnter={_redirectIfLoggedIn} />
-           <Route path="/:workspaceId" component={WorkspaceContainer}>
+           <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace}>
             <Route path=':projectId' component={ProjectShowContainer}>
-              <Route path='tasks' component={TaskIndexContainer}/>
+              <Route path='tasks' component={TaskIndexContainer}>
+                <Route path=':tasksId' component={TaskDetailContainer}/>
+              </Route>
             </Route>
            </Route>
          </Route>

@@ -90,11 +90,7 @@ class ProjectShow extends React.Component {
               errors={this.props.errors} />
           </section>
 
-          <section className="task-container">
-
 					  {this.props.children}
-          </section>
-
         </div>
       );
     } else {

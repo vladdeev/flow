@@ -15,6 +15,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    workspaceId: ownProps.params.workspaceId,
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
     currentWorkspace: state.workspace.currentWorkspace,

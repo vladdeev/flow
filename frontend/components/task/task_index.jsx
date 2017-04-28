@@ -62,15 +62,19 @@ class TaskIndex extends React.Component {
       );
     } else {
       return(
-      <div className='task-index'>
-        <div className='task-index-top'>
-        <button className='task-index-top-left'
-                onTouchTap={this.handleCreate}>Add Task</button>
-        </div>
-        <ul className='task-index-list'>
-          {this.renderTasks()}
-        </ul>
-      </div>);
+        <section className="task-container">
+          <div className='task-index'>
+            <div className='task-index-top'>
+            <button className='task-index-top-left'
+                    onTouchTap={this.handleCreate}>Add Task</button>
+            </div>
+            <ul className='task-index-list'>
+              {this.renderTasks()}
+            </ul>
+          </div>
+          {this.props.children}
+        </section>
+      );
     }
   }
 }

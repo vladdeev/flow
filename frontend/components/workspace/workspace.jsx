@@ -94,8 +94,7 @@ class Workspace extends React.Component {
 					<content className='workspaces'>
 						<nav className="workspaces-header group">
 							<ul className="workspaces-header-left group">
-								<li>my tasks</li>
-								<li onClick={this.openSideBar} id="close-sidebar">&#9776;</li>
+								<li onClick={this.openSideBar}>my projects</li>
 							</ul>
 							<ul onClick={this.toggleDropdown} className="workspaces-header-right group">
 								<div className="badge">{this._getInitials()}</div>
