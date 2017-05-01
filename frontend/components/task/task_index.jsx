@@ -8,10 +8,12 @@ class TaskIndex extends React.Component {
 
     this.state = {
       task: {},
-      currentTaskList: []
+      currentTaskList: [],
+      taskDetailOpened: false
     };
 
     this.handleCreate = this.handleCreate.bind(this);
+    this.toggleTaskDetail = this.toggleTaskDetail.bind(this);
   }
 
   componentDidMount() {
@@ -31,16 +33,19 @@ class TaskIndex extends React.Component {
   }
 
   handleCreate() {
-    this.props.createTask({title: "", workspace_id: this.props.currentWorkspace, project_id: this.props.currentProjectId });
+    this.props.createTask({title: "", workspace_id: this.props.currentWorkspace,
+                          project_id: this.props.currentProjectId });
   }
 
   renderTasks() {
-    const tasks = this.selectTasks(this.props.tasksList, this.props.params.projectId);
+    const tasks = this.selectTasks(this.props.tasksList,
+                                    this.props.params.projectId);
     if (tasks.length > 0) {
       return tasks.map( (task) => (
         <TaskIndexItem task={task}
                         updateTask={this.props.updateTask}
                         fetchTask={this.props.fetchTask}
+                        toggleTaskDetail={this.toggleTaskDetail}
                         key={task.id + task.title}/>
       ));
     } else {
@@ -48,7 +53,13 @@ class TaskIndex extends React.Component {
     }
   }
 
-
+  toggleTaskDetail() {
+    if (this.state.taskDetailOpened) {
+      this.setState({ taskDetailOpened: false });
+    } else {
+      this.setState({ taskDetailOpened: true });
+    }
+  }
 
   render() {
     if (this.props.loading) {
@@ -79,4 +90,12 @@ class TaskIndex extends React.Component {
   }
 }
 
+const textFieldStyle = {
+  display: 'inline-block',
+  paddingLeft: '10px',
+  fontSize: '1em',
+  height: '40px',
+  paddingBottom: '3px',
+  width: '90%'
+};
 export default withRouter(TaskIndex);

@@ -21,8 +21,9 @@ class Workspace extends React.Component {
 	componentDidMount(){
 		if (this.props.loggedIn) {
 			this.props.fetchAllWorkspaces();
-			this.props.fetchInitialWorkspace()
-			// .then((action) => (hashHistory.push(`/${action.workspace.id}`)));
+			if (!this.props.params.workspaceId) {
+				this.props.fetchInitialWorkspace();
+			}
 		}
 	}
 
@@ -36,9 +37,9 @@ class Workspace extends React.Component {
   }
 
 	_getInitials() {
-		const first_initial = this.props.currentUser.first_name.slice(0,1);
-		const second_initial = this.props.currentUser.last_name.slice(0,1);
-		return first_initial.concat(second_initial);
+		const firstInitial = this.props.currentUser.first_name.slice(0,1);
+		const secondInitial = this.props.currentUser.last_name.slice(0,1);
+		return firstInitial.concat(secondInitial);
 	}
 
 	_renderDropdown() {
@@ -47,8 +48,13 @@ class Workspace extends React.Component {
 				<div onClick={this.toggleDropdown} className="dropdown">
 					<section className="dropdown-workspaces">
 						<h2>workspaces</h2>
-						<WorkspacesIndex workspacesList={this.props.workspacesList} redirectToWorkspace={this.redirectToWorkspace}/>
-						<h3 onClick={this.toggleCreateWorkspace}>+ Create new Workspace</h3>
+						<WorkspacesIndex
+							workspacesList={this.props.workspacesList}
+							redirectToWorkspace={this.redirectToWorkspace}/>
+						<h3
+							onClick={this.toggleCreateWorkspace}>
+							+ Create new Workspace
+						</h3>
 					</section>
 
 					<h2 onClick={this._logOutAndClearState}>Sign Out</h2>
@@ -84,11 +90,12 @@ class Workspace extends React.Component {
 	}
 
   render() {
-		if (this.props.currentWorkspace) {
-			const currentWorkspace = this.props.currentWorkspace;
-			const workspaceTitle = this.props.workspacesList[currentWorkspace].title;
+		if (this.props.workspacesList[this.props.currentWorkspace]) {
 			return(
-				<div onClick={this.resetDropdown} className="app-workspaces group">
+				<div
+					onClick={this.resetDropdown}
+					className="app-workspaces group">
+
 					<WorkspaceSideBarContainer />
 
 					<content className='workspaces'>
@@ -96,9 +103,14 @@ class Workspace extends React.Component {
 							<ul className="workspaces-header-left group">
 								<li onClick={this.openSideBar}>my projects</li>
 							</ul>
-							<ul onClick={this.toggleDropdown} className="workspaces-header-right group">
-								<div className="badge">{this._getInitials()}</div>
-								<li>{`${workspaceTitle}`}</li>
+								<ul
+								onClick={this.toggleDropdown}
+								className="workspaces-header-right group">
+
+								<div
+									className="badge">{this._getInitials()}
+								</div>
+								<li>{`${this.props.workspacesList[this.props.currentWorkspace].title}`}</li>
 							</ul>
 						</nav>
 						{this._renderDropdown()}

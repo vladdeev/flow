@@ -11,7 +11,6 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentTaskId: ownProps.params.taskId,
     currentProjectId: ownProps.params.projectId,
     currentUser: state.session.currentUser,
     currentTask: state.task.currentTask,
@@ -22,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  deleteTask: (id) => dispatch(deleteTask(id)),
   receiveErrors: (errors) => dispatch(receiveErrors(errors)),
   fetchAllTasks: () => dispatch(fetchAllTasks()),
   updateTask: (task) => dispatch(updateTask(task)),

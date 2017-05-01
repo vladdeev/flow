@@ -42,8 +42,6 @@ const Root = ({ store }) => {
 
     if(!currentUser) {
       hashHistory.replace('/');
-    } else if (!workspacesListIds.includes(workspaceId)) {
-      hashHistory.push(`/${currentWorkspace}`);
     } else {
       store.dispatch(fetchWorkspace(workspaceId));
     }
@@ -61,7 +59,7 @@ const Root = ({ store }) => {
            <Route path="/:workspaceId" component={WorkspaceContainer} onEnter={_ensureLoggedInAndWorkspace}>
             <Route path=':projectId' component={ProjectShowContainer}>
               <Route path='tasks' component={TaskIndexContainer}>
-                <Route path=':tasksId' component={TaskDetailContainer}/>
+                <Route path=':taskId' component={TaskDetailContainer}/>
               </Route>
             </Route>
            </Route>

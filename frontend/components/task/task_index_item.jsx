@@ -8,22 +8,28 @@ import TaskDetail from './task_detail';
 class TaskIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = this.props.task;
-
     this.handleChange = this.handleChange.bind(this);
     this.updateTask = this.props.updateTask.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
   }
 
-  componentWillMount() {
-    if (!this.state.title) {
-      this.setState({title: ''});
-    }
-  }
+  // componentWillMount() {
+  //   debugger
+  //   if (!this.state.title) {
+  //     this.setState({title: ''});
+  //   }
+  // }
 
-  componentWillUnmount() {
-    this.props.updateTask(this.state);
+  // componentWillUnmount() {
+  //   debugger
+  //   this.props.updateTask(this.state);
+  // }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.task !== this.state) {
+      this.setState(nextProps.task);
+    }
   }
 
   handleChange(e) {
@@ -34,9 +40,10 @@ class TaskIndexItem extends React.Component {
     this.setState({ completed: !this.state.completed });
   }
 
-  renderDetailHeader() {
-
+  handleBlur() {
+    this.props.updateTask(this.state);
   }
+
 
   render() {
     let className, buttonClassName;
@@ -62,7 +69,7 @@ class TaskIndexItem extends React.Component {
           underlineShow={true}
           style={textFieldStyle}
           inputStyle ={{width: '100%'}}
-          onBlur={() => { this.props.updateTask(this.state) }} />
+          onBlur={() => { this.props.updateTask(this.state); }} />
       </li>
     );
   }

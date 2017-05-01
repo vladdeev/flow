@@ -9,6 +9,15 @@ button:focus {outline:0;}
 
 .task-detail {
   width: 40%;
+  height: 96%;
+  /*min-width: 500px;*/
+  overflow-y:scroll;
+  border: 1px solid #cdcfd2;
+  padding: 30px;
+  margin: 20px auto;
+  flex-direction: column;
+  overflow: auto;
+  background: white;
 }
 
 
@@ -23,7 +32,7 @@ button:focus {outline:0;}
 }
 
 .task-index {
-  width: 55%;
+  width: 50%;
   height: 96%;
   /*min-width: 500px;*/
   overflow-y:scroll;
@@ -178,4 +187,13 @@ button {
 	padding:0;
 	border:0;
 	background:none;
+}
+
+.task-detail-due-date {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  cursor: pointer;
+  border: 1px solid;
+  border-color: white;
 }
