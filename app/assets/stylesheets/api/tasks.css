@@ -53,7 +53,6 @@ button:focus {outline:0;}
 }
 
 .workspaces:nth-child(2) {
-  background: #f6f6f6;
   width: 100%
 }
 .task-index-top{

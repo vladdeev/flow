@@ -13,7 +13,7 @@ const FrontPage = (props) => (
     <div className='front-container'>
       <div className="first-screen">
         <h1>Get the job done</h1>
-        <h2>Flow is the best way to get your team work togeter</h2>
+        <h2>Flow is the best way to get your team work together</h2>
         <h3 onClick={handleClick()}>Join Flow for free</h3>
       </div>
     </div>

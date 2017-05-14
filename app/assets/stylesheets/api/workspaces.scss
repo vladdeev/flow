@@ -1,6 +1,7 @@
 // Place all the styles related to the Api::Workspaces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.project-parent {
-  background-image: url(image-path('bg3.jpg'));
+.workspaces {
+  background-image: url(image-path('bg2.jpg'));
+  opacity: 0.8;
 }

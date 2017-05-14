@@ -4,7 +4,7 @@
 
 .front-container h1 {
   height: auto;
-  padding-top: 150px;
+  padding-top: 180px;
   font-weight: 200;
   font-size: 4em;
   color: white;
@@ -13,7 +13,7 @@
 
 .front-container h2 {
   height: auto;
-  margin-top: 50px;
+  margin-top: 70px;
   font-weight: 200;
   font-size: 2.5em;
   color: white;
@@ -22,7 +22,7 @@
 
 .front-container h3 {
   height: auto;
-  margin: 60px auto;
+  margin: 70px auto;
   border: 2px solid white;
   border-radius: 3px;
   font-size: 1.5em;
@@ -42,13 +42,13 @@
 }
 .first-screen {
   width: auto;
-  height: 600px;
-  background: rgba(38,123,209,1);
+  height: 700px;
+  /*background: rgba(38,123,209,1);
   background: -moz-linear-gradient(45deg, rgba(38,123,209,1) 0%, rgba(41,184,229,1) 65%, rgba(188,224,238,1) 100%);
   background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(38,123,209,1)), color-stop(65%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
   background: -webkit-linear-gradient(45deg, rgba(38,123,209,1) 0%, rgba(41,184,229,1) 65%, rgba(188,224,238,1) 100%);
   background: -o-linear-gradient(45deg, rgba(38,123,209,1) 0%, rgba(41,184,229,1) 65%, rgba(188,224,238,1) 100%);
   background: -ms-linear-gradient(45deg, rgba(38,123,209,1) 0%, rgba(41,184,229,1) 65%, rgba(188,224,238,1) 100%);
   background: linear-gradient(45deg, rgba(38,123,209,1) 0%, rgba(41,184,229,1) 65%, rgba(188,224,238,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#267bd1', endColorstr='#bce0ee', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#267bd1', endColorstr='#bce0ee', GradientType=1 );*/
 }

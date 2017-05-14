@@ -4,12 +4,12 @@
   color: white;
   font-weight: 200;
   transition: 0.4s;
-  background: -moz-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(43,78,120,1)), color-stop(100%, rgba(48,106,133,1)));
-  background: -webkit-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%);
-  background: -o-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%);
-  background: -ms-linear-gradient(176deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%);
-  background: linear-gradient(274deg, rgba(48,106,133,1) 0%, rgba(43,78,120,1) 100%);
+  background: -moz-linear-gradient(176deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgb(38, 44, 63)), color-stop(100%, rgb(36, 50, 74)));
+  background: -webkit-linear-gradient(176deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
+  background: -o-linear-gradient(176deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
+  background: -ms-linear-gradient(176deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
+  background: linear-gradient(274deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2B4E78', endColorstr='#306A85',GradientType=1 );
 
 }

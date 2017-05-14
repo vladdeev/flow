@@ -153,7 +153,7 @@ input[type="submit"]:hover {
 .workspace-form-container:last-child {
   text-align: right;
   font-size: 0.75em;
-  color: rgb(95, 95, 95);
+  /*color: rgb(95, 95, 95);*/
   font-size: 1em;
 }
 

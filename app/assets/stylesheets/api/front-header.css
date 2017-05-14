@@ -15,7 +15,7 @@
   display: block;
   width: 90%;
   margin: auto;
-  padding: 0 20px;
+  padding: 5px 20px;
 }
 
 .front-header-left {
@@ -24,6 +24,7 @@
 
 .front-header-left a {
   font-family: 'Tillana', cursive;
+  color: rgb(56, 40, 76);
   font-size: 36px;
   font-weight: bold;
   cursor: pointer;
@@ -36,7 +37,7 @@
 .front-header-right > li {
   float: left;
   display: block;
-  border: 1px solid rgb(40, 120, 185);
+  border: 1px solid rgb(95, 82, 112);
   border-radius: 3px;
   font-size: 1em;
   margin: 10px 10px 10px 10px;
@@ -45,20 +46,20 @@
   padding: 10px;
   text-align: center;
   box-sizing: border-box;
-  color: rgb(40, 120, 185);
+  color: rgb(95, 82, 112);
   background: white;
 }
 
 .front-header-right > li:nth-child(2) {
   color: white;
-  background-color: rgb(40, 120, 185);
+  background-color: rgb(95, 82, 112);
   width: auto;
   padding: 10px 30px;
   text-transform: capitalize;
 }
 
 .front-header-right > li:nth-child(2):hover {
-  background-color: rgb(64, 170, 255);
+  background-color: rgb(116, 96, 142);
   -webkit-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   -moz-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
@@ -67,7 +68,7 @@
 
 .front-header-right > li:hover {
   background-color: white;
-  border: 1px solid rgba(15, 145, 250, 1);
+  border: 1px solid rgbargb(116, 96, 142);
 
   -webkit-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   -moz-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
