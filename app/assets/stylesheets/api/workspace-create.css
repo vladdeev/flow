@@ -12,8 +12,8 @@
 }
 
 .workspace-form h1 {
-    font-size: 1em;
-    font-weight: 400;
+  font-size: 1em;
+  font-weight: 400;
 }
 
 .workspace-form-container {
@@ -153,7 +153,6 @@ input[type="submit"]:hover {
 .workspace-form-container:last-child {
   text-align: right;
   font-size: 0.75em;
-  /*color: rgb(95, 95, 95);*/
   font-size: 1em;
 }
 

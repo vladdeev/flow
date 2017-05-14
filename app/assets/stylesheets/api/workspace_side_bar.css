@@ -11,7 +11,6 @@
   background: -ms-linear-gradient(176deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
   background: linear-gradient(274deg, rgb(36, 50, 74) 0%, rgb(38, 44, 63) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2B4E78', endColorstr='#306A85',GradientType=1 );
-
 }
 
 .side-bar-logo {
@@ -52,7 +51,6 @@
 }
 
 .project-index li:first-child {
-
   padding: 7px 15px;
   color: rgb(175, 190, 202);
   font-weight: 200;
@@ -66,7 +64,6 @@
   width: 240px;
   height: auto;
   padding: 7px 15px;
-
 }
 
 .side-bar h7 {
@@ -80,5 +77,4 @@
 
 .project-index li a:hover {
   background-color: rgba(41, 184, 229, 0.81);
-
 }
