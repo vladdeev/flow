@@ -94,7 +94,7 @@ class Workspace extends React.Component {
 			return(
 				<div
 					onClick={this.resetDropdown}
-					className="app-workspaces group">
+					className="app-workspaces">
 
 					<WorkspaceSideBarContainer />
 

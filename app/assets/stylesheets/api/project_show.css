@@ -1,3 +1,9 @@
+.project-parent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url(image-path('bg.jpg'));
+}
 .project-container {
   width: 100%;
   padding: 10px;

@@ -1,6 +1,6 @@
 .side-bar {
   width: 240px;
-  height: 100%;
+  height: 100vh;
   color: white;
   font-weight: 200;
   transition: 0.4s;

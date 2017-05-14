@@ -71,7 +71,7 @@ class ProjectShow extends React.Component {
   render() {
     if(this.props.currentProject) {
       return(
-        <div>
+        <div className="project-parent">
           <section className="project-container">
             <h1>{this.props.currentProjectName}</h1>
             <div>
