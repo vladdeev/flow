@@ -1,6 +1,19 @@
 import React from 'react';
 import { withRouter, hashHistory, Link } from 'react-router';
 import TextField from 'material-ui/TextField';
+import DatePicker from 'material-ui/DatePicker';
+import {
+  deepPurple200,
+  deepPurple500,
+  lightRed200,
+  grey50,
+  grey600,
+  deepPurple50,
+  red500,
+  blue500,
+  redA400,
+  pink400
+} from 'material-ui/styles/colors';
 
 class TaskDetail extends React.Component {
   constructor(props) {
@@ -17,29 +30,34 @@ class TaskDetail extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillUnmount() {
+    this.props.updateTask(this.state);
+  }
+
+  componentWillMount() {
     this.props.fetchTask(this.props.params.taskId)
       .then((action) => { this.setState(action.task); });
   }
 
-  handleDateChange(e) {
-    this.setState({ due_date: e.target.value });
+  handleDateChange(e, date) {
+    const dateStr = date.toISOString().slice(0,10).concat(" 20:00:00");
+    this.setState({ due_date: dateStr });
   }
 
   renderHeader() {
+    let date = '';
+
     if (this.state.due_date) {
-      return(
-        <input
-          type="date"
-          value={this.state.due_date.slice(0,10)}
-          onChange={this.handleDateChange}
-          onBlur={() => { this.props.updateTask(this.state);}} />
-      );
-    } else {
-      return(
-        <input type="date" value='' onChange={this.handleDateChange} />
-      );
+      date = new Date(this.state.due_date);
     }
+
+    return(
+      <DatePicker
+        value={date}
+        onChange={this.handleDateChange}
+        container="inline">
+      </DatePicker>
+      );
   }
 
   renderTitle() {
@@ -76,11 +94,12 @@ class TaskDetail extends React.Component {
     );
   }
 
+
   render() {
     if (this.state) {
       return(
         <div className="task-detail">
-          <Link to='/' onClick={this.props.deleteTask(this.state.id)}>DeleteTask</Link>
+
           {this.renderHeader()}
           {this.renderTitle()}
           {this.renderDescription()}
