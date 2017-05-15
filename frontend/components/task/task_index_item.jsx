@@ -12,6 +12,7 @@ class TaskIndexItem extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.updateTask = this.props.updateTask.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   // componentWillMount() {
@@ -44,6 +45,11 @@ class TaskIndexItem extends React.Component {
     this.props.updateTask(this.state);
   }
 
+  handleClick(e) {
+    this.props.router.push("/" + this.props.params.workspaceId + "/" + this.props.params.projectId + "/" + "tasks" + "/" + e.target.id);
+  }
+
+
 
   render() {
     let className, buttonClassName;
@@ -64,6 +70,7 @@ class TaskIndexItem extends React.Component {
         <TextField id={`${this.state.id}`}
           hintText=""
           value={this.state.title}
+          onClick={this.handleClick}
           onChange={this.handleChange}
           multiLine={false}
           underlineShow={true}

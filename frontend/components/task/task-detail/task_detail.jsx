@@ -85,8 +85,8 @@ class TaskDetail extends React.Component {
           onChange={this.handleChange('description')}
           multiLine={true}
           underlineShow={true}
-          rows={4}
-          rowsMax={5}
+          rows={3}
+          rowsMax={4}
           fullWidth={true}
           style={descriptionStyle}
           onBlur={() => { this.props.updateTask(this.state); }}/>
