@@ -1,0 +1,110 @@
+.task-detail-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.task-detail-title {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.task-detail-header-close {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.completed-task-detail-check {
+  display:inline-block;
+  background-color: #96e8b8;
+  min-width: 35px;
+  min-height:35px;
+  max-height: 35px;
+  background: #96e8b8;
+  border-radius:50%;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  border: 1px solid;
+  border-color: #96e8b8;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.completed-task-detail-check:before{
+  content: "";
+  position: absolute;
+  min-width: 5px;
+  min-height: 19px;
+  background-color: white;
+  left: 18px;
+  top: 7px;
+}
+
+.completed-task-detail-check:after {
+  content: "";
+  color: inherit;
+  position: absolute;
+  min-width: 9px;
+  min-height: 5px;
+  background-color: white;
+  left: 11px;
+  top: 21px;
+}
+
+.task-detail-check {
+  display:inline-block;
+  background-color: #898E95;
+  min-width: 35px;
+  min-height: 35px;
+  max-height: 35px;
+  background: white;
+  border-radius:50%;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  border: 1px solid;
+  border-color: #898E95;
+  color: #898E95;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.task-detail-check:before{
+  content: "";
+  position: absolute;
+  min-width: 5px;
+  min-height: 19px;
+  background-color: #898E95;
+  left: 18px;
+  top: 7px;
+}
+
+.task-detail-check:after {
+  content: "";
+  color: inherit;
+  position: absolute;
+  min-width: 9px;
+  min-height: 5px;
+  background-color: #898E95;
+  left: 11px;
+  top: 21px;
+}
+
+.task-detail-check:hover:after {
+  background-color: #3BF7D1;
+}
+
+.task-detail-check:hover:before{
+  background-color: #3BF7D1;
+}
+
+.task-detail-check:hover {
+  border-color: #3BF7D1;
+  color: #9DFBE8;
+  box-shadow: 0px 0px 0px 2px #3BF7D1;
+}

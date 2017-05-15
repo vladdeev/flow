@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { lightBlue300, lightBlue400, lightBlueA400, lightRed200 } from 'material-ui/styles/colors';
+import { deepOrange300, deepOrange400, deepOrangeA400, lightRed200 } from 'material-ui/styles/colors';
 
 import AppContainer from './app/app_container';
 import SessionFormContainer from './session_form/session_form_container';
@@ -72,8 +72,8 @@ const Root = ({ store }) => {
 
 const muiTheme = getMuiTheme({
   palette: {
-  primary1Color: lightBlue300,
-  primary2Color: lightBlue400,
+  primary1Color: deepOrange300,
+  primary2Color: deepOrange400,
 },
   appBar: {
     height: 50,

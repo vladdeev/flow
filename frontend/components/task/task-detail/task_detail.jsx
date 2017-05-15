@@ -2,6 +2,9 @@ import React from 'react';
 import { withRouter, hashHistory, Link } from 'react-router';
 import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
+import FlatButton from 'material-ui/FlatButton';
+import ActionDelete from 'material-ui/svg-icons/action/delete';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import {
   deepPurple200,
   deepPurple500,
@@ -18,10 +21,11 @@ import {
 class TaskDetail extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = null;
+    this.state = this.props.currentTask;
     this.handleChange = this.handleChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleComplete = this.handleComplete.bind(this);
   }
 
   handleChange(field) {
@@ -30,13 +34,20 @@ class TaskDetail extends React.Component {
     };
   }
 
-  componentWillUnmount() {
-    this.props.updateTask(this.state);
+  componentDidMount() {
+    this.props.fetchCurrentTask(this.props.params.taskId)
+      .then(action => this.setState(action.task));
   }
 
-  componentWillMount() {
-    this.props.fetchTask(this.props.params.taskId)
-      .then((action) => { this.setState(action.task); });
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params.taskId !== this.props.params.taskId) {
+      this.props.fetchCurrentTask(nextProps.params.taskId)
+        .then(action => this.setState(action.task));
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.updateTask(this.state);
   }
 
   handleDateChange(e, date) {
@@ -44,34 +55,89 @@ class TaskDetail extends React.Component {
     this.setState({ due_date: dateStr });
   }
 
+  handleDelete() {
+    this.props.deleteTask(this.state.id);
+    this.props.router.push("/" + this.props.params.workspaceId + "/"
+                            + this.props.params.projectId + "/" + "tasks");
+  }
+
+  handleComplete() {
+    this.setState({ completed: !this.state.completed })
+      .then((e) => { debugger });
+    this.props.updateTask(this.state);
+  }
+
   renderHeader() {
-    let date = '';
+    let date = {};
 
     if (this.state.due_date) {
       date = new Date(this.state.due_date);
     }
 
+    const buttonStyle = {
+      marginTop: 5,
+      minWidth: '9px',
+      marginLeft: '20px',
+    };
+
+    const dateStyle = {
+      width: '80px',
+      marginLeft: 20,
+    };
+
     return(
-      <DatePicker
-        value={date}
-        onChange={this.handleDateChange}
-        container="inline">
-      </DatePicker>
+      <section className="task-detail-header">
+        <DatePicker
+          value={date}
+          onChange={this.handleDateChange}
+          container="inline"
+          textFieldStyle={ dateStyle }>
+        </DatePicker>
+        <section className = "task-detail-header-close">
+          <FlatButton
+            icon={<ActionDelete />}
+            onTouchTap={this.handleDelete}
+            style={ buttonStyle }
+          />
+          <FlatButton
+            icon={<NavigationClose />}
+            onTouchTap={ () => { this.props.router.push("/"
+            + this.props.params.workspaceId + "/" + this.props.params.projectId
+            + "/" + "tasks");}}
+            style={ buttonStyle }
+          />
+          </section>
+      </section>
       );
   }
 
   renderTitle() {
+    let className, buttonClassName;
+    if (this.state.completed) {
+      className = 'completed-task-input';
+      buttonClassName = 'completed-task-detail-check';
+    } else {
+      className = 'task-input';
+      buttonClassName = 'task-detail-check';
+    }
+
     return(
-      <TextField
-        id={`${this.state.id}`}
-        hintText="Title"
-        value={this.state.title}
-        onChange={this.handleChange('title')}
-        multiLine={false}
-        underlineShow={true}
-        style={titleStyle}
-        inputStyle ={{width: '100%'}}
-        onBlur={() => { this.props.updateTask(this.state); }} />
+      <section className="task-detail-title">
+        <button
+          onClick={this.handleComplete}
+          className={buttonClassName}>
+        </button>
+        <TextField
+          id={`${this.state.id}`}
+          hintText="Title"
+          value={this.state.title}
+          onChange={this.handleChange('title')}
+          multiLine={false}
+          underlineShow={true}
+          style={titleStyle}
+          inputStyle ={{width: '100%'}}
+          onBlur={() => { this.props.updateTask(this.state); }} />
+      </section>
       );
   }
 
@@ -94,7 +160,6 @@ class TaskDetail extends React.Component {
     );
   }
 
-
   render() {
     if (this.state) {
       return(
@@ -113,19 +178,20 @@ class TaskDetail extends React.Component {
 
 const titleStyle = {
   display: 'inline-block',
-  paddingLeft: '10px',
-  fontSize: '1em',
-  height: '40px',
+  paddingLeft: '0px',
+  fontSize: '1.25em',
+  fontWeight: 600,
+  height: '50px',
   paddingBottom: '3px',
   width: '95%'
 };
 
 const descriptionStyle = {
   display: 'inline-block',
-  paddingLeft: '10px',
+  paddingLeft: '0px',
   fontSize: '1em',
   height: '120px',
   paddingBottom: '3px',
-  width: '95%'
+  width: '100%'
 };
 export default withRouter(TaskDetail);

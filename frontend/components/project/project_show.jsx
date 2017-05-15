@@ -15,12 +15,18 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchProject(this.props.params.workspaceId, this.props.params.projectId);
+    this.props.fetchProject(
+      this.props.params.workspaceId,
+      this.props.params.projectId
+    );
   }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.params.projectId !== this.props.params.projectId) {
-      this.props.fetchProject(nextProps.params.workspaceId, nextProps.params.projectId);
+      this.props.fetchProject(
+        nextProps.params.workspaceId,
+        nextProps.params.projectId
+      );
     }
   }
 
@@ -62,7 +68,9 @@ class ProjectShow extends React.Component {
   }
 
   handleDelete() {
-    this.props.deleteProject(this.props.currentWorkspace, this.props.currentProject)
+    this.props.deleteProject(
+      this.props.currentWorkspace,
+      this.props.currentProject)
       .then(() => {
         hashHistory.push(`/${this.props.currentWorkspace}`);
       });
@@ -100,7 +108,3 @@ class ProjectShow extends React.Component {
 }
 
 export default withRouter(ProjectShow);
-
-// <div className="task-detail">
-// <h1>YAY</h1>
-// </div>

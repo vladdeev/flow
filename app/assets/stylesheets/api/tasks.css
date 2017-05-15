@@ -3,7 +3,7 @@ button:focus {outline:0;}
 .task-container {
   min-width: 400px;
   display: flex;
-  height: 95%;
+  height: 100%;
   overflow: hidden;
   justify-content: space-around;
 }
@@ -15,7 +15,9 @@ button:focus {outline:0;}
   overflow-y:scroll;
   border: 1px solid #cdcfd2;
   border-radius: 3px;
-  padding: 30px;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 2%;
@@ -30,7 +32,9 @@ button:focus {outline:0;}
   overflow-y:scroll;
   border: 1px solid #cdcfd2;
   border-radius: 3px;
-  padding: 30px;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 1%;
