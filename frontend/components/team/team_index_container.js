@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   fetchAllMembers,
   signUpMember
-} from '../../actions/project_actions';
+} from '../../actions/team_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -14,8 +14,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchAllMembers: () => dispatch(fetchAllMembers()),
-  signUpMember: (workspaceId, member) => dispatch(signUpMember(workspaceId, member))
+  fetchAllMembers: (workspaceId) => dispatch(fetchAllMembers(workspaceId)),
+  signUpMember: (workspaceId, member) =>
+    dispatch(signUpMember(workspaceId, member))
 });
 
 export default connect(

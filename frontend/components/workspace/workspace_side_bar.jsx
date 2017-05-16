@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import ProjectIndexContainer from '../project/project_index_container';
+import TeamIndexContainer from '../team/team_index_container';
 import CreateProjectForm from '../project/create_project_form';
 
 class WorkspaceSideBar extends React.Component {
@@ -17,9 +18,9 @@ class WorkspaceSideBar extends React.Component {
 
   toggleCreateProject() {
     if (this.state.createProjectOn) {
-      this.setState({ createProjectOn: false })
+      this.setState({ createProjectOn: false });
     } else {
-      this.setState({ createProjectOn: true })
+      this.setState({ createProjectOn: true });
     }
   }
 
@@ -30,6 +31,7 @@ class WorkspaceSideBar extends React.Component {
           <Link to="/">flow</Link>
           <Link onClick={this.closeNav} to="">&#215;</Link>
         </div>
+        <TeamIndexContainer />
         <ProjectIndexContainer />
         <h7 onClick={this.toggleCreateProject}>+ New Project</h7>
 
@@ -41,7 +43,7 @@ class WorkspaceSideBar extends React.Component {
           receiveErrors={this.props.receiveErrors}
           errors={this.props.errors} />
       </nav>
-    )
+    );
   }
 }
 
