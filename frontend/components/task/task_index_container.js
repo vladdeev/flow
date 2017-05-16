@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';//logout
 import {
   receiveErrors,
   fetchAllTasks,
+  fetchCurrentTask,
   fetchTask,
   createTask,
   updateTask,
@@ -26,6 +27,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAllTasks: () => dispatch(fetchAllTasks()),
   updateTask: (task) => dispatch(updateTask(task)),
   fetchTask: (id) => dispatch(fetchTask(id)),
+  fetchCurrentTask: (id) => dispatch(fetchCurrentTask(id)),
   createTask: (task) => dispatch(createTask(task))
 });
 

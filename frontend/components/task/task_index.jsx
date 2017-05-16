@@ -45,6 +45,7 @@ class TaskIndex extends React.Component {
         <TaskIndexItem task={task}
                         updateTask={this.props.updateTask}
                         fetchTask={this.props.fetchTask}
+                        fetchCurrentTask={this.props.fetchCurrentTask}
                         toggleTaskDetail={this.toggleTaskDetail}
                         key={task.id + task.title}/>
       ));

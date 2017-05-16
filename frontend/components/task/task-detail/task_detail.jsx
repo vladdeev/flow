@@ -44,6 +44,13 @@ class TaskDetail extends React.Component {
       this.props.fetchCurrentTask(nextProps.params.taskId)
         .then(action => this.setState(action.task));
     }
+
+    if (nextProps.currentTask.title !== this.props.currentTask.title ||
+        nextProps.currentTask.completed !== this.props.currentTask.completed) {
+          this.setState(nextProps.currentTask);
+      // this.props.fetchCurrentTask(nextProps.params.taskId)
+      //   .then(action => this.setState(action.task));
+    }
   }
 
   componentWillUnmount() {
@@ -62,9 +69,9 @@ class TaskDetail extends React.Component {
   }
 
   handleComplete() {
-    this.setState({ completed: !this.state.completed })
-      .then((e) => { debugger });
-    this.props.updateTask(this.state);
+    const task = Object.assign({}, this.state, { completed: !this.state.completed });
+    this.setState({ completed: !this.state.completed });
+    this.props.updateTask(task);
   }
 
   renderHeader() {

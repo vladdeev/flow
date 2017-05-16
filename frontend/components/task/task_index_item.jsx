@@ -13,19 +13,8 @@ class TaskIndexItem extends React.Component {
     this.updateTask = this.props.updateTask.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
-
-  // componentWillMount() {
-  //   debugger
-  //   if (!this.state.title) {
-  //     this.setState({title: ''});
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   debugger
-  //   this.props.updateTask(this.state);
-  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.task !== this.state) {
@@ -37,9 +26,9 @@ class TaskIndexItem extends React.Component {
     this.setState({ title: e.target.value } );
   }
 
-  handleComplete() {
-    this.setState({ completed: !this.state.completed });
-  }
+  // handleComplete() {
+  //   this.setState({ completed: !this.state.completed });
+  // }
 
   handleBlur() {
     this.props.updateTask(this.state);
@@ -47,6 +36,18 @@ class TaskIndexItem extends React.Component {
 
   handleClick(e) {
     this.props.router.push("/" + this.props.params.workspaceId + "/" + this.props.params.projectId + "/" + "tasks" + "/" + e.target.id);
+  }
+
+  handleUpdate() {
+    this.props.updateTask(this.state)
+      .then(() => { this.props.fetchCurrentTask(this.state.id); });
+  }
+
+  handleComplete() {
+    const task = Object.assign({}, this.state, { completed: !this.state.completed });
+    this.setState({ completed: !this.state.completed });
+    this.props.updateTask(task)
+      .then(() => { this.props.fetchCurrentTask(this.state.id); });
   }
 
   render() {
@@ -74,7 +75,7 @@ class TaskIndexItem extends React.Component {
           underlineShow={true}
           style={textFieldStyle}
           inputStyle ={{width: '100%'}}
-          onBlur={() => { this.props.updateTask(this.state); }} />
+          onBlur={this.handleUpdate} />
       </li>
     );
   }
