@@ -6,7 +6,7 @@ export const signUpMember = (workspaceId, member) => {
   });
 };
 
-export const fetchMembers = (workspaceId) => {
+export const fetchAllMembers = (workspaceId) => {
   return $.ajax({
     method: "GET",
     url: `/api/workspaces/${workspaceId}/users`,
