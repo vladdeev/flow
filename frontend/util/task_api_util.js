@@ -5,6 +5,13 @@ export const fetchAllTasks = () => (
   })
 );
 
+export const fetchProjectTasks = (workspaceId, projectId) => (
+  $.ajax({
+    method: 'GET',
+    url: `api/workspaces/${workspaceId}/projects/${projectId}/tasks`
+  })
+);
+
 export const fetchTask = (id) => (
   $.ajax({
     method: 'GET',

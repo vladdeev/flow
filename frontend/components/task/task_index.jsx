@@ -1,4 +1,5 @@
 import React from 'react';
+import { merge } from 'lodash';
 import { withRouter } from 'react-router';
 import TaskIndexItem from './task_index_item';
 
@@ -17,7 +18,26 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllTasks();
+    const currentState = this.state;
+    this.props.fetchProjectTasks(
+      this.props.currentWorkspace,
+      this.props.currentProjectId);
+      // .then((action) => {
+      //   const tasksList = Object.values(action.tasks);
+      //   const newState = merge(
+      //     {}, currentState, { currentTaskList: tasksList }
+      //   );
+      //   this.setState(newState);
+      // });
+    // this.props.fetchAllTasks();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentProjectId !== this.props.currentProjectId) {
+      this.props.fetchProjectTasks(
+        nextProps.currentWorkspace,
+        nextProps.currentProjectId);
+    }
   }
 
   selectTasks(tasksList, projectId) {
@@ -40,6 +60,9 @@ class TaskIndex extends React.Component {
   renderTasks() {
     const tasks = this.selectTasks(this.props.tasksList,
                                     this.props.params.projectId);
+
+    // const tasks = this.state.currentTaskList;
+
     if (tasks.length > 0) {
       return tasks.map( (task) => (
         <TaskIndexItem task={task}

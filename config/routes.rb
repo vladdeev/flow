@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :workspaces do
-      resources :projects
+      resources :projects do
+        resources :tasks, only: [:index]
+      end
       resources :users, only: [:index]
     end
     resources :tasks

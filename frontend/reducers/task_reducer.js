@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 import {
   RECEIVE_ALL_TASKS,
+  RECEIVE_PROJECT_TASKS,
   RECEIVE_TASK,
   REMOVE_TASK,
   RECEIVE_ERRORS,
@@ -19,6 +20,9 @@ const taskReducer = (oldState = _defaultState, action) => {
     case RECEIVE_ALL_TASKS:
       const tasksList = action.tasks;
       return Object.assign({}, oldState, { tasksList });
+    case RECEIVE_PROJECT_TASKS:
+      const projectTasks = action.tasks;
+      return Object.assign({}, oldState, { tasksList: projectTasks });
     case RECEIVE_TASK:
       return merge({}, oldState, { tasksList: { [action.task.id]: action.task }});
     case RECEIVE_CURRENT_TASK:

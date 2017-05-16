@@ -1,10 +1,13 @@
 class Api::TasksController < ApplicationController
 
   def index
-    assigned_tasks = current_user.assigned_tasks
-    created_tasks = current_user.created_tasks
-
-    @tasks = assigned_tasks + created_tasks
+    if params[:project_id]
+      @tasks = Project.find(params[:project_id]).tasks
+    else
+      assigned_tasks = current_user.assigned_tasks
+      created_tasks = current_user.created_tasks
+      @tasks = assigned_tasks + created_tasks
+    end
   end
 
   def show

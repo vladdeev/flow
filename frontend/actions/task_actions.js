@@ -1,6 +1,7 @@
 import * as taskAPIUtil from '../util/task_api_util';
 
 export const RECEIVE_ALL_TASKS = "RECEIVE_ALL_TASKS";
+export const RECEIVE_PROJECT_TASKS = "RECEIVE_PROJECT_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 export const REMOVE_TASK = "REMOVE_TASK";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -8,6 +9,11 @@ export const RECEIVE_CURRENT_TASK = "RECEIVE_CURRENT_TASK";
 
 export const receiveAllTasks = (tasks) => ({
   type: RECEIVE_ALL_TASKS,
+  tasks
+});
+
+export const receiveProjectTasks = (tasks) => ({
+  type: RECEIVE_PROJECT_TASKS,
   tasks
 });
 
@@ -30,6 +36,12 @@ export const removeTask = (task) => ({
   type: REMOVE_TASK,
   taskId: task.id
 });
+
+export const fetchProjectTasks = (workspaceId, projectId) => dispatch => (
+  taskAPIUtil.fetchProjectTasks(workspaceId, projectId)
+    .then(tasks => dispatch(receiveProjectTasks(tasks)),
+      err => dispatch(receiveErrors(err.responseJSON)))
+);
 
 export const fetchAllTasks = () => dispatch => (
   taskAPIUtil.fetchAllTasks()

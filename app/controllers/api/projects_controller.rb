@@ -1,7 +1,7 @@
 class Api::ProjectsController < ApplicationController
   def index
     workspace_id = params[:workspace_id]
-    @projects = current_user.projects.where(workspace_id: workspace_id)
+    @projects = Project.where(workspace_id: workspace_id)
   end
 
   def create
@@ -17,11 +17,11 @@ class Api::ProjectsController < ApplicationController
   end
 
   def show
-      @project = current_user.projects.find(params[:id])
+      @project = Project.find(params[:id])
   end
 
   def update
-    @project = current_user.projects.find(params[:id])
+    @project = Project.find(params[:id])
     if @project.update(project_params)
       render :show
     else
@@ -30,7 +30,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = current_user.projects.find(params[:id])
+    @project = Project.find(params[:id])
     @project.destroy
     render :show
   end

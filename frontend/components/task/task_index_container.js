@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';//logout
 import {
   receiveErrors,
   fetchAllTasks,
+  fetchProjectTasks,
   fetchCurrentTask,
   fetchTask,
   createTask,
@@ -25,6 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   receiveErrors: (errors) => dispatch(receiveErrors(errors)),
   fetchAllTasks: () => dispatch(fetchAllTasks()),
+  fetchProjectTasks: (workspaceId, projectId) =>
+    dispatch(fetchProjectTasks(workspaceId, projectId)),
   updateTask: (task) => dispatch(updateTask(task)),
   fetchTask: (id) => dispatch(fetchTask(id)),
   fetchCurrentTask: (id) => dispatch(fetchCurrentTask(id)),
