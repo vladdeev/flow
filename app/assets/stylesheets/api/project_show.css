@@ -11,6 +11,7 @@
   border-bottom: 0.5px solid rgba(156, 156, 156, 0.5);
   text-align: center;
   box-sizing: border-box;
+  box-shadow: 0 3px 5px -2px rgba(128, 128, 128, 0.37)
 }
 
 .project-container h1 {

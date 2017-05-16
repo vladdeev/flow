@@ -48,8 +48,6 @@ class TaskDetail extends React.Component {
     if (nextProps.currentTask.title !== this.props.currentTask.title ||
         nextProps.currentTask.completed !== this.props.currentTask.completed) {
           this.setState(nextProps.currentTask);
-      // this.props.fetchCurrentTask(nextProps.params.taskId)
-      //   .then(action => this.setState(action.task));
     }
   }
 
@@ -59,7 +57,9 @@ class TaskDetail extends React.Component {
 
   handleDateChange(e, date) {
     const dateStr = date.toISOString().slice(0,10).concat(" 20:00:00");
+    const task = Object.assign({}, this.state, { due_date: dateStr });
     this.setState({ due_date: dateStr });
+    this.props.updateTask(task);
   }
 
   handleDelete() {
@@ -88,8 +88,9 @@ class TaskDetail extends React.Component {
     };
 
     const dateStyle = {
-      width: '80px',
-      marginLeft: 20,
+      width: '100px',
+      marginLeft: 0,
+      textAlign: 'Center',
     };
 
     return(
@@ -98,6 +99,10 @@ class TaskDetail extends React.Component {
           value={date}
           onChange={this.handleDateChange}
           container="inline"
+          mode="landscape"
+          hintText="Due Date"
+          firstDayOfWeek={0}
+          autoOk="true"
           textFieldStyle={ dateStyle }>
         </DatePicker>
         <section className = "task-detail-header-close">
