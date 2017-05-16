@@ -1,6 +1,6 @@
 class Api::WorkspacesController < ApplicationController
   def index
-    @workspaces = current_user.workspaces
+    @workspaces = current_user.workspaces + current_user.workspace_memberships
   end
 
   def create
@@ -14,9 +14,10 @@ class Api::WorkspacesController < ApplicationController
 
   def show
     if params[:id] == "0"
-      @workspace = current_user.workspaces.first
+      # all_workspaces = current_user.workspaces + current_user.workspace_memberships
+      # @workspace = all_workspaces.first
     else
-      @workspace = current_user.workspaces.find(params[:id])
+      @workspace = Workspace.find(params[:id])
     end
   end
 

@@ -20,10 +20,13 @@ class Workspace extends React.Component {
 
 	componentDidMount(){
 		if (this.props.loggedIn) {
-			this.props.fetchAllWorkspaces();
-			if (!this.props.params.workspaceId) {
-				this.props.fetchInitialWorkspace();
-			}
+			this.props.fetchAllWorkspaces()
+				.then((action) => {
+					if (!this.props.params.workspaceId) {
+						const firstWSid = Object.values(action.workspaces)[0].id;
+						this.props.fetchWorkspace(firstWSid);
+					}
+				});
 		}
 	}
 

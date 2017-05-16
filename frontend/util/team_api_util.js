@@ -2,7 +2,7 @@ export const signUpMember = (workspaceId, member) => {
   return $.ajax({
     method: 'POST',
     url: `join/${workspaceId}`,
-    data: { member }
+    data: { user: member }
   });
 };
 
