@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :workspaces do
       resources :projects
+      resources :users, only: [:index]
     end
     resources :tasks
   end
+
+  post 'join/:workspace_id/:user_id/', to: 'api/users#join', defaults: { :format => 'json' }
 end
