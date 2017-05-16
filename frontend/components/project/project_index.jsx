@@ -29,7 +29,7 @@ class ProjectIndex extends React.Component {
           ))}
         </ul>
       </section>
-    )
+    );
   }
 }
 
