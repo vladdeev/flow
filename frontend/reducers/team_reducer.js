@@ -3,7 +3,7 @@ import {
   RECEIVE_ALL_MEMBERS,
   RECEIVE_MEMBER,
   RECEIVE_ERRORS,
-} from '../actions/member_actions';
+} from '../actions/team_actions';
 
 const _defaultState = {
   membersList: {},

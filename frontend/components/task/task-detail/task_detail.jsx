@@ -102,7 +102,6 @@ class TaskDetail extends React.Component {
           mode="landscape"
           hintText="Due Date"
           firstDayOfWeek={0}
-          autoOk="true"
           textFieldStyle={ dateStyle }>
         </DatePicker>
         <section className = "task-detail-header-close">
