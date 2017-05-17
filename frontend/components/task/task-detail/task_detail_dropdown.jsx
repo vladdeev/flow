@@ -40,7 +40,7 @@ class TeamDropDown extends React.Component {
 
   render() {
     const style = {
-      width: '120px',
+      width: '150px',
       fontSize: '1em',
     };
 

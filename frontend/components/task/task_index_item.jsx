@@ -26,10 +26,6 @@ class TaskIndexItem extends React.Component {
     this.setState({ title: e.target.value } );
   }
 
-  // handleComplete() {
-  //   this.setState({ completed: !this.state.completed });
-  // }
-
   handleBlur() {
     this.props.updateTask(this.state);
   }

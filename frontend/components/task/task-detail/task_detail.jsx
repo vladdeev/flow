@@ -93,26 +93,28 @@ class TaskDetail extends React.Component {
 
     const dateStyle = {
       width: '100px',
-      marginLeft: 0,
+      marginLeft: 15,
       textAlign: 'Center',
     };
 
 
     return(
       <section className="task-detail-header">
-        <DatePicker
-          value={date}
-          onChange={this.handleDateChange}
-          container="inline"
-          mode="landscape"
-          hintText="Due Date"
-          firstDayOfWeek={0}
-          textFieldStyle={ dateStyle }>
-        </DatePicker>
-        <TeamDropDown
-          task={this.state}
-          membersList={this.props.membersList}
-          updateTask={this.props.updateTask} />
+        <section className = "task-detail-header-set">
+          <TeamDropDown
+            task={this.state}
+            membersList={this.props.membersList}
+            updateTask={this.props.updateTask} />
+          <DatePicker
+            value={date}
+            onChange={this.handleDateChange}
+            container="inline"
+            mode="landscape"
+            hintText="Due Date"
+            firstDayOfWeek={0}
+            textFieldStyle={ dateStyle }>
+          </DatePicker>
+        </section>
         <section className = "task-detail-header-close">
           <FlatButton
             icon={<ActionDelete />}

@@ -18,6 +18,13 @@
   align-content: center;
   justify-content: space-between;
 }
+
+.task-detail-header-set {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
 .completed-task-detail-check {
   display:inline-block;
   background-color: #96e8b8;

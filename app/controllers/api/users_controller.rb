@@ -10,8 +10,8 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    workspace = Workspace.find(params[:workspace_id])
-    @users = workspace.members
+      workspace = Workspace.find(params[:workspace_id])
+      @users = workspace.members
   end
 
   def join
