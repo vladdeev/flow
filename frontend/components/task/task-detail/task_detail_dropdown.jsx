@@ -1,4 +1,5 @@
 import React from 'react';
+import { merge } from 'lodash';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -23,7 +24,10 @@ class TeamDropDown extends React.Component {
   }
 
   handleChange(event, index, value) {
-    this.setState({ ['assignee_id']: value });
+    const newState = merge( {}, this.state, { ['assignee_id']: value } );
+    this.setState(newState);
+    this.props.updateTask(newState)
+      .then(action => { this.props.fetchCurrentTask(action.task.id); });
   }
 
   getItems() {
@@ -64,7 +68,6 @@ class TeamDropDown extends React.Component {
         labelStyle={menuStyle}
         underlineStyle={ underlineStyle }
         style={style}
-        onClose={() => { this.props.updateTask(this.state); }}
         value={this.state.assignee_id} >
         {this.getItems()}
       </DropDownMenu>

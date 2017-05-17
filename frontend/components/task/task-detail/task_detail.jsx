@@ -103,6 +103,7 @@ class TaskDetail extends React.Component {
           <TeamDropDown
             task={this.state}
             membersList={this.props.membersList}
+            fetchCurrentTask={this.props.fetchCurrentTask}
             updateTask={this.props.updateTask} />
           <DatePicker
             value={date}
