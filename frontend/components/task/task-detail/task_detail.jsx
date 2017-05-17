@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
+import TeamDropDown from './task_detail_dropdown';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import {
   deepPurple200,
@@ -45,9 +46,12 @@ class TaskDetail extends React.Component {
         .then(action => this.setState(action.task));
     }
 
-    if (nextProps.currentTask.title !== this.props.currentTask.title ||
-        nextProps.currentTask.completed !== this.props.currentTask.completed) {
-          this.setState(nextProps.currentTask);
+    if (
+        nextProps.currentTask.title !== this.props.currentTask.title ||
+        nextProps.currentTask.completed !== this.props.currentTask.completed ||
+        nextProps.currentTask.assignee_id !== this.props.currentTask.assignee_id
+      ) {
+        this.setState(nextProps.currentTask);
     }
   }
 
@@ -93,6 +97,7 @@ class TaskDetail extends React.Component {
       textAlign: 'Center',
     };
 
+
     return(
       <section className="task-detail-header">
         <DatePicker
@@ -104,6 +109,10 @@ class TaskDetail extends React.Component {
           firstDayOfWeek={0}
           textFieldStyle={ dateStyle }>
         </DatePicker>
+        <TeamDropDown
+          task={this.state}
+          membersList={this.props.membersList}
+          updateTask={this.props.updateTask} />
         <section className = "task-detail-header-close">
           <FlatButton
             icon={<ActionDelete />}

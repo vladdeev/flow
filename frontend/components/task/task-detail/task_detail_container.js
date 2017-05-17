@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
     currentTask: state.task.currentTask,
     currentWorkspace: state.workspace.currentWorkspace,
     tasksList: state.task.tasksList,
+    membersList: state.team.membersList,
     errors: state.task.errors
   };
 };
