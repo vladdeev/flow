@@ -15,7 +15,9 @@ class Api::TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.created_tasks.new(task_params)
+    params_with_assignment = task_params
+    params_with_assignment[:assignee_id] = current_user.id
+    @task = current_user.created_tasks.new(params_with_assignment)
 
     if @task.save
       render :show

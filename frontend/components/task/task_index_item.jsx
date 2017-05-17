@@ -31,7 +31,14 @@ class TaskIndexItem extends React.Component {
   }
 
   handleClick(e) {
-    this.props.router.push("/" + this.props.params.workspaceId + "/" + this.props.params.projectId + "/" + "tasks" + "/" + e.target.id);
+    this.props.router.push("/"
+    + this.props.params.workspaceId
+    + "/"
+    + this.props.params.projectId
+    + "/"
+    + "tasks"
+    + "/"
+    + e.target.id);
   }
 
   handleUpdate() {

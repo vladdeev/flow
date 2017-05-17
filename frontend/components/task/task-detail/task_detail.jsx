@@ -97,7 +97,6 @@ class TaskDetail extends React.Component {
       textAlign: 'Center',
     };
 
-
     return(
       <section className="task-detail-header">
         <section className = "task-detail-header-set">
@@ -164,12 +163,17 @@ class TaskDetail extends React.Component {
   }
 
   renderDescription() {
+    let description = '';
+    if (this.state.description) {
+      description = this.state.description;
+    }
+
     return(
       <div className='task-detail-description'>
         <TextField
           id={`${this.state.title}`}
           hintText="Description"
-          value={this.state.description}
+          value={description}
           onChange={this.handleChange('description')}
           multiLine={true}
           underlineShow={true}
