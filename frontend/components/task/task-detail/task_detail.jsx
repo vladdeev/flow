@@ -187,6 +187,61 @@ class TaskDetail extends React.Component {
     );
   }
 
+  renderDateCreated() {
+    if (this.state.author_id) {
+      const authorFirstName = this.props.membersList[this.state.author_id].first_name;
+      const authorLastName = this.props.membersList[this.state.author_id].last_name;
+      const authorFullName = authorFirstName.concat(' ').concat(authorLastName);
+      const dateCreated = new Date(this.state.created_at);
+      const date = dateCreated.toLocaleDateString();
+      const time = dateCreated.toLocaleTimeString();
+
+      return(
+        <p>{`Created by ${authorFullName} on ${date} at ${time}`}</p>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  renderDateClosed() {
+    if (this.state.completed_at) {
+      const dateClosed = new Date(this.state.completed_at);
+      const date = dateClosed.toLocaleDateString();
+      const time = dateClosed.toLocaleTimeString();
+
+      return(
+        <p>{`Closed on ${date} at ${time}`}</p>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  renderUpdatedDate() {
+    if (this.state.updated_at) {
+      const dateClosed = new Date(this.state.updated_at);
+      const date = dateClosed.toLocaleDateString();
+      const time = dateClosed.toLocaleTimeString();
+
+      return(
+        <p>{`Updated on ${date} at ${time}`}</p>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  renderDates() {
+    return(
+      <div className="task-detail-dates">
+        {this.renderDateCreated()}
+        {this.renderUpdatedDate()}
+        {this.renderDateClosed()}
+      </div>
+    );
+  }
+
   render() {
     if (this.state) {
       return(
@@ -195,6 +250,7 @@ class TaskDetail extends React.Component {
           {this.renderHeader()}
           {this.renderTitle()}
           {this.renderDescription()}
+          {this.renderDates()}
         </div>
       );
     } else {

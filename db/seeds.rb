@@ -13,44 +13,51 @@ User.create({
   last_name: "Smith"
 })
 
-User.first.workspaces.create(title: "Personal Workspace")
-User.first.workspaces.create(title: "Westworld Park")
-User.first.workspaces.create(title: "Samurai Park ")
+first_user = User.first
 
-first_workspace_id = User.first.workspaces.find_by(title: "Personal Workspace").id
-second_workspace_id = User.first.workspaces.find_by(title: "Westworld Park").id
+first_user.workspaces.create(title: "Personal Workspace")
+first_workspace_id = first_user.workspaces.find_by(title: "Personal Workspace").id
+Workspacing.create({ user_id: first_user.id, workspace_id: first_workspace_id })
 
-User.first.projects.create(
+first_user.workspaces.create(title: "Westworld Park")
+second_workspace_id = first_user.workspaces.find_by(title: "Westworld Park").id
+Workspacing.create({ user_id: first_user.id, workspace_id: second_workspace_id })
+
+first_user.workspaces.create(title: "Samurai Park")
+third_workspace_id = first_user.workspaces.find_by(title: "Samurai Park").id
+Workspacing.create({ user_id: first_user.id, workspace_id: third_workspace_id })
+
+first_user.projects.create(
   title: "Enjoy",
   description: "Enjoy your life",
   workspace_id: first_workspace_id
 )
 
-User.first.projects.create(
+first_user.projects.create(
   title: "Love",
   description: "Love saves the world",
   workspace_id: first_workspace_id
 )
 
-User.first.projects.create(
+first_user.projects.create(
   title: "Study",
   description: "Study hard",
   workspace_id: first_workspace_id
 )
 
-User.first.projects.create(
+first_user.projects.create(
   title: "Build the narrative",
   description: "ASAP!",
   workspace_id: second_workspace_id
 )
 
-User.first.projects.create(
+first_user.projects.create(
   title: "Fix the robot",
   description: "Dolores is clearly malfunctioning",
   workspace_id: second_workspace_id
 )
 
-User.first.projects.create(
+first_user.projects.create(
   title: "Kill Bernard",
   description: "He knows too much",
   workspace_id: second_workspace_id
