@@ -53,6 +53,27 @@ class TaskIndexItem extends React.Component {
       .then(() => { this.props.fetchCurrentTask(this.state.id); });
   }
 
+  handleComplete() {
+    if (!this.state.completed) {
+      const dateClosed = new Date();
+      const date = dateClosed.toISOString().slice(0,10);
+      const time = dateClosed.toISOString().slice(11,19);
+      const dateStr = date.concat(` ${time}`);
+
+      const task = Object.assign({}, this.state, { completed_at: dateStr, completed: !this.state.completed });
+      this.props.updateTask(task)
+        .then(() => { this.props.fetchCurrentTask(this.state.id)
+          .then(action => { this.setState(action.task); });
+         });
+    } else {
+      const task = Object.assign({}, this.state, { completed_at: null, completed: !this.state.completed });
+      this.props.updateTask(task)
+        .then(() => { this.props.fetchCurrentTask(this.state.id)
+          .then(action => { this.setState(action.task); });
+         });
+    }
+  }
+
   render() {
     let className, buttonClassName;
 

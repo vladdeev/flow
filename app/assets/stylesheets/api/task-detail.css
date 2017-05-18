@@ -115,3 +115,12 @@
   color: #9DFBE8;
   box-shadow: 0px 0px 0px 2px #3BF7D1;
 }
+
+.task-detail-dates {
+  color: grey;
+  font-size: 0.75em;
+  margin-top: 10px;
+}
+.task-detail-dates p {
+    margin-top: 4px;
+}
