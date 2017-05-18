@@ -125,6 +125,7 @@ class TaskDetail extends React.Component {
             container="inline"
             mode="landscape"
             hintText="Due Date"
+            autoOk={true}
             firstDayOfWeek={0}
             textFieldStyle={ dateStyle }>
           </DatePicker>

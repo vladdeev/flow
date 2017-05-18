@@ -2,6 +2,10 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      workspace = @user.workspaces.new(title: "Personal Workspace")
+      if workspace.save
+        Workspacing.create({ user_id: @user.id, workspace_id: workspace.id })
+      end
       log_in!(@user)
       render :show
     else

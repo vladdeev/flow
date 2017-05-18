@@ -13,7 +13,7 @@ button:focus {outline:0;}
   height: 95%;
   min-width: 500px;
   overflow-y:scroll;
-  border: 1px solid #cdcfd2;
+  border: 0.2px solid rgba(205, 207, 210, 0.78);
   border-radius: 3px;
   padding-top: 40px;
   padding-left: 50px;
