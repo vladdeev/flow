@@ -5,6 +5,7 @@ import { Link, hashHistory } from 'react-router';
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick (path) {
@@ -12,7 +13,7 @@ class Header extends React.Component {
       e.preventDefault();
       const url = `/${path}`;
       hashHistory.push(url);
-    }
+    };
   }
 
   render() {
@@ -25,13 +26,13 @@ class Header extends React.Component {
           </div>
 
           <ul className="front-header-right group">
-            <li>
+            <li onClick={this.handleClick('login')}>
               <Link to="/login" activeClassName="current">Login</Link>
             </li>
-            <li>
+            <li onClick={this.handleClick('demologin')}>
               <Link to="/demologin" activeClassName="current">demo login</Link>
             </li>
-            <li>
+            <li  onClick={this.handleClick('signup')}>
               <Link to="/signup" activeClassName="current">Sign up!</Link>
             </li>
           </ul>
@@ -40,5 +41,7 @@ class Header extends React.Component {
     );
   }
 }
+
+
 
 export default Header;
