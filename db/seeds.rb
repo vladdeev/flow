@@ -112,6 +112,98 @@ first_user.projects.create(
 
 second_project_id = first_user.projects.find_by(title: "Find a Job").id
 
+# SECOND PROJECT
+first_user.created_tasks.create(
+title: "Learn software development",
+description: "Learn:\n-JavaScript\n-React+Redux\n-Ruby on Rails",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+first_user.created_tasks.create(
+title: "Build full-stack project",
+description: "Use:\n-JavaScript\n-React+Redux\n-Ruby on Rails",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+
+first_user.created_tasks.create(
+title: "Build browther game",
+description: "Use:\n-JavaScript\n-EaselJS\n-jQuery",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+first_user.created_tasks.create(
+title: "Build personal portfolio site",
+description: "Shoul include:\n-About\n-Projects\n-Resume",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+first_user.created_tasks.create(
+title: "Create Resume and Cover letter",
+description: "List skills, projects, work and education history",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+first_user.created_tasks.create(
+title: "Update LinkedIn and oter social profiles",
+description: "List skills, projects, work and education history",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+first_user.created_tasks.create(
+title: "Apply for jobs",
+description: "Send applications and resume",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+first_user.created_tasks.create(
+title: "Join meetup.com, find meetups, network",
+description: "networking is important. Attend all interesting meetaps",
+author_id: first_user.id,
+due_date: get_random_date,
+assignee_id: first_user.id,
+project_id: second_project_id,
+workspace_id: first_workspace_id,
+completed: true
+)
+
+# FIRST PROJECT
+
 first_user.created_tasks.create(
   title: "Create full-stack project proposal",
   description: "Proposal should include:\n-Minimum Viable Product\n-Wireframes\n-React Components",
@@ -242,96 +334,4 @@ first_user.created_tasks.create(
   project_id: first_project_id,
   workspace_id: first_workspace_id,
   completed: false
-)
-
-
-
-
-first_user.created_tasks.create(
-title: "Learn software development",
-description: "Learn:\n-JavaScript\n-React+Redux\n-Ruby on Rails",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-first_user.created_tasks.create(
-title: "Build full-stack project",
-description: "Use:\n-JavaScript\n-React+Redux\n-Ruby on Rails",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-
-first_user.created_tasks.create(
-title: "Build browther game",
-description: "Use:\n-JavaScript\n-EaselJS\n-jQuery",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-first_user.created_tasks.create(
-title: "Build personal portfolio site",
-description: "Shoul include:\n-About\n-Projects\n-Resume",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-first_user.created_tasks.create(
-title: "Create Resume and Cover letter",
-description: "List skills, projects, work and education history",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-first_user.created_tasks.create(
-title: "Update LinkedIn and oter social profiles",
-description: "List skills, projects, work and education history",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-first_user.created_tasks.create(
-title: "Apply for jobs",
-description: "Send applications and resume",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
-)
-
-first_user.created_tasks.create(
-title: "Join meetup.com, find meetups, network",
-description: "networking is important. Attend all interesting meetaps",
-author_id: first_user.id,
-due_date: get_random_date,
-assignee_id: first_user.id,
-project_id: second_project_id,
-workspace_id: first_workspace_id,
-completed: true
 )
