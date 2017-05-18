@@ -19,7 +19,6 @@
 }
 .workspaces-header-left {
   float:left;
-  padding-left: 20px;
 }
 
 .workspaces-header-right {
@@ -48,14 +47,53 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3bbfc', endColorstr='#e6c5fb', GradientType=1 );
 }
 
-.workspaces-header li {
+.workspaces-header-right li {
   float: right;
-  margin: 13px 3px;
-  font-size: 10px;
+  margin: 15px 3px 1px 3px;
+  font-size: 11px;
   text-transform: uppercase;
   font-weight: 400;
   color: grey;
   cursor: pointer;
+}
+
+.workspaces-header a {
+    float: right;
+    margin: 15px 3px 1px 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: grey;
+    cursor: pointer;
+}
+
+.side-bar-opener  {
+    float: right;
+    padding: 0 10px;
+    margin: 0 10px 0px 0px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: grey;
+    cursor: pointer;
+    border-right: 0.5px solid rgba(156, 156, 156, 0.5);
+    border-left: 0.5px solid rgba(156, 156, 156, 0.5);
+    visibility: visible;
+}
+
+.side-bar-opener-hidden {
+    float: right;
+    padding: 0px;
+    margin: 0 10px 0px 0px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: grey;
+    cursor: pointer;
+    border-right: 0.5px solid rgba(156, 156, 156, 0.5);
+    border-left: 0.5px solid rgba(156, 156, 156, 0.5);
+    visibility: hidden;
+    width: 0;
 }
 
 .dropdown {

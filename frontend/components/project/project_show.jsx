@@ -6,7 +6,7 @@ import TaskIndexContainer from '../task/task_index_container';
 class ProjectShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dropdownOn: false, updateProjectOn: false };
+    this.state = { project: {}, dropdownOn: false, updateProjectOn: false };
 
     this._renderDropdown = this._renderDropdown.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -15,18 +15,26 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchProject(
-      this.props.params.workspaceId,
-      this.props.params.projectId
-    );
+    if (this.props.params.projectId === "all") {
+      this.setState({ project: {title: "Assigned Tasks"} });
+    } else {
+      this.props.fetchProject(
+        this.props.params.workspaceId,
+        this.props.params.projectId
+      ).then(action => { this.setState({ project: action.project }); } );
+    }
   }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.params.projectId !== this.props.params.projectId) {
-      this.props.fetchProject(
-        nextProps.params.workspaceId,
-        nextProps.params.projectId
-      );
+      if (nextProps.params.projectId === "all") {
+        this.setState({ project: {title: "Assigned Tasks"} });
+      } else {
+        this.props.fetchProject(
+          nextProps.params.workspaceId,
+          nextProps.params.projectId
+        ).then(action => { this.setState({ project: action.project }); } );
+      }
     }
   }
 
@@ -76,16 +84,26 @@ class ProjectShow extends React.Component {
       });
   }
 
+  _renderDropdownSymbol() {
+    if (this.props.params.projectId === "all") {
+      return null;
+    } else {
+      return(
+        <div>
+          <h7 onClick={this.toggleDropdown}>&#x25BC;</h7>
+          {this._renderDropdown()}
+        </div>
+      );
+    }
+  }
+
   render() {
-    if(this.props.currentProject) {
+    if(this.state.project) {
       return(
         <div className="project-parent">
           <section className="project-container">
-            <h1>{this.props.currentProjectName}</h1>
-            <div>
-              <h7 onClick={this.toggleDropdown}>&#x25BC;</h7>
-              {this._renderDropdown()}
-            </div>
+            <h1>{this.state.project.title}</h1>
+            {this._renderDropdownSymbol()}
 
             <UpdateProjectForm
               currentProject={this.props.currentProject}

@@ -18,24 +18,17 @@ class TaskIndex extends React.Component {
   }
 
   componentDidMount() {
-    const currentState = this.state;
+    // const currentState = this.state;
     this.props.fetchProjectTasks(
       this.props.currentWorkspace,
       this.props.currentProjectId);
-      // .then((action) => {
-      //   const tasksList = Object.values(action.tasks);
-      //   const newState = merge(
-      //     {}, currentState, { currentTaskList: tasksList }
-      //   );
-      //   this.setState(newState);
-      // });
-    // this.props.fetchAllTasks();
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentProjectId !== this.props.currentProjectId) {
+    if (nextProps.currentProjectId !== this.props.currentProjectId ||
+        nextProps.params.workspaceId !== this.props.params.workspaceId) {
       this.props.fetchProjectTasks(
-        nextProps.currentWorkspace,
+        nextProps.params.workspaceId,
         nextProps.currentProjectId);
     }
   }
@@ -44,12 +37,17 @@ class TaskIndex extends React.Component {
     const tasks = Object.values(tasksList);
     let selectedTasks = [];
     tasks.map(task => {
-      if (task.project_id === parseInt(projectId)) {
+      if (
+        task.project_id === parseInt(projectId) ||
+        this.props.currentProjectId === 'all'
+      ) {
         selectedTasks.push(task);
       }
     });
 
     return selectedTasks.reverse();
+
+    // return Object.values(tasksList).reverse();
   }
 
   handleCreate() {

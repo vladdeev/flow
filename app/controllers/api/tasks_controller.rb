@@ -1,12 +1,13 @@
 class Api::TasksController < ApplicationController
 
   def index
-    if params[:project_id]
+    if params[:project_id] && params[:project_id] != "all"
       @tasks = Project.find(params[:project_id]).tasks
     else
-      assigned_tasks = current_user.assigned_tasks
-      created_tasks = current_user.created_tasks
-      @tasks = assigned_tasks + created_tasks
+      @tasks = current_user.assigned_tasks.where(workspace_id: params[:workspace_id])
+      # assigned_tasks = current_user.assigned_tasks
+      # created_tasks = current_user.created_tasks
+      # @tasks = assigned_tasks + created_tasks
     end
   end
 

@@ -24,7 +24,7 @@ class Workspace extends React.Component {
 				.then((action) => {
 					if (!this.props.params.workspaceId) {
 						const firstWSid = Object.values(action.workspaces)[0].id;
-						this.props.fetchWorkspace(firstWSid);
+						this.props.fetchWorkspace(firstWSid).then(action => this.props.router.push(`/${action.workspace.id}/all/tasks`));
 					}
 				});
 		}
@@ -70,10 +70,14 @@ class Workspace extends React.Component {
 
 	openSideBar () {
 	   document.getElementById("side-bar").style.width = "240px";
+		 document.getElementById("side-bar-opener").className = "side-bar-opener-hidden";
+
+		//  document.getElementById("side-bar-opener").style.visibility = "collapse";
+		//  document.getElementById("side-bar-opener").style.width = "240px";
 	}
 
 	redirectToWorkspace (id) {
-		hashHistory.push(`/${id}`);
+		hashHistory.push(`/${id}/all/tasks`);
 	}
 
 	toggleDropdown() {
@@ -104,7 +108,8 @@ class Workspace extends React.Component {
 					<content className='workspaces'>
 						<nav className="workspaces-header group">
 							<ul className="workspaces-header-left group">
-								<li onClick={this.openSideBar}>my projects</li>
+								<Link to={`${this.props.params.workspaceId}/all/tasks`}>my tasks</Link>
+								<li id="side-bar-opener" className="side-bar-opener-hidden" onClick={this.openSideBar}>&#8801;</li>
 							</ul>
 								<ul
 								onClick={this.toggleDropdown}

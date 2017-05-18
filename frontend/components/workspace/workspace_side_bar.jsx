@@ -14,6 +14,8 @@ class WorkspaceSideBar extends React.Component {
 
   closeNav() {
     document.getElementById("side-bar").style.width = "0";
+    document.getElementById("side-bar-opener").className = "side-bar-opener";
+    // document.getElementById("side-bar-opener").style.visibility = "visible";
   }
 
   toggleCreateProject() {
