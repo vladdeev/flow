@@ -30,7 +30,7 @@ class WorkspaceSideBar extends React.Component {
     return(
       <nav className="side-bar" id="side-bar">
         <div className="side-bar-logo group">
-          <Link to="/">flow</Link>
+          <Link to={`${this.props.params.workspaceId}/all/tasks`}>flow</Link>
           <Link onClick={this.closeNav} to="">&#215;</Link>
         </div>
         <TeamIndexContainer />

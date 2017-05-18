@@ -16,7 +16,7 @@ class ProjectShow extends React.Component {
 
   componentDidMount () {
     if (this.props.params.projectId === "all") {
-      this.setState({ project: {title: "Assigned Tasks"} });
+      this.setState({ project: {title: "All Tasks"} });
     } else {
       this.props.fetchProject(
         this.props.params.workspaceId,
@@ -28,7 +28,7 @@ class ProjectShow extends React.Component {
   componentWillReceiveProps (nextProps) {
     if (nextProps.params.projectId !== this.props.params.projectId) {
       if (nextProps.params.projectId === "all") {
-        this.setState({ project: {title: "Assigned Tasks"} });
+        this.setState({ project: {title: "All Tasks"} });
       } else {
         this.props.fetchProject(
           nextProps.params.workspaceId,
