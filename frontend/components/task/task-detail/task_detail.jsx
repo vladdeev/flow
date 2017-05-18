@@ -193,8 +193,8 @@ class TaskDetail extends React.Component {
           onChange={this.handleChange('description')}
           multiLine={true}
           underlineShow={true}
-          rows={3}
-          rowsMax={4}
+          rows={7}
+          rowsMax={7}
           fullWidth={true}
           style={descriptionStyle}
           onBlur={() => { this.props.updateTask(this.state); }}/>
@@ -288,7 +288,7 @@ const descriptionStyle = {
   display: 'inline-block',
   paddingLeft: '0px',
   fontSize: '1em',
-  height: '120px',
+  height: '180px',
   paddingBottom: '3px',
   width: '100%'
 };
