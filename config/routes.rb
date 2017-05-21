@@ -10,8 +10,10 @@ Rails.application.routes.draw do
       end
       resources :users, only: [:index]
     end
-    resources :tasks
+    resources :tasks do
+      resources :comments
+    end
   end
 
-  post 'join/:workspace_id/', to: 'api/users#join', defaults: { :format => 'json' }
+  post 'join/:workspace_id/', to: 'api/users#join', defaults: { format: :json }
 end
