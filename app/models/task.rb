@@ -24,4 +24,5 @@ class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :workspace
   has_one :workspace, through: :project, source: :workspace
+  has_many :comments, class_name: :Comment, foreign_key: :task_id
 end
