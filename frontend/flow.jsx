@@ -4,20 +4,20 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { logout } from './actions/session_actions';
 import {
-  fetchAllTasks,
-  fetchTask,
-  createTask,
-  updateTask,
-  deleteTask
-} from './actions/task_actions';
+  fetchAllComments,
+  // fetchComment,
+  // createComment,
+  // updateComment,
+  // deleteComment
+} from './actions/comment_actions';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
-window.fetchAllTasks = fetchAllTasks;
-window.fetchTask = fetchTask;
-window.createTask = createTask;
-window.updateTask = updateTask;
-window.deleteTask = deleteTask;
+window.fetchAllComments = fetchAllComments;
+// window.fetchComment = fetchComment;
+// window.createComment = createComment;
+// window.updateComment = updateComment;
+// window.deleteComment = deleteComment;
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
