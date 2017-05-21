@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :tasks do
       resources :comments
     end
+    resources :comments, only: [:show, :update, :destroy]
   end
 
   post 'join/:workspace_id/', to: 'api/users#join', defaults: { format: :json }

@@ -1,36 +1,36 @@
-export const fetchAllProjects = (workspace_id) => (
+export const fetchAllProjects = workspaceId => (
   $.ajax({
     method: 'GET',
-    url: `api/workspaces/${workspace_id}/projects`
+    url: `api/workspaces/${workspaceId}/projects`
   })
 );
 
-export const fetchProject = (workspace_id, project_id) => (
+export const fetchProject = (workspaceId, projectIdd) => (
   $.ajax({
     method: 'GET',
-    url: `api/workspaces/${workspace_id}/projects/${project_id}`
+    url: `api/workspaces/${workspaceId}/projects/${projectIdd}`
   })
 );
 
-export const createProject = (workspace_id, project) => (
+export const createProject = (workspaceId, project) => (
   $.ajax({
     method: 'POST',
-    url: `api/workspaces/${workspace_id}/projects`,
+    url: `api/workspaces/${workspaceId}/projects`,
     data: { project }
   })
 );
 
-export const updateProject = (workspace_id, project) => (
+export const updateProject = (workspaceId, project) => (
   $.ajax({
     method: 'PATCH',
-    url: `api/workspaces/${workspace_id}/projects/${project.id}`,
+    url: `api/workspaces/${workspaceId}/projects/${project.id}`,
     data: { project }
   })
 );
 
-export const deleteProject = (workspace_id, project_id) => (
+export const deleteProject = (workspaceId, projectIdd) => (
   $.ajax({
     method: 'DELETE',
-    url: `api/workspaces/${workspace_id}/projects/${project_id}`
+    url: `api/workspaces/${workspaceId}/projects/${projectIdd}`
   })
 );
