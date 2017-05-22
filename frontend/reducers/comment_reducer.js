@@ -1,11 +1,11 @@
-import { merge } from 'loadash';
+import { merge } from 'lodash';
 import {
   RECEIVE_ALL_COMMENTS,
   RECEIVE_COMMENT,
   REMOVE_COMMENT,
   RECEIVE_ERRORS,
   RECEIVE_CURRENT_COMMENT
-} from '..actions/comment_actions';
+} from '../actions/comment_actions';
 
 const _defaultState = {
   commentsList: {},

@@ -26,8 +26,8 @@ export const removeComment = comment => ({
   comment
 });
 
-export const fetchAllComments = () => dispatch => (
-  commentAPIUtil.fetchAllComments()
+export const fetchAllComments = (taskId) => dispatch => (
+  commentAPIUtil.fetchAllComments(taskId)
     .then(comments => dispatch(receiveAllComments(comments)),
       errors => dispatch(receiveErrors(errors.responseJSON)))
 );
