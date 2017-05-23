@@ -9,9 +9,8 @@ import {
 } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
-    commentsList: state.comments.commentsList,
+    commentsList: state.comment.commentsList,
     currentUser: state.session.currentUser
   };
 };
@@ -19,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAllComments: (taskId) => dispatch(fetchAllComments(taskId)),
   fetchComment: (id) => dispatch(fetchComment(id)),
-  createComment: (comment) => dispatch(createComment(comment)),
+  createComment: (taskId, comment) => dispatch(createComment(taskId, comment)),
   deleteComment: (id) => dispatch(deleteComment(id)),
   receiveErrors: (errors) => dispatch(receiveErrors(errors))
 });

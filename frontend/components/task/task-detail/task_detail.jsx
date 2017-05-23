@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import TeamDropDown from './task_detail_dropdown';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import CommentIndexContainer from '../../comment/comment_index_container';
 import {
   deepPurple200,
   deepPurple500,
@@ -266,6 +267,7 @@ class TaskDetail extends React.Component {
           {this.renderTitle()}
           {this.renderDescription()}
           {this.renderDates()}
+          <CommentIndexContainer />
         </div>
       );
     } else {

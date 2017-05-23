@@ -38,8 +38,8 @@ export const fetchComment = id => dispatch => (
       errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
-export const createComment = comment => dispatch => (
-  commentAPIUtil.createComment()
+export const createComment = (taskId, comment) => dispatch => (
+  commentAPIUtil.createComment(taskId, comment)
     .then(receivedComment => dispatch(receiveComment(receivedComment)),
       errors => dispatch(receiveErrors(errors.responseJSON)))
 );

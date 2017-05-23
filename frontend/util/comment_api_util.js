@@ -23,7 +23,7 @@ export const updateComment = comment => (
 export const createComment = (taskId, comment) => (
   $.ajax({
     method: 'POST',
-    url: `/api/tasks/${taskId}/comments/${comment.id}`,
+    url: `/api/tasks/${taskId}/comments`,
     data: { comment }
   })
 );
