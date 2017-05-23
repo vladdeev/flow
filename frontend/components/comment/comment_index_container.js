@@ -10,6 +10,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    membersList: state.team.membersList,
     commentsList: state.comment.commentsList,
     currentUser: state.session.currentUser
   };
