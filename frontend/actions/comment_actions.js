@@ -33,7 +33,7 @@ export const fetchAllComments = (taskId) => dispatch => (
 );
 
 export const fetchComment = id => dispatch => (
-  commentAPIUtil.fetchComment()
+  commentAPIUtil.fetchComment(id)
     .then(comment => dispatch(receiveComment(comment)),
       errors => dispatch(receiveErrors(errors.responseJSON)))
 );
@@ -45,13 +45,13 @@ export const createComment = (taskId, comment) => dispatch => (
 );
 
 export const updateComment = comment => dispatch => (
-  commentAPIUtil.updateComment()
+  commentAPIUtil.updateComment(comment)
     .then(receivedComment => dispatch(receiveComment(receivedComment)),
       errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const deleteComment = id => dispatch => (
-  commentAPIUtil.deleteComment()
+  commentAPIUtil.deleteComment(id)
   .then(receivedComment => dispatch(removeComment(receivedComment)),
     errors => dispatch(receiveErrors(errors.responseJSON)))
 );

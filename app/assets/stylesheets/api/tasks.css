@@ -42,6 +42,7 @@ button:focus {outline:0;}
   flex-direction: column;
   overflow: auto;
   background: white;
+  position: relative;
 }
 
 .task-input {

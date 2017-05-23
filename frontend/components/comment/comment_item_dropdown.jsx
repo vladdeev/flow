@@ -8,14 +8,22 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
  * Simple Icon Menus demonstrating some of the layouts possible using the `anchorOrigin` and
  * `targetOrigin` properties.
  */
-const CommentItemDropdown = () => (
+
+const buttonStyle = {
+  height: 24,
+  width: 20,
+  color: 'grey',
+};
+
+const CommentItemDropdown = (props) => (
   <div>
     <IconMenu
-      iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+      iconButtonElement={<IconButton style={buttonStyle}><MoreVertIcon /></IconButton>}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
+
     >
-      <MenuItem primaryText="Delete Comment" />
+      <MenuItem onClick={props.handleDelete} primaryText="Delete Comment" />
     </IconMenu>
   </div>
 );

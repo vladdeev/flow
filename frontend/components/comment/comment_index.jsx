@@ -19,6 +19,8 @@ class CommentIndex extends React.Component {
     }
   }
 
+
+
   renderComments() {
     const comments = Object.values(this.props.commentsList);
     const members = this.props.membersList;
@@ -29,6 +31,7 @@ class CommentIndex extends React.Component {
           key={comment.id + comment.body}
           comment={comment}
           author={members[comment.author_id]}
+          deleteComment={this.props.deleteComment}
         />
       ));
     } else {
@@ -39,7 +42,6 @@ class CommentIndex extends React.Component {
   render() {
     return(
       <div className="comment-index">
-        <h1>Comments</h1>
         {this.renderComments()}
         <CommentSubmitForm
           taskId={this.props.params.taskId}

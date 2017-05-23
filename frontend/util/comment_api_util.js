@@ -31,6 +31,6 @@ export const createComment = (taskId, comment) => (
 export const deleteComment = commentId => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/tasks/comments/${commentId}`
+    url: `/api/comments/${commentId}`
   })
 );

@@ -25,10 +25,12 @@ const avatarColors = {
 class CommentIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   getMemberName() {
-    return this.props.author.first_name.concat(this.props.author.last_name);
+    return this.props.author.first_name.concat(" ").concat(this.props.author.last_name);
   }
 
   getInitials() {
@@ -37,8 +39,19 @@ class CommentIndexItem extends React.Component {
     return first.concat(last);
   }
 
+  renderCommentBody() {
+    var text = this.props.comment.body;
+    return (
+      <div className="comment-item-body">
+          {text.split("\n").map(i => {
+              return <div>{i}</div>;
+          })}
+      </div>
+    );
+  }
+
   renderAvatar() {
-    const style = {margin: 5};
+    const style = {margin: 5, fontSize: '15px', fontWeight: 300};
     const colorIndex = this.props.author.id % 5;
     const color = avatarColors[colorIndex];
     return (
@@ -58,17 +71,27 @@ class CommentIndexItem extends React.Component {
       return `${date} at ${time}`;
     }
 
+    handleDelete() {
+      this.props.deleteComment(this.props.comment.id);
+    }
+
     render() {
       return(
         <section className="comment-item-container">
           {this.renderAvatar()}
           <div className="comment-item">
-            <div className="comment-item-header">
-              <p>{this.getMemberName()}</p>
-              <p>{this.renderTimeCreated()}</p>
-              <CommentItemDropdown />
-            </div>
-            <p className="comment-item-body">{this.props.comment.body}</p>
+            <nav className="comment-item-header">
+              <div className="comment-item-header-left">
+                <p>{this.getMemberName()}</p>
+                <h7>{this.renderTimeCreated()}</h7>
+              </div>
+              <div className="comment-item-header-right">
+                <CommentItemDropdown
+                  handleDelete={this.handleDelete}
+                />
+              </div>
+            </nav>
+            {this.renderCommentBody()}
           </div>
         </section>
       );

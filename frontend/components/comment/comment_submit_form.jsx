@@ -11,7 +11,7 @@ class CommentSubmitForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggleInputSize = this.toggleInputSize.bind(this);
+    // this.toggleInputSize = this.toggleInputSize.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -45,15 +45,15 @@ class CommentSubmitForm extends React.Component {
     });
   }
 
-  toggleInputSize() {
-    const rows = (this.state.formRows === "1") ? "5" : "1";
-    const newState = merge(
-      {},
-      this.state,
-      { formRows: rows }
-    );
-    this.setState(newState);
-  }
+  // toggleInputSize() {
+  //   const rows = (this.state.formRows === "1") ? "5" : "1";
+  //   const newState = merge(
+  //     {},
+  //     this.state,
+  //     { formRows: rows }
+  //   );
+  //   this.setState(newState);
+  // }
 
   renderErrors() {
     if (this.props.errors) {
@@ -73,10 +73,8 @@ class CommentSubmitForm extends React.Component {
     return(
       <form onSubmit={this.handleSubmit} className="comment-create">
         <textarea
-          onClick={this.toggleInputSize}
-          onBlur={this.toggleInputSize}
           type="text"
-          rows={this.state.formRows}
+          rows={3}
           value={this.state.comment.body}
           placeholder="Type comment"
           onChange={this.update("body")}

@@ -1,0 +1,42 @@
+.comment-index {
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+.comment-item-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.comment-item-container {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.comment-item {
+    width: 100%;
+    margin-left: 5px;
+}
+
+.comment-item-header-left > p {
+  margin-top: 2px;
+}
+
+.comment-item-header-left > h7 {
+  font-size: 0.8em;
+  color: #908280;
+}
+
+.comment-item-body {
+  margin-top: 7px;
+}
+
+form.comment-create {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
