@@ -1,37 +1,48 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-// import CommentIndexContainer from './comment_index_container';
+import { merge } from 'lodash';
 
 class CommentSubmitForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: "", task_id: props.params.taskId };
+    this.state = {
+      formRows: "1",
+      comment: { body: "", task_id: props.params.taskId }
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAllComments(this.props.params.taskId);
-  //     // .then(action => this.setState(action.tasks));
-  // }
-  //
   componentWillReceiveProps(nextProps) {
-    if (this.props.taskId !== nextProps.params.taskId) {
-      this.setState({ body: "", task_id: nextProps.taskId });
+    if (this.props.taskId !== nextProps.taskId) {
+      this.setState({
+        formRows: "1",
+        comment: { body: "", task_id: nextProps.taskId }
+      });
     }
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => {
+      const newState = merge(
+        {},
+        this.state,
+        { comment: { [field]: e.currentTarget.value}}
+      );
+      this.setState(newState);
+    };
+
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createComment(this.props.params.taskId, this.state);
-    this.setState({ body: "" });
+    this.props.createComment(this.props.params.taskId, this.state.comment);
+    this.setState({
+      formRows: "1",
+      comment: { body: "", task_id: this.props.taskId }
+    });
   }
 
   handleClick() {
@@ -59,7 +70,7 @@ class CommentSubmitForm extends React.Component {
         <textarea
           onClick={this.handleClick}
           type="text"
-          value={this.state.body}
+          value={this.state.comment.body}
           placeholder="Type comment"
           onChange={this.update("body")}
           className="comment-input" />
