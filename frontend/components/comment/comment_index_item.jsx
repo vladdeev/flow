@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, hashHistory } from 'react-router';
 import { merge } from 'lodash';
 import Avatar from 'material-ui/Avatar';
+import CommentItemDropdown from './comment_item_dropdown';
 import {
   pink600,
   purple600,
@@ -65,6 +66,7 @@ class CommentIndexItem extends React.Component {
             <div className="comment-item-header">
               <p>{this.getMemberName()}</p>
               <p>{this.renderTimeCreated()}</p>
+              <CommentItemDropdown />
             </div>
             <p className="comment-item-body">{this.props.comment.body}</p>
           </div>
