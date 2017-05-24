@@ -3,6 +3,7 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import WorkspacesIndex from './workspaces_index';
 import CreateWorkspaceForm from './create_workspace';
 import WorkspaceSideBarContainer from './workspace_sidebar_container';
+import WorkspaceDropdown from './workspace_dropdown';
 
 
 class Workspace extends React.Component {
@@ -116,12 +117,16 @@ class Workspace extends React.Component {
 								className="workspaces-header-right group">
 
 								<div
-									className="badge">{this._getInitials()}
+									className="badge">
+									<WorkspaceDropdown
+										currentUser={this.props.currentUser}
+										workspacesList={this.props.workspacesList}
+										signOut={this._logOutAndClearState}
+									/>
 								</div>
 								<li>{`${this.props.workspacesList[this.props.currentWorkspace].title}`}</li>
 							</ul>
 						</nav>
-						{this._renderDropdown()}
 						{this.props.children}
 					</content>
 

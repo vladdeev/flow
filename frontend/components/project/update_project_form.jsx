@@ -4,8 +4,11 @@ import { Link, hashHistory, withRouter } from 'react-router';
 class UpdateProjectForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { title: this.props.currentProjectName, formOpen: this.props.formOpen };
+  
+    this.state = {
+      title: this.props.currentProjectName,
+      formOpen: this.props.formOpen
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -27,8 +30,11 @@ class UpdateProjectForm extends React.Component {
     this.setState({ title: "", formOpen: this.props.formOpen });
     this.props.updateProject(this.props.currentWorkspace, project)
       .then(() => {
+        const workspaceId = this.props.currentWorkspace;
+        const projectId = this.props.currentProject;
+        const url = `/${workspaceId}/${projectId}`;
         this.props.toggleUpdateProject();
-        hashHistory.push(`/${this.props.currentWorkspace}/${this.props.currentProject}`)
+        hashHistory.push(url);
       });
   }
 
@@ -65,18 +71,18 @@ class UpdateProjectForm extends React.Component {
   					</div>
   					<form onSubmit={this.handleSubmit} className="project-form-box">
   						{this.renderErrors()}
-  							<label className="project-form-label">title:</label>
-  								<input type="text"
-  									value={this.state.title}
-  									onChange={this.updateForm("title")}
-  									className="title-input" />
-  							<input type="submit" value="Update" />
+							<label className="project-form-label">title:</label>
+								<input type="text"
+									value={this.state.title}
+									onChange={this.updateForm("title")}
+									className="title-input" />
+							<input type="submit" value="Update" />
   					</form>
   				</div>
   			</span>
-      )
+      );
     } else {
-      return null
+      return null;
     }
   }
 }

@@ -27,24 +27,8 @@
 
 .badge {
   float: right;
-  width: 15px;
-  height: 15px;
   display: block;
-  margin: 5px 20px 5px 10px;
-  font-size: 12px;
-  font-weight: 400;
-  color:white;
-  padding: 7px;
-  background: yellow;
-  border-radius: 50%;
-  background: rgba(227,187,252,1);
-  background: -moz-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(227,187,252,1)), color-stop(50%, rgba(154,31,255,1)), color-stop(100%, rgba(230,197,251,1)));
-  background: -webkit-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
-  background: linear-gradient(135deg, rgba(227,187,252,1) 0%, rgba(154,31,255,1) 50%, rgba(230,197,251,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3bbfc', endColorstr='#e6c5fb', GradientType=1 );
+  margin: 0 10px 0 5px;
 }
 
 .workspaces-header-right li {
