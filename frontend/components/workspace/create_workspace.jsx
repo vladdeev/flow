@@ -38,7 +38,7 @@ class CreateWorkspaceForm extends React.Component {
     this.props.createWorkspace(workspace)
       .then((action) => {
         this.props.toggleCreateWorkspace();
-        hashHistory.push(`/${action.workspace.id}`)
+        hashHistory.push(`/${action.workspace.id}/all/tasks`);
       });
   }
 
@@ -84,9 +84,9 @@ class CreateWorkspaceForm extends React.Component {
   					</form>
   				</div>
   			</div>
-      )
+      );
     } else {
-      return null
+      return null;
     }
   }
 }

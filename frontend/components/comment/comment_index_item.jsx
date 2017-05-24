@@ -44,7 +44,7 @@ class CommentIndexItem extends React.Component {
     return (
       <div className="comment-item-body">
           {text.split("\n").map(i => {
-              return <div>{i}</div>;
+              return <div key={i}>{i}</div>;
           })}
       </div>
     );

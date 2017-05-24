@@ -15,7 +15,7 @@ class Workspace extends React.Component {
 		this._renderDropdown = this._renderDropdown.bind(this);
 		this.toggleCreateWorkspace = this.toggleCreateWorkspace.bind(this);
 		this.toggleDropdown = this.toggleDropdown.bind(this);
-		this.redirectToWorkspace = this.redirectToWorkspace.bind(this);
+		// this.redirectToWorkspace = this.redirectToWorkspace.bind(this);
 		this.openSideBar = this.openSideBar.bind(this);
   }
 
@@ -77,9 +77,9 @@ class Workspace extends React.Component {
 		//  document.getElementById("side-bar-opener").style.width = "240px";
 	}
 
-	redirectToWorkspace (id) {
-		hashHistory.push(`/${id}/all/tasks`);
-	}
+	// redirectToWorkspace (id) {
+	// 	hashHistory.push(`/${id}/all/tasks`);
+	// }
 
 	toggleDropdown() {
 		if (this.state.dropdownOn) {
@@ -122,6 +122,7 @@ class Workspace extends React.Component {
 										currentUser={this.props.currentUser}
 										workspacesList={this.props.workspacesList}
 										signOut={this._logOutAndClearState}
+										toggleCreateWorkspace={this.toggleCreateWorkspace}
 									/>
 								</div>
 								<li>{`${this.props.workspacesList[this.props.currentWorkspace].title}`}</li>

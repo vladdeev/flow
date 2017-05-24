@@ -38,6 +38,8 @@ class WorkspaceDropdown extends React.Component {
 
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.toggleCreateWorkspace = this.toggleCreateWorkspace.bind(this);
+    this.redirectToWorkspace = this.redirectToWorkspace.bind(this);
   }
 
   getInitials() {
@@ -54,6 +56,11 @@ class WorkspaceDropdown extends React.Component {
       open: true,
       anchorEl: event.currentTarget,
     });
+  }
+
+  toggleCreateWorkspace() {
+    this.handleRequestClose();
+    this.props.toggleCreateWorkspace();
   }
 
   handleRequestClose () {
@@ -75,6 +82,13 @@ class WorkspaceDropdown extends React.Component {
     }
 
     return items;
+  }
+
+  redirectToWorkspace(e, menuItem, index) {
+    if (menuItem.key) {
+      this.handleRequestClose();
+      hashHistory.push(`/${menuItem.props.value}/all/tasks`);
+    }
   }
 
   render() {
@@ -99,15 +113,20 @@ class WorkspaceDropdown extends React.Component {
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           onRequestClose={this.handleRequestClose}
         >
-          <Menu>
+          <Menu onItemTouchTap={this.redirectToWorkspace}>
             {this.getItems()}
             <Divider />
             <MenuItem
               primaryText="More"
               rightIcon={<ArrowDropRight />}
               menuItems={[
-                <MenuItem primaryText="Create new Workspace" />,
-                <MenuItem primaryText="Leave current Workspace" />,
+                <MenuItem
+                  primaryText="Create new Workspace"
+                  onTouchTap={this.toggleCreateWorkspace} />,
+                <MenuItem
+                  primaryText="Leave current Workspace"
+                  disabled={true}
+                  onTouchTap={this.handleRequestClose} />,
               ]}
             />
 
