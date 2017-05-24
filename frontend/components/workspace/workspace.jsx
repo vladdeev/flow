@@ -12,10 +12,7 @@ class Workspace extends React.Component {
 		this.state = { dropdownOn: false, createWorkspaceOn: false };
 
 		this._logOutAndClearState = this._logOutAndClearState.bind(this);
-		this._renderDropdown = this._renderDropdown.bind(this);
 		this.toggleCreateWorkspace = this.toggleCreateWorkspace.bind(this);
-		this.toggleDropdown = this.toggleDropdown.bind(this);
-		// this.redirectToWorkspace = this.redirectToWorkspace.bind(this);
 		this.openSideBar = this.openSideBar.bind(this);
   }
 
@@ -25,7 +22,11 @@ class Workspace extends React.Component {
 				.then((action) => {
 					if (!this.props.params.workspaceId) {
 						const firstWSid = Object.values(action.workspaces)[0].id;
-						this.props.fetchWorkspace(firstWSid).then(action => this.props.router.push(`/${action.workspace.id}/all/tasks`));
+						this.props.fetchWorkspace(firstWSid)
+							.then(a => this.props.router.push(
+								`/${a.workspace.id}/all/tasks`
+							)
+						);
 					}
 				});
 		}
@@ -40,53 +41,10 @@ class Workspace extends React.Component {
     }
   }
 
-	_getInitials() {
-		const firstInitial = this.props.currentUser.first_name.slice(0,1);
-		const secondInitial = this.props.currentUser.last_name.slice(0,1);
-		return firstInitial.concat(secondInitial);
-	}
-
-	_renderDropdown() {
-		if (this.state.dropdownOn){
-			return(
-				<div onClick={this.toggleDropdown} className="dropdown">
-					<section className="dropdown-workspaces">
-						<h2>workspaces</h2>
-						<WorkspacesIndex
-							workspacesList={this.props.workspacesList}
-							redirectToWorkspace={this.redirectToWorkspace}/>
-						<h3
-							onClick={this.toggleCreateWorkspace}>
-							+ Create new Workspace
-						</h3>
-					</section>
-
-					<h2 onClick={this._logOutAndClearState}>Sign Out</h2>
-				</div>
-			);
-		} else {
-			return null;
-		}
-	}
-
 	openSideBar () {
+		const openedSideBarClass = "side-bar-opener-hidden";
 	   document.getElementById("side-bar").style.width = "240px";
-		 document.getElementById("side-bar-opener").className = "side-bar-opener-hidden";
-
-		//  document.getElementById("side-bar-opener").style.visibility = "collapse";
-		//  document.getElementById("side-bar-opener").style.width = "240px";
-	}
-
-	// redirectToWorkspace (id) {
-	// 	hashHistory.push(`/${id}/all/tasks`);
-	// }
-
-	toggleDropdown() {
-		if (this.state.dropdownOn) {
-			this.setState({ dropdownOn: false });
-		} else {
-			this.setState({ dropdownOn: true });
-		}
+		 document.getElementById("side-bar-opener").className = openedSideBarClass;
 	}
 
 	toggleCreateWorkspace() {
@@ -99,9 +57,10 @@ class Workspace extends React.Component {
 
   render() {
 		if (this.props.workspacesList[this.props.currentWorkspace]) {
+			let workspaceId = this.props.currentWorkspace;
+			let workspaceName = `${this.props.workspacesList[workspaceId].title}`;
 			return(
 				<div
-					onClick={this.resetDropdown}
 					className="app-workspaces">
 
 					<WorkspaceSideBarContainer />
@@ -109,15 +68,21 @@ class Workspace extends React.Component {
 					<content className='workspaces'>
 						<nav className="workspaces-header group">
 							<ul className="workspaces-header-left group">
-								<Link to={`${this.props.params.workspaceId}/all/tasks`}>my tasks</Link>
-								<li id="side-bar-opener" className="side-bar-opener-hidden" onClick={this.openSideBar}>&#8801;</li>
+								<Link to={`${this.props.params.workspaceId}/all/tasks`}>
+									my tasks
+								</Link>
+								<li
+									id="side-bar-opener"
+									className="side-bar-opener-hidden"
+									onClick={this.openSideBar}>
+									&#8801;
+								</li>
 							</ul>
 								<ul
 								onClick={this.toggleDropdown}
 								className="workspaces-header-right group">
 
-								<div
-									className="badge">
+								<div className="badge">
 									<WorkspaceDropdown
 										currentUser={this.props.currentUser}
 										workspacesList={this.props.workspacesList}
@@ -125,7 +90,7 @@ class Workspace extends React.Component {
 										toggleCreateWorkspace={this.toggleCreateWorkspace}
 									/>
 								</div>
-								<li>{`${this.props.workspacesList[this.props.currentWorkspace].title}`}</li>
+								<li>{workspaceName}</li>
 							</ul>
 						</nav>
 						{this.props.children}
