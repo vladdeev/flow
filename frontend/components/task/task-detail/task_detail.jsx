@@ -7,6 +7,7 @@ import ActionDelete from 'material-ui/svg-icons/action/delete';
 import TeamDropDown from './task_detail_dropdown';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import CommentIndexContainer from '../../comment/comment_index_container';
+import CommentSubmitForm from '../../comment/comment_submit_form';
 import {
   deepPurple200,
   deepPurple500,
@@ -262,12 +263,19 @@ class TaskDetail extends React.Component {
     if (this.state) {
       return(
         <div className="task-detail">
-
-          {this.renderHeader()}
-          {this.renderTitle()}
-          {this.renderDescription()}
-          {this.renderDates()}
-          <CommentIndexContainer />
+          <section className="task-detail-top">
+            {this.renderHeader()}
+            {this.renderTitle()}
+            {this.renderDescription()}
+            {this.renderDates()}
+            <CommentIndexContainer />
+          </section>
+          <section className="task-detail-footor">
+            <CommentSubmitForm
+              taskId={this.state.id}
+              createComment={this.props.createComment}
+            />
+          </section>
         </div>
       );
     } else {

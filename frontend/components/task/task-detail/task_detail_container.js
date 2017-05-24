@@ -9,6 +9,7 @@ import {
   updateTask,
   deleteTask
 } from '../../../actions/task_actions';
+import { createComment } from '../../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -29,7 +30,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   updateTask: (task) => dispatch(updateTask(task)),
   fetchTask: (id) => dispatch(fetchTask(id)),
   fetchCurrentTask: (id) => dispatch(fetchCurrentTask(id)),
-  createTask: (task) => dispatch(createTask(task))
+  createTask: (task) => dispatch(createTask(task)),
+  createComment: (taskId, comment) => dispatch(createComment(taskId, comment))
 });
 
 export default connect(

@@ -9,40 +9,38 @@ button:focus {outline:0;}
 }
 
 .task-index {
-  width: 50%;
-  height: 95%;
-  min-width: 500px;
+  width: 55%;
+  height: 98%;
+  min-width: 560px;
   overflow-y:scroll;
   border: 0.2px solid rgba(205, 207, 210, 0.78);
   border-radius: 3px;
   padding-top: 40px;
   padding-left: 50px;
   padding-right: 50px;
-  margin-top: 25px;
+  margin-top: 1%;
   margin-bottom: 25px;
-  margin-left: 2%;
-  margin-right: 1%;
+  margin-left: 1%;
+  margin-right: 0.5%;
   overflow: auto;
   background: white;
+  box-sizing: border-box;
 }
 
 .task-detail {
+  display: flex;
   width: 50%;
-  height: 95%;
-  overflow-y:scroll;
+  height: 98%;
   border: 1px solid #cdcfd2;
   border-radius: 3px;
-  padding-top: 40px;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-top: 25px;
+  margin-top: 1%;
   margin-bottom: 25px;
-  margin-left: 1%;
-  margin-right: 2%;
+  margin-left: 0.5%;
+  margin-right: 1%;
   flex-direction: column;
-  overflow: auto;
   background: white;
-  position: relative;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .task-input {

@@ -120,6 +120,7 @@
   color: grey;
   font-size: 0.75em;
   margin-top: 10px;
+  height: 60px;
 }
 .task-detail-dates p {
     margin-top: 4px;

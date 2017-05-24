@@ -111,7 +111,7 @@ const textFieldStyle = {
   fontSize: '1em',
   height: '40px',
   paddingBottom: '3px',
-  width: '90%'
+  width: '95%'
 };
 
 export default withRouter(TaskIndexItem);
