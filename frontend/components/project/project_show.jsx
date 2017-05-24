@@ -80,7 +80,7 @@ class ProjectShow extends React.Component {
       this.props.currentWorkspace,
       this.props.currentProject)
       .then(() => {
-        hashHistory.push(`/${this.props.currentWorkspace}`);
+        hashHistory.push(`/${this.props.currentWorkspace}/all/tasks`);
       });
   }
 

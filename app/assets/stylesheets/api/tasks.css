@@ -153,7 +153,6 @@ button:focus {outline:0;}
   border-radius: 3px;
   font-size: 1em;
   font-weight: 100;
-  /*background-color: rgb(40, 120, 185);*/
   width: auto;
   padding: 15px 40px;
   text-transform: capitalize;
@@ -200,4 +199,20 @@ button {
   cursor: pointer;
   border: 1px solid;
   border-color: white;
+}
+
+.task-detail-footor {
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #cdcfd2;
+  box-sizing: border-box;
+}
+
+.task-detail-top {
+  overflow-y: auto;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
 }

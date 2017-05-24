@@ -39,19 +39,10 @@
 }
 
 .comment-input {
-    width: 100%;
-    margin-top: 10px;
-    font-size: 1em;
-    border: 1px solid #878889;
-    border-radius: 3px;
-}
-
-.task-detail-footor {
-  padding-left: 50px;
-  padding-right: 50px;
-  /*padding-bottom: 7px;*/
-  background-color: #f2f2f2;
-  border-top: 1px solid #cdcfd2;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1em;
+  border: 1px solid #878889;
   border-radius: 3px;
   box-sizing: border-box;
 }
@@ -68,6 +59,7 @@
   padding: 7px 15px;
   text-transform: capitalize;
   margin: 3px 0 10px 0;
+  float: right;
 }
 
 #add-comment:hover {
@@ -78,12 +70,4 @@
   -moz-box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   box-shadow: 1px 1px 12px 0px rgba(128,142,158,0.79);
   cursor: pointer;
-}
-
-.task-detail-top {
-  overflow-y: auto;
-  padding-top: 40px;
-  padding-left: 50px;
-  padding-right: 50px;
-  box-sizing: border-box;
 }

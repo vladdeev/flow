@@ -79,7 +79,7 @@ class CommentSubmitForm extends React.Component {
           placeholder="Type comment"
           onChange={this.update("body")}
           className="comment-input" />
-        <input id="add-comment" type="submit" value="Add Comment" />
+        <input id="add-comment" align="right" type="submit" value="Add Comment" />
       </form>
     );
   }
