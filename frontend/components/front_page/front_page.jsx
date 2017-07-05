@@ -5,7 +5,7 @@ import { Link, hashHistory } from 'react-router';
 const handleClick = () => e => {
   e.preventDefault();
   hashHistory.push('/signup');
-}
+};
 
 const FrontPage = (props) => (
   <div>

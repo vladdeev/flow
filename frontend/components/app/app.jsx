@@ -2,7 +2,7 @@ import React from 'react';
 import { hashHistory, Link } from 'react-router';
 
 import HeaderContainer from '../header/header_container';
-import FrontPage from './front_page';
+import FrontPage from '../front_page/front_page';
 import WorkspaceContainer from '../workspace/workspace_container';
 
 class App extends React.Component {
